@@ -1,0 +1,15 @@
+{
+  "name": "goto-publi",
+  "version": "0.1.0",
+  "description": "Citation-based redirections",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pierre Beaujean",
+  "license": "MIT",
+  "dependencies": {
+    "leven": "^3.1.0",
+    "watchify": "^3.11.1"
+  }
+}
