@@ -1,5 +1,7 @@
 {
-  "The Journal of Chemical Physics": "aip",
-  "Journal of Applied Physics": "aip",
-  "Journal of Mathematical Physics": "aip"
+  "The Journal of Chemical Physics": ["aip", null],
+  "Journal of Applied Physics":  ["aip", null],
+  "Journal of Mathematical Physics":  ["aip", null],
+  "Journal of the American Chemical Society": ["acs", "jacsat"],
+  "Chemical Physics": ["sd", 271366]
 }

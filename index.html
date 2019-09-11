@@ -4,10 +4,13 @@
     <title>goto publication</title>
     <meta charset="UTF-8">
     <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://kraaden.github.io/autocomplete/autocomplete.css">
 </head>
 <body>
 
     <div class="container">
+        <div id="flash-messages"><a href="#" onclick="$('#flash-messages').css('display', 'none')" class="close">🞨</a><p class="content"></p> </div>
+
         <form id="input-form">
             <input type="text" title="Journal" placeholder="Journal" id="input-journal"><!--
             --><input type="text" title="Volume"  placeholder="Volume" id="input-volume"><!--

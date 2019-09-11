@@ -1,7 +1,34 @@
 {
   "aip": {
+    "name": "American Institute of Physics",
     "url": "https://aip.scitation.org/action/quickLink",
     "method": "GET",
-    "fields": {}
+    "fields": {
+      "journal": "quickLinkJournal",
+      "volume": "quickLinkVolume",
+      "page": "quickLinkPage"
+    },
+    "additional_fields": "quickLink=true"
+  },
+  "acs": {
+    "name": "American Chemical Society",
+    "url": "https://pubs.acs.org/action/quickLink",
+    "method": "GET",
+    "fields": {
+      "journal": "quickLinkJournal",
+      "volume": "quickLinkVolume",
+      "page": "quickLinkPage"
+    },
+    "additional_fields": "quickLink=true"
+  },
+  "sd": {
+    "name": "ScienceDirect (Elsevier)",
+    "url": "https://www.sciencedirect.com/search/advanced",
+    "method": "GET",
+    "fields": {
+      "journal": "cid",
+      "volume": "volume",
+      "page": "page"
+    }
   }
 }
