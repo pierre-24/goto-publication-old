@@ -6,5 +6,6 @@
   "Chemical Physics": ["sd", 271366],
   "Theoretical Chemistry Accounts": ["sl", 214],
   "Theoretica chimica acta": ["sl", 214],
-  "Nature": ["nature", "nature"]
+  "Nature": ["nature", "nature"],
+  "Chemistry - A European Journal": ["wiley", 15213765]
 }

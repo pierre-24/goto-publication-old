@@ -15,16 +15,16 @@ $(function(){
 
     autocomplete({
         input: journalInput,
-        fetch: function(text, update) {
-            journalsList.sort(function (a, b) { return compareLev(text, a, b) });
+        fetch: (text, update) => {
+            journalsList.sort((a, b) => compareLev(text, a, b));
 
             let suggs = [];
-            journalsList.slice(0, 5).forEach(function (el) {
+            journalsList.slice(0, 5).forEach(el => {
                suggs.push({label: el, value: el})
             });
             update(suggs);
         },
-        onSelect: function (item) {
+        onSelect: item => {
             journalInput.value = item.label;
         }
     });
@@ -65,26 +65,20 @@ $(function(){
         }
 
         // ok, then!
-        let provider = journals[journal];
-        if (!(provider[0] in providers)) {
+        let journal_info = journals[journal];
+        if (!(journal_info[0] in providers)) {
             flash_error('Even though journal is correct, there is no valid provider associated!?!');
             return;
         }
 
-        if (provider[1] != null) { // correct internal abbreviation for this journal
-            journal = provider[1];
+        if (journal_info[1] != null) { // correct internal abbreviation for this journal
+            journal = journal_info[1];
         }
 
-        let action = providers[provider[0]];
+        let provider = providers[journal_info[0]];
 
-        if(action['method'] == 'GET') {
-            let url = action['url'] + action['fields'];
-
-            url = url.replace('$JOURNAL', journal);
-            url = url.replace('$VOLUME', volume);
-            url = url.replace('$PAGE', page);
-
-            window.open(url, '_blank');
+        if(provider['method'] == 'GET') {
+            window.open(provider['action'](journal, volume, page), '_blank');
         } else {
             flash_error('POST not yet implemented');
         }
