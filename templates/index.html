@@ -3,13 +3,13 @@
 <head>
     <title>goto publication</title>
     <meta charset="UTF-8">
-    <link href="style.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://kraaden.github.io/autocomplete/autocomplete.css">
 </head>
 <body>
 
     <div class="container">
-        <div id="flash-messages"><a href="#" onclick="$('#flash-messages').css('display', 'none')" class="close">🞨</a><p class="content"></p> </div>
+        <div id="flash-messages"><a href="#" onclick="$('#flash-messages').css('display', 'none')" class="close">&cross;</a><p class="content"></p> </div>
 
         <form id="input-form">
             <input type="text" title="Journal" placeholder="Journal" id="input-journal"><!--
@@ -24,6 +24,6 @@
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
             crossorigin="anonymous">
     </script>
-    <script src="bundled.js"></script>
+    <script src="{{ url_for('static', filename='bundled.main.js') }}"></script>
 </body>
 </html>

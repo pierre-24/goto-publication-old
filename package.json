@@ -2,7 +2,7 @@
   "name": "goto-publi",
   "version": "0.1.0",
   "description": "Citation-based redirections",
-  "main": "main.js",
+  "main": "assets/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "autocompleter": "^5.1.0",
-    "leven": "^3.1.0",
     "watchify": "^3.11.1"
   }
 }
