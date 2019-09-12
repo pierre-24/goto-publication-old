@@ -3,5 +3,8 @@
   "Journal of Applied Physics":  ["aip", null],
   "Journal of Mathematical Physics":  ["aip", null],
   "Journal of the American Chemical Society": ["acs", "jacsat"],
-  "Chemical Physics": ["sd", 271366]
+  "Chemical Physics": ["sd", 271366],
+  "Theoretical Chemistry Accounts": ["sl", 214],
+  "Theoretica chimica acta": ["sl", 214],
+  "Nature": ["nature", "nature"]
 }

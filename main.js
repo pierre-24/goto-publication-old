@@ -78,17 +78,11 @@ $(function(){
         let action = providers[provider[0]];
 
         if(action['method'] == 'GET') {
-            let url = action['url'];
-            let params = {};
+            let url = action['url'] + action['fields'];
 
-            params[action['fields']['journal']] = journal;
-            params[action['fields']['volume']] = volume;
-            params[action['fields']['page']] = page;
-
-            url += '?' + $.param(params);
-
-            if ('additional_fields' in action)
-                url += '&' + action['additional_fields'];
+            url = url.replace('$JOURNAL', journal);
+            url = url.replace('$VOLUME', volume);
+            url = url.replace('$PAGE', page);
 
             window.open(url, '_blank');
         } else {
