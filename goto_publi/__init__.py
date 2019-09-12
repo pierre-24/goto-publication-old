@@ -1,5 +1,5 @@
 """
-goto-publi: citation based redirection
+goto-publi: citation-based redirection
 """
 
 __version__ = '0.1'

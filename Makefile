@@ -5,12 +5,12 @@ help:
 	@echo "  init                        to install python dependencies through pipenv"
 	@echo "  sync                        update dependencies of pipenv"
 	@echo "  lint                        to lint backend code (flake8)"
-	@echo "  front                       install NPM packages and build front (JS)"
+	@echo "  front                       install NPM packages and build front (JS+CSS)"
 	@echo "  help                        to get this help"
 
 front:
 	npm i
-	browserify assets/main.js -o static/bundled.main.js
+	gulp
 
 init:
 	pipenv install --dev --ignore-pipfile

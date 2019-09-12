@@ -1,5 +1,9 @@
+'use strict';
+
+const $ = require('jquery');
+
 $(function(){
-    let autocomplete = require('autocompleter');
+    const autocomplete = require('autocompleter');
 
     function flash_error(msg) {
         let $place = $('#flash-messages');
@@ -34,7 +38,6 @@ $(function(){
         $.ajax({
             url: '/api/url?journal='+ journal + '&volume=' + volume + '&page=' + page,
             success: a => {
-                console.log(a);
                 if ('url' in a)
                     window.open(a['url'], '_blank');
             },
