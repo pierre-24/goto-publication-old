@@ -6,9 +6,11 @@
     font-size: 14px;
 }
 
+@flash-color: #fdd;
+
 #flash-messages {
-    background: #fdd;
-    border: 2px solid #fbb;
+    background: @flash-color;
+    border: 2px solid darken(@flash-color, 10%);
     padding: 0 8px;
     margin-bottom: 16px;
     border-radius: 5px;
@@ -26,6 +28,8 @@
     }
 }
 
+@border-color: #999;
+
 #input-form {
     text-align: center;
 
@@ -33,7 +37,7 @@
       margin: 0;
       padding: 4px 8px;
       height: 32px;
-      border: 1px solid #999;
+      border: 1px solid @border-color;
       border-right: 0;
       border-radius: 0;
   }
@@ -41,7 +45,7 @@
 
 #input-journal {
     border-radius: 5px 0 0 5px !important;
-    width: 342px;
+    width: calc(100% - 303px); // 250px + 54px (=3*16 [padding] + 5 [borders])
 }
 
 #input-journal-cpl {
@@ -55,13 +59,13 @@
     ul {
         margin: 0;
         padding: 0;
-        border-bottom: 1px solid #999;
+        border-bottom: 1px solid @border-color;
 
         li {
             display: block;
             margin: 0;
             padding: 8px;
-            border: 1px solid #999;
+            border: 1px solid @border-color;
             border-bottom: 0;
             text-align: left;
             cursor: pointer;
@@ -78,9 +82,10 @@
 }
 
 #input-submit {
-    border: 1px solid #999;
+    border: 1px solid @border-color;
+    background: lighten(@border-color, 30%);
     padding: 4px 8px;
     border-radius: 0 5px 5px 0 !important;
     height: 42px;
-
+    width: 100px;
 }
