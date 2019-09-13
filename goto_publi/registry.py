@@ -44,16 +44,29 @@ class Registry:
 
         return list(e[0] for e in distances[:5])
 
-    def get_url(self, journal: str, volume: str, page: str):
+    def _get_provider(self, journal: str) -> providers.Provider:
         if len(journal) == 0:
             raise RegistryError('journal', 'Journal cannot be empty')
-        if len(volume) == 0:
-            raise RegistryError('volume', 'Volume cannot be empty')
 
         if journal not in self.journals:
             raise RegistryError('journal', 'Unknown journal "{}"'.format(journal))
 
+        return self.providers[self.journals[journal]]
+
+    def get_url(self, journal: str, volume: str, page: str) -> str:
+        if len(volume) == 0:
+            raise RegistryError('volume', 'Volume cannot be empty')
+
         try:
-            return self.providers[self.journals[journal]].get_url(journal, volume, page)
+            return self._get_provider(journal).get_url(journal, volume, page)
+        except providers.ProviderError as e:
+            raise RegistryError('journal', 'Error from provider ({}): {}'.format(self.journals[journal], str(e)))
+
+    def get_doi(self, journal: str, volume: str, page: str) -> str:
+        if len(volume) == 0:
+            raise RegistryError('volume', 'Volume cannot be empty')
+
+        try:
+            return self._get_provider(journal).get_doi(journal, volume, page)
         except providers.ProviderError as e:
             raise RegistryError('journal', 'Error from provider ({}): {}'.format(self.journals[journal], str(e)))
