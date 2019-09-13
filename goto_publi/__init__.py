@@ -13,5 +13,6 @@ from goto_publi import registry, providers
 REGISTRY = registry.Registry()
 REGISTRY.registers([
     providers.ACS(),
-    providers.AIP()
+    providers.AIP(),
+    providers.Wiley()
 ])

@@ -1,3 +1,6 @@
+import requests
+
+
 class ProviderError(Exception):
     pass
 
@@ -54,3 +57,40 @@ class ACS(Provider):
 
         return self.base_url + '?quickLinkJournal={j}&quickLinkVolume={v}&quickLinkPage={p}&quickLink=true'.format(
             j=self.journal_codes[journal], v=volume, p=page)
+
+
+class Wiley(Provider):
+    """Wiley.
+
+    Perform the request on their search page API, since there is no other correct API available.
+    Sorry 'bout that.
+    """
+
+    PROVIDER_NAME = 'Wiley'
+    PROVIDER_CODE = 'wiley'
+
+    journal_codes = {
+        'Chemistry - A European Journal': 15213765
+    }
+
+    JOURNALS = list(journal_codes.keys())
+
+    api_url = 'https://onlinelibrary.wiley.com/action/quickLink'
+    base_url = 'https://onlinelibrary.wiley.com'
+
+    def get_url(self, journal: str, volume: str, page: str) -> str:
+        if journal not in self.journal_codes:
+            raise ProviderError('not a valid name: {}'.format(journal))
+
+        url = self.api_url + '?quickLinkJournal={j}&quickLinkVolume={v}&quickLinkPage={p}&quickLink=true'.format(
+            j=self.journal_codes[journal], v=volume, p=page)
+
+        result = requests.get(url)
+        if result.status_code != 200:
+            raise ProviderError('error while requesting wiley API')
+
+        j = result.json()
+        if 'link' not in j:
+            raise ProviderError('unknown article, check your inputs')
+
+        return self.base_url + j['link']
