@@ -11,11 +11,12 @@ __status__ = 'Development'
 from goto_publi import registry, providers
 
 REGISTRY = registry.Registry()
-REGISTRY.registers([
+REGISTRY.registers([  # please keep this alphabetic
     providers.ACS(),
     providers.AIP(),
-    providers.Wiley(),
+    providers.Nature(),
+    providers.RSC(),
     providers.ScienceDirect(),
     providers.Springer(),
-    providers.Nature()
+    providers.Wiley(),
 ])

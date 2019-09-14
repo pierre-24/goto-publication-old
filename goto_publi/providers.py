@@ -281,3 +281,61 @@ class Nature(Provider):
     def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
         url = self.get_url(journal, volume, page, **kwargs)
         return url.replace(self.base_url + '/articles', self.DOI_BASE)
+
+
+class RSC(Provider):
+    """Royal society of Chemistry
+
+    No trace of an API, but a painful two-request process to get any result:
+    the actual result page takes a long (mostly base64) payload as POST input, but this payload cannot be forged in
+    advance (it seems to contain, at least, some information on the system which generates it).
+    """
+
+    PROVIDER_NAME = 'Royal society of Chemistry'
+    PROVIDER_CODE = 'rsc'
+
+    journal_codes = {
+        'Physical Chemistry Chemical Physics (PCCP)': 'phys. chem. chem. phys.'
+    }
+
+    JOURNALS = list(journal_codes.keys())
+
+    base_url = 'https://pubs.rsc.org'
+    search_url = base_url + '/en/results'
+    search_result_url = base_url + '/en/search/journalresult'
+
+    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        """Requires 2 (!) requests. For efficiency, the result will be the DOI link.
+
+        Note: for some reasons, an user-agent is mandatory
+        """
+
+        if journal not in self.journal_codes:
+            raise ProviderError('not a valid name: {}'.format(journal))
+
+        url = self.search_url + '?artrefjournalname={}&artrefvolumeyear={}&artrefstartpage={}&fcategory=journal'.format(
+            self.journal_codes[journal], volume, page)
+
+        response = requests.get(url, headers={'User-Agent': 'tmp'})
+        s = BeautifulSoup(response.content, 'lxml').find('input', attrs={'name': 'SearchTerm'}).attrs['value']
+        response = requests.post(self.search_result_url, data={
+            'searchterm': s,
+            'resultcount': 1,
+            'category': 'journal',
+            'pageno': 1
+        }, headers={'User-Agent': 'goto-publi/0.1'})
+
+        if len(response.content) < 50:
+            raise ProviderError('article not found')
+
+        links = BeautifulSoup(response.content, 'lxml').select('.text--small a')
+
+        if len(links) == 0:
+            raise ProviderError('article not found, did you put the first page?')
+        elif len(links) > 1:
+            raise ProviderError('More than one result?!')
+
+        return links[0].attrs['href']
+
+    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        return self.get_url(journal, volume, page)[16:]
