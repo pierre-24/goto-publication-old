@@ -209,3 +209,32 @@ class ScienceDirect(Provider):
     def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
         d = self._api_call(journal, volume, page, **kwargs)
         return d['doi']
+
+
+class Springer(Provider):
+    """Springer have a messed up notation for its article (mixing between pages and article number)
+    and their API (https://dev.springernature.com/adding-constraints) does not provide a page or article number search
+    (and does not give the article number anyway, except ``e-location`` in its jats output, which is sloooooow).
+
+    Thus, it is impossible to get the exact URL or DOI without any further information.
+    """
+
+    PROVIDER_NAME = 'Springer'
+    PROVIDER_CODE = 'sl'
+
+    journal_codes = {
+        'Theoretical Chemistry Accounts': 214,
+        'Theoretica chimica acta': 214,
+    }
+
+    JOURNALS = list(journal_codes.keys())
+
+    base_url = 'https://link.springer.com/journal/'
+
+    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        """TOC of the volume, find your way into that ;)
+        """
+        if journal not in self.journal_codes:
+            raise ProviderError('not a valid name: {}'.format(journal))
+
+        return self.base_url + '/{}/volume/{}/toc'.format(self.journal_codes[journal], volume)

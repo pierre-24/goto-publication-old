@@ -15,5 +15,6 @@ REGISTRY.registers([
     providers.ACS(),
     providers.AIP(),
     providers.Wiley(),
-    providers.ScienceDirect()
+    providers.ScienceDirect(),
+    providers.Springer()
 ])
