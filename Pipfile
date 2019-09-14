@@ -8,6 +8,8 @@ flask = "*"
 Flask-RESTful = "*"
 Distance = "*"
 requests = "*"
+beautifulsoup4 = "*"
+lxml = "*"
 
 [dev-packages]
 "flake8" = "*"

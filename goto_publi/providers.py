@@ -1,6 +1,7 @@
 import requests
 import re
 import json
+from bs4 import BeautifulSoup
 
 from goto_publi.settings import API_KEY
 
@@ -214,13 +215,13 @@ class ScienceDirect(Provider):
 class Springer(Provider):
     """Springer have a messed up notation for its article (mixing between pages and article number)
     and their API (https://dev.springernature.com/adding-constraints) does not provide a page or article number search
-    (and does not give the article number anyway, except ``e-location`` in its jats output, which is sloooooow).
+    (and does not give the article number anyway, except ``e-location`` in the jats output, which is sloooooow).
 
     Thus, it is impossible to get the exact URL or DOI without any further information.
     """
 
     PROVIDER_NAME = 'Springer'
-    PROVIDER_CODE = 'sl'
+    PROVIDER_CODE = 'sl'  # = SpringerLink
 
     journal_codes = {
         'Theoretical Chemistry Accounts': 214,
@@ -238,3 +239,45 @@ class Springer(Provider):
             raise ProviderError('not a valid name: {}'.format(journal))
 
         return self.base_url + '/{}/volume/{}/toc'.format(self.journal_codes[journal], volume)
+
+
+class Nature(Provider):
+    """Even though they have an OpenSearch API (https://www.nature.com/opensearch/), not
+    everything seems to be indexed in it (not much of Nature for years < 2010, for example).
+
+    Therefore, this one will rely on the search page.
+    """
+
+    PROVIDER_NAME = 'Nature'
+    PROVIDER_CODE = 'nat'
+    DOI_BASE = '10.1038'
+
+    journal_codes = {
+        'Nature': 'nature'
+    }
+
+    JOURNALS = list(journal_codes.keys())
+    base_url = 'https://www.nature.com'
+
+    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        """Requires a request"""
+
+        if journal not in self.journal_codes:
+            raise ProviderError('not a valid name: {}'.format(journal))
+
+        url = self.base_url + '/search?journal={}&volume={}&spage={}'.format(
+            self.journal_codes[journal], volume, page)
+
+        soup = BeautifulSoup(requests.get(url).content, 'lxml')
+        links = soup.find_all(attrs={'data-track-action': 'search result'})
+
+        if len(links) == 0:
+            raise ProviderError('article not found, did you put the first page?')
+        elif len(links) > 1:
+            raise ProviderError('More than one result?!')  # TODO: that may happen, though
+
+        return self.base_url + links[0].attrs['href']
+
+    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        url = self.get_url(journal, volume, page, **kwargs)
+        return url.replace(self.base_url + '/articles', self.DOI_BASE)
