@@ -298,3 +298,4 @@ fabric.properties
 
 # personal
 static/*
+settings_prod.py

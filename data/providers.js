@@ -1,13 +1,4 @@
 module.exports = {
-  "sd": {
-    "name": "ScienceDirect (Elsevier)",
-    "method": "GET",
-    "action": (journal, volume, page) => {
-      let url = "https://www.sciencedirect.com/search/advanced";
-      url += '?cid=' + journal + '&volume=' + volume + '&page=' + page;
-      return url;
-    }
-  },
   "sl": {
     "name": "SpringerLink (Springer)",
     "method": "GET",

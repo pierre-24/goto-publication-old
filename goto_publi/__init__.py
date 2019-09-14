@@ -14,5 +14,6 @@ REGISTRY = registry.Registry()
 REGISTRY.registers([
     providers.ACS(),
     providers.AIP(),
-    providers.Wiley()
+    providers.Wiley(),
+    providers.ScienceDirect()
 ])
