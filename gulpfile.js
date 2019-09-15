@@ -4,25 +4,50 @@ const browserify = require('browserify');
 const minify  = require('minify-stream');
 const less = require('gulp-less');
 const clean_css = require('gulp-clean-css');
+const options = require('gulp-options');
+const js_lint = require('gulp-jshint');
+const gulp_if = require('gulp-if');
 
 const output_dir = 'static';
+
+const fast = options.has("fast");
+if (fast) {
+    console.log("no minification will be performed");
+}
 
 function js() {
     return browserify('assets/main.js')
         .bundle()
-        .pipe(minify())
+        .pipe(gulp_if(!fast, minify()))
         .pipe(source('bundled.main.js'))
         .pipe(gulp.dest(output_dir))
+}
+
+function lint() {
+    return gulp.src(['assets/main.js'])
+        .pipe(js_lint())
+        .pipe(js_lint.reporter('jshint-stylish'))
+        .pipe(js_lint.reporter('fail'));
 }
 
 function css() {
     return gulp.src('assets/style.less')
         .pipe(less())
-        .pipe(clean_css())
+        .pipe(gulp_if(!fast, clean_css()))
         .pipe(gulp.dest(output_dir))
 }
 
-gulp.task('minify', function () {
+function watch() {
+    gulp.watch('assets/main.js', js);
+    gulp.watch('assets/main.js', lint);
+    gulp.watch('assets/style.less', css);
+}
+
+gulp.task('lint', function () {
+    return lint();
+});
+
+gulp.task('js', function () {
     return js();
 });
 
@@ -30,4 +55,7 @@ gulp.task('css', function () {
     return css()
 });
 
-gulp.task('default', gulp.parallel('css', 'minify'));
+gulp.task('build', gulp.parallel('css', gulp.series('lint', 'js')));
+gulp.task('watch', gulp.series('build', watch));
+
+gulp.task('default', gulp.series('build'));

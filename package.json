@@ -10,8 +10,13 @@
     "browserify": "^16.5.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.2.0",
+    "gulp-if": "^3.0.0",
+    "gulp-jshint": "^2.1.0",
     "gulp-less": "^4.0.1",
+    "gulp-options": "^1.1.1",
     "jquery": "^3.4.1",
+    "jshint": "^2.10.2",
+    "jshint-stylish": "^2.2.1",
     "minify-stream": "^1.2.0",
     "vinyl-source-stream": "^2.0.0"
   }
