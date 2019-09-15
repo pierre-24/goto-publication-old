@@ -2,7 +2,7 @@
 
 # GOTO publication
 
-*Citation-based DOI searches and redirections*.
+*Citation-based DOI searches and redirections*, by [Pierre Beaujean](https://pierrebeaujean.net).
 
 Because the journal, the volume and the page should be enough to find an article (for which, of course, you don't have the DOI, otherwise this is stupid).
 
@@ -127,7 +127,7 @@ For the frontend the following NPM packages are used:
 
 + [`autocompleter`](https://www.npmjs.com/package/autocompleter) for a powerful (yet simple) autocompletion,
 + [`clipboard-copy`](https://www.npmjs.com/package/clipboard-copy) to copy stuffs in clipboard,
-+ [`gulp`](https://gulpjs.com/) (and [many plugins](./package.json) to build the front,
++ [`gulp`](https://gulpjs.com/) (and [many plugins](./package.json)) to build the front,
 + [`browserify`](https://www.npmjs.com/package/browserify) to pack everything in one JS file,
 + [`less`](http://lesscss.org/) for the CSS.
 
