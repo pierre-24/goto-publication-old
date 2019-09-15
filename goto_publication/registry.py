@@ -1,7 +1,7 @@
 from typing import List, Callable
 import distance
 
-from goto_publi import providers
+from goto_publication import providers
 
 
 class RegistryError(Exception):

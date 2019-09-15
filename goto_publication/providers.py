@@ -3,7 +3,7 @@ import re
 import json
 from bs4 import BeautifulSoup
 
-from goto_publi.settings import API_KEY
+from goto_publication.settings import API_KEY
 
 
 class ProviderError(Exception):

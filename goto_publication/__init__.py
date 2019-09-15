@@ -1,5 +1,5 @@
 """
-goto-publi: citation-based redirection
+goto-publication: citation-based redirection
 """
 
 __version__ = '0.1'
@@ -8,7 +8,7 @@ __maintainer__ = 'Pierre Beaujean'
 __email__ = 'pierre.beaujean@unamur.be'
 __status__ = 'Development'
 
-from goto_publi import registry, providers
+from goto_publication import registry, providers
 
 REGISTRY = registry.Registry()
 REGISTRY.registers([  # please keep this alphabetic
