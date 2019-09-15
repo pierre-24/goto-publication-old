@@ -24,14 +24,26 @@ API_KEY_FIELD = 'apiKey'
 
 
 class Provider:
-    PROVIDER_CODE = ''
-    PROVIDER_NAME = ''
+    CODE = ''
+    NAME = ''
+    WEBSITE_URL = ''  # /!\ please add trailing slash
+    ICON_URL = ''
     JOURNALS = []
 
     API_KEY_KWARG = False
 
     def __init__(self):
-        pass
+        if self.ICON_URL == '':
+            self.ICON_URL = self.WEBSITE_URL + 'favicon.ico'
+
+    def get_info(self) -> dict:
+        """Info that every request sends"""
+
+        return {
+            'providerName': self.NAME,
+            'providerIcon': self.ICON_URL,
+            'providerWebsite': self.WEBSITE_URL,
+        }
 
     def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
         """Get an url that go close to the actual article (a search page with the form filled, or in the
@@ -55,8 +67,9 @@ class Provider:
 class AIP(Provider):
     """American Institute of Physics"""
 
-    PROVIDER_NAME = 'American Institute of Physics (AIP)'
-    PROVIDER_CODE = 'aip'
+    NAME = 'American Institute of Physics (AIP)'
+    CODE = 'aip'
+    WEBSITE_URL = 'https://aip.scitation.org/'
 
     JOURNALS = [
         'Journal of Applied Physics',
@@ -64,8 +77,7 @@ class AIP(Provider):
         'Journal of Mathematical Physics'
     ]
 
-    base_url = 'https://aip.scitation.org/action/quickLink'
-
+    base_url = WEBSITE_URL + 'action/quickLink'
     doi_regex = re.compile(r'abs/(.*/.*)\?')
 
     def __init__(self):
@@ -99,15 +111,16 @@ class ACS(AIP):
     """American chemical society. Their API is very close to the AIP one (except there is journal codes).
     """
 
-    PROVIDER_NAME = 'American Chemical Society'
-    PROVIDER_CODE = 'acs'
+    NAME = 'American Chemical Society'
+    CODE = 'acs'
+    WEBSITE_URL = 'https://pubs.acs.org/'
 
     journal_codes = {
         'Journal of the American Chemical Society': 'jacsat'
     }
 
     JOURNALS = list(journal_codes.keys())
-    base_url = 'https://pubs.acs.org/action/quickLink'
+    base_url = WEBSITE_URL + 'action/quickLink'
 
     def __init__(self):
         super().__init__()
@@ -127,8 +140,9 @@ class Wiley(Provider):
     Sorry about that, open to any suggestion.
     """
 
-    PROVIDER_NAME = 'Wiley'
-    PROVIDER_CODE = 'wiley'
+    NAME = 'Wiley'
+    CODE = 'wiley'
+    WEBSITE_URL = 'https://onlinelibrary.wiley.com/'
 
     journal_codes = {
         'Chemistry - A European Journal': 15213765
@@ -136,8 +150,7 @@ class Wiley(Provider):
 
     JOURNALS = list(journal_codes.keys())
 
-    api_url = 'https://onlinelibrary.wiley.com/action/quickLink'
-    base_url = 'https://onlinelibrary.wiley.com'
+    api_url = WEBSITE_URL + 'action/quickLink'
 
     def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
         """Require a single request to get the url (which contains the DOI)
@@ -156,7 +169,7 @@ class Wiley(Provider):
         if 'link' not in j:
             raise ArticleNotFound()
 
-        return self.base_url + j['link']
+        return self.WEBSITE_URL + j['link'][1:]
 
     def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
         result_url = self.get_url(journal, volume, page)
@@ -173,9 +186,11 @@ class ScienceDirect(Provider):
     Getting the DOI requires a valid API key (Get one at https://dev.elsevier.com/index.html).
     """
 
-    PROVIDER_NAME = 'ScienceDirect'
-    PROVIDER_CODE = 'sd'
+    NAME = 'ScienceDirect'
+    CODE = 'sd'
     API_KEY_KWARG = 'true'
+    WEBSITE_URL = 'https://www.sciencedirect.com/'
+    ICON_URL = 'https://sdfestaticassets-eu-west-1.sciencedirectassets.com/shared-assets/18/images/favSD.ico'
 
     journal_codes = {
         'Chemical Physics': 271366
@@ -184,7 +199,7 @@ class ScienceDirect(Provider):
     JOURNALS = list(journal_codes.keys())
 
     api_url = 'https://api.elsevier.com/content/search/sciencedirect'
-    base_url = 'https://www.sciencedirect.com/search/advanced'
+    base_url = WEBSITE_URL + 'search/advanced'
 
     def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
         if journal not in self.journal_codes:
@@ -254,8 +269,11 @@ class Springer(Provider):
     Thus, it is impossible to get the exact URL or DOI without any further information.
     """
 
-    PROVIDER_NAME = 'Springer'
-    PROVIDER_CODE = 'sl'  # = SpringerLink
+    NAME = 'Springer'
+    CODE = 'sl'  # = SpringerLink
+    WEBSITE_URL = 'https://link.springer.com/'
+    ICON_URL = \
+        'https://link.springer.com/static/17c1f2edc5a95a03d2f5f7b0019142685841f5ad/sites/link/images/favicon-32x32.png'
 
     journal_codes = {
         'Theoretical Chemistry Accounts': 214,
@@ -264,7 +282,7 @@ class Springer(Provider):
 
     JOURNALS = list(journal_codes.keys())
 
-    base_url = 'https://link.springer.com/journal/'
+    base_url = WEBSITE_URL + 'journal/'
 
     def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
         """TOC of the volume, find your way into that ;)
@@ -282,22 +300,22 @@ class Nature(Provider):
     Therefore, this one will rely on the search page.
     """
 
-    PROVIDER_NAME = 'Nature'
-    PROVIDER_CODE = 'nat'
+    NAME = 'Nature'
+    CODE = 'nat'
     DOI_BASE = '10.1038'
+    WEBSITE_URL = 'https://www.nature.com/'
 
     journal_codes = {
         'Nature': 'nature'
     }
 
     JOURNALS = list(journal_codes.keys())
-    base_url = 'https://www.nature.com'
 
     def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
         if journal not in self.journal_codes:
             raise IncorrectJournalName()
 
-        url = self.base_url + '/search?journal={}&volume={}&spage={}'.format(
+        url = self.WEBSITE_URL + 'search?journal={}&volume={}&spage={}'.format(
             self.journal_codes[journal], volume, page)
 
         return url
@@ -326,18 +344,17 @@ class RSC(Provider):
     advance (it seems to contain, at least, some information on the system which generates it).
     """
 
-    PROVIDER_NAME = 'Royal society of Chemistry'
-    PROVIDER_CODE = 'rsc'
+    NAME = 'Royal society of Chemistry'
+    CODE = 'rsc'
+    WEBSITE_URL = 'https://pubs.rsc.org/'
 
     journal_codes = {
         'Physical Chemistry Chemical Physics (PCCP)': 'phys. chem. chem. phys.'
     }
 
     JOURNALS = list(journal_codes.keys())
-
-    base_url = 'https://pubs.rsc.org'
-    search_url = base_url + '/en/results'
-    search_result_url = base_url + '/en/search/journalresult'
+    search_url = WEBSITE_URL + 'en/results'
+    search_result_url = WEBSITE_URL + 'en/search/journalresult'
 
     def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
         if journal not in self.journal_codes:

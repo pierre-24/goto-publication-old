@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Callable
 import distance
 
 from goto_publi import providers
@@ -25,9 +25,9 @@ class Registry:
         :param provider: provider
         """
 
-        self.providers[provider.PROVIDER_CODE] = provider
+        self.providers[provider.CODE] = provider
         for j in provider.JOURNALS:
-            self.journals[j] = provider.PROVIDER_CODE
+            self.journals[j] = provider.CODE
 
     def registers(self, providers_: List[providers.Provider]):
         for p in providers_:
@@ -44,33 +44,50 @@ class Registry:
 
         return list(e[0] for e in distances[:5])
 
-    def _get_provider(self, journal: str) -> providers.Provider:
+    def _get_result(self,
+                    callback: Callable[[providers.Provider, str, str, str, dict], dict],
+                    journal: str,
+                    volume: str,
+                    page: str,
+                    **kwargs: dict) -> dict:
+
         if len(journal) == 0:
             raise RegistryError('journal', 'Journal cannot be empty')
 
         if journal not in self.journals:
             raise RegistryError('journal', 'Unknown journal "{}"'.format(journal))
 
-        return self.providers[self.journals[journal]]
-
-    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
         if len(volume) == 0:
             raise RegistryError('volume', 'Volume cannot be empty')
 
-        try:
-            return self._get_provider(journal).get_url(journal, volume, page, **kwargs)
-        except providers.ProviderError as e:
-            raise RegistryError('journal', '{}: {}'.format(
-                self.providers[self.journals[journal]].PROVIDER_NAME,
-                str(e)))
-
-    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
-        if len(volume) == 0:
-            raise RegistryError('volume', 'Volume cannot be empty')
+        provider = self.providers[self.journals[journal]]
+        response = provider.get_info()
 
         try:
-            return self._get_provider(journal).get_doi(journal, volume, page, **kwargs)
+            response.update(callback(provider, journal, volume, page, **kwargs))
         except providers.ProviderError as e:
-            raise RegistryError('journal', '{}: {}'.format(
-                self.providers[self.journals[journal]].PROVIDER_NAME,
-                str(e)))
+            raise RegistryError('journal', '{}: {}'.format(provider.NAME, str(e)))
+        except NotImplementedError:
+            raise RegistryError('journal', '{}: {}'.format(provider.NAME, 'not yet implemented'))
+
+        return response
+
+    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> dict:
+        """Get the URL
+        """
+
+        def cb_url(p, j, v, pg, **kw):
+            url = p.get_url(j, v, pg, **kw)
+            return {'url': url}
+
+        return self._get_result(cb_url, journal, volume, page, **kwargs)
+
+    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> dict:
+        """Get the DOI
+        """
+
+        def cb_doi(p, j, v, pg, **kw):
+            doi = p.get_doi(j, v, pg, **kw)
+            return {'doi': doi, 'url': 'https://dx.doi.org/' + doi}
+
+        return self._get_result(cb_doi, journal, volume, page, **kwargs)

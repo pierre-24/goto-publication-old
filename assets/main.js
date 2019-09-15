@@ -39,11 +39,21 @@ $(function(){
         let $table = $("#table-results");
 
         if ($table.children().length === 0) // add headers
-            $table.append("<tr id='table-results-headers'><th>Journal</th><th>Volume</th><th>Page</th></tr>");
+            $table.append("<tr id='table-results-headers'>" +
+                "<th style='width: 16px'></th>" +
+                "<th>Journal</th>" +
+                "<th style='min-width: 5%'>vol.</th>" +
+                "<th style='min-width: 5%'>pp.</th>" +
+                "</tr>");
 
         let $heads = $("#table-results-headers");
 
-        let $tr = $("<tr><td>"+ journal +"</td><td>"+ volume +"</td><td>"+ page +"</td></tr>");
+        let $tr = $(
+            "<tr><td><a href='"+ output.providerWebsite +"'>" +
+            "<img class='icon' src='" + output.providerIcon + "' alt='" + output.providerName +"' title='" + output.providerName +"'>" +
+            "</a></td>" +
+            "<td>"+ journal +"</td><td>"+ volume +"</td><td>"+ page +"</td></tr>");
+
         let txt = "", link = "";
 
         if ("doi" in output) {
@@ -75,8 +85,8 @@ $(function(){
         $.ajax({
             url: "/api/" + action + "?journal="+ journal + "&volume=" + volume + "&page=" + page,
             success: a => {
-                if ("url" in a) {
-                    addResult(journal, volume, page, a);
+                if ("result" in a) {
+                    addResult(journal, volume, page, a.result);
                     // window.open(a.url, "_blank");
                 }
                 $submit.removeAttr("disabled").val(v);
