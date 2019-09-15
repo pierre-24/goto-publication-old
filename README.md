@@ -82,7 +82,7 @@ Example: the request [`/api/suggests?q=natu`](http://localhost:5000/api/suggests
 }
 ```
 
-### `api/url` and `api/doi`
+### `/api/url` and `/api/doi`
 
 Parameters | Value
 -----------|-------
