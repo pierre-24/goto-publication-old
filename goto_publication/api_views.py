@@ -18,6 +18,7 @@ class SuggestJournals(Resource):
         args = self.parser.parse_args()
 
         return {
+            'request': args.get('q'),
             'suggestions': REGISTRY.suggest_journals(args.get('q'))
         }
 

@@ -6,6 +6,9 @@
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
 </head>
 <body>
+    <div class="container" id="logo">
+        <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="logo {{ prog_name }}">
+    </div>
 
     <div class="container">
         <div id="flash-messages"><a href="#" class="close">&cross;</a><p class="content"></p> </div>
@@ -22,6 +25,12 @@
     <div class="container">
         <table id="table-results"></table>
     </div>
+
+    <footer>
+            <p>
+                <a href="https://github.com/pierre-24/goto-publication">{{ prog_name }}/{{ prog_version }}</a> , made by <a href="https://pierrebeaujean.net">Pierre Beaujean</a>.
+            </p>
+    </footer>
 
     <script src="{{ url_for('static', filename='bundled.main.js') }}"></script>
     <script src="https://kit.fontawesome.com/05ac4d5efb.js"></script>

@@ -36,6 +36,12 @@ function css() {
         .pipe(gulp_if(!fast, clean_css()))
         .pipe(gulp.dest(output_dir))
 }
+
+function images() {
+    return gulp.src('assets/images/*')
+        .pipe(gulp.dest('static/images/'))
+}
+
 gulp.task('lint', function () {
     return lint();
 });
@@ -48,12 +54,19 @@ gulp.task('css', function () {
     return css();
 });
 
+
+
+gulp.task('images', function () {
+    return images();
+});
+
 function watch() {
-    gulp.watch(['assets/main.js'], gulp.parallel('js'));
-    gulp.watch(['assets/style.less'], gulp.parallel('css'));
+    gulp.watch(['assets/main.js'], {}, gulp.series('js'));
+    gulp.watch(['assets/style.less'], {}, gulp.series('css'));
+    gulp.watch(['assets/images/*'], {}, gulp.series('images'));
 }
 
-gulp.task('build', gulp.parallel('css', gulp.series('lint', 'js')));
+gulp.task('build', gulp.parallel('css', 'images', gulp.series('lint', 'js')));
 gulp.task('default', gulp.series('build'));
 
 exports.watch = gulp.series('build', watch);
