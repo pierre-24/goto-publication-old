@@ -93,7 +93,7 @@ Parameters | Value
 
 Get an URL or a DOI associated with a citation.
 
-Example: the request [`/api/doi?journal=The%20Journal%20of%20Chemical%20Physics&volume=151&page=064303`](api/doi?journal=The%20Journal%20of%20Chemical%20Physics&volume=151&page=064303) results in:
+Example: the request [`/api/doi?journal=The%20Journal%20of%20Chemical%20Physics&volume=151&page=064303`](http://localhost:5000/api/doi?journal=The%20Journal%20of%20Chemical%20Physics&volume=151&page=064303) results in:
 
 ```json
 {
