@@ -3,6 +3,7 @@ const $ = require("jquery");
 $(function(){
     "use strict";
     const autocomplete = require("autocompleter");
+    const clipboardCopy = require("clipboard-copy");
 
     function flashError(msg) {
         let $place = $("#flash-messages");
@@ -34,19 +35,53 @@ $(function(){
 
     let $submit  = $("#input-submit");
 
-    function gotoCitation(journal, volume, page) {
+    function addResult(journal, volume, page, output) {
+        let $table = $("#table-results");
+
+        if ($table.children().length === 0) // add headers
+            $table.append("<tr id='table-results-headers'><th>Journal</th><th>Volume</th><th>Page</th></tr>");
+
+        let $heads = $("#table-results-headers");
+
+        let $tr = $("<tr><td>"+ journal +"</td><td>"+ volume +"</td><td>"+ page +"</td></tr>");
+        let txt = "", link = "";
+
+        if ("doi" in output) {
+            txt = output.doi;
+            link = output.url;
+        } else {
+            txt = link = output.url;
+        }
+
+        let $inp = $("<input type='text' value='"+ txt + "'>");
+
+        let $copy = $("<button title='copy'><i class=\"far fa-clipboard\"></i></button>");
+        $copy.click(() => clipboardCopy(txt));
+
+        let $go = $("<button title='go!'><i class=\"fas fa-external-link-alt\"></i></button>");
+        $go.click(() => window.open(link, "_blank"));
+
+        $tr.append($("<td class='results'></td>").append($inp).append($copy).append($go)).insertAfter($heads);
+    }
+
+    function getIt(journal, volume, page, action) {
         $("#flash-messages").css("display", "none");
         let v = $submit.val();
         $submit.attr("disabled", "disabled").val("requesting");
 
+        if (["url", "doi"].indexOf(action) < 0)
+            return flashError("unknown action " + action);
+
         $.ajax({
-            url: "/api/url?journal="+ journal + "&volume=" + volume + "&page=" + page,
+            url: "/api/" + action + "?journal="+ journal + "&volume=" + volume + "&page=" + page,
             success: a => {
-                if ("url" in a)
-                    window.open(a.url, "_blank");
+                if ("url" in a) {
+                    addResult(journal, volume, page, a);
+                    // window.open(a.url, "_blank");
+                }
                 $submit.removeAttr("disabled").val(v);
             },
-            error: (xhr) => {
+            error: xhr => {
                 flashError(Object.values(xhr.responseJSON.message));
                 $submit.removeAttr("disabled").val(v);
             }
@@ -54,7 +89,7 @@ $(function(){
     }
 
     $submit.click(() => {
-        gotoCitation($("#input-journal").val(), $("#input-volume").val(), $("#input-page").val());
+        getIt($("#input-journal").val(), $("#input-volume").val(), $("#input-page").val(), $("#input-action").val());
     });
 });
 

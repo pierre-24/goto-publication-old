@@ -56,7 +56,7 @@ class GetURL(GetInfo):
         except registry.RegistryError as e:
             return make_error(e.what, e.var)
         except NotImplementedError:
-            return make_error('journal', 'not implemented yet')
+            return make_error('Not implemented yet for this journal', 'journal')
 
         return {
             'url': url
@@ -71,7 +71,7 @@ class GetDOI(GetInfo):
         except registry.RegistryError as e:
             return make_error(e.what, e.var)
         except NotImplementedError:
-            return make_error('journal', 'not implemented yet')
+            return make_error('Not implemented yet for this journal', 'journal')
 
         return {
             'doi': doi,

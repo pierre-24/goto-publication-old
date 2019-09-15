@@ -4,7 +4,6 @@
     <title>goto publication</title>
     <meta charset="UTF-8">
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://kraaden.github.io/autocomplete/autocomplete.css">
 </head>
 <body>
 
@@ -15,10 +14,16 @@
             <input type="text" title="Journal" placeholder="Journal" id="input-journal"><!--
             --><input type="text" title="Volume"  placeholder="Volume" id="input-volume"><!--
             --><input type="text" title="Page" placeholder="Page" id="input-page"><!--
-            --><input type="button" title="Goto!" value="Goto!" id="input-submit">
+            --><select id="input-action"><option value="doi">DOI</option><option value="url">URL</option></select><!--
+            --><input type="button" title="Goto!" value="Get!" id="input-submit">
         </form>
     </div>
 
+    <div class="container">
+        <table id="table-results"></table>
+    </div>
+
     <script src="{{ url_for('static', filename='bundled.main.js') }}"></script>
+    <script src="https://kit.fontawesome.com/05ac4d5efb.js"></script>
 </body>
 </html>
