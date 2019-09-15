@@ -222,7 +222,7 @@ class ScienceDirect(Provider):
             (see https://dev.elsevier.com/policy.html, section "Federated Search").
         """
 
-        api_key = kwargs.get(API_KEY_FIELD, API_KEY.get(self.PROVIDER_NAME, ''))
+        api_key = kwargs.get(API_KEY_FIELD, API_KEY.get(self.NAME, ''))
         if api_key == '':
             raise ProviderError('no API key provided')
 
