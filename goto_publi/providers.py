@@ -10,6 +10,16 @@ class ProviderError(Exception):
     pass
 
 
+class IncorrectJournalName(ProviderError):
+    def __init__(self, *args):
+        super().__init__('incorrect journal name', *args)
+
+
+class ArticleNotFound(ProviderError):
+    def __init__(self, *args):
+        super().__init__('article not found', *args)
+
+
 API_KEY_FIELD = 'apiKey'
 
 
@@ -24,9 +34,21 @@ class Provider:
         pass
 
     def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        """Get an url that go close to the actual article (a search page with the form filled, or in the
+        best cases, the actual article).
+
+        Normally, this is fast, because most of the time the link is forged without any request.
+        On the other hand, there is no check, so it is not guaranteed to link to an actual article.
+        """
+
         raise NotImplementedError()
 
     def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        """Get the DOI of the article.
+
+        Slower than `get_url()`, because some requests are made. But the DOI is guaranteed to be exact.
+        """
+
         raise NotImplementedError()
 
 
@@ -66,10 +88,9 @@ class AIP(Provider):
         if result.status_code != 302:
             raise ProviderError('article not found')
         if 'cookieSet' in result.headers['Location']:
-            print('in again !')
             result = self.session.get(search_url, allow_redirects=False)
         if 'doi' not in result.headers['Location']:
-            raise ProviderError('article not found')
+            raise ArticleNotFound()
 
         return self.doi_regex.search(result.headers['Location']).group(1)
 
@@ -94,7 +115,7 @@ class ACS(AIP):
 
     def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
         if journal not in self.journal_codes:
-            raise ProviderError('not a valid name: {}'.format(journal))
+            raise IncorrectJournalName()
 
         return super().get_url(self.journal_codes[journal], volume, page)
 
@@ -103,7 +124,7 @@ class Wiley(Provider):
     """Wiley.
 
     Perform the request on their search page API, since there is no other correct API available.
-    Sorry 'bout that, open to any suggestion.
+    Sorry about that, open to any suggestion.
     """
 
     PROVIDER_NAME = 'Wiley'
@@ -122,18 +143,18 @@ class Wiley(Provider):
         """Require a single request to get the url (which contains the DOI)
         """
         if journal not in self.journal_codes:
-            raise ProviderError('not a valid name: {}'.format(journal))
+            raise IncorrectJournalName()
 
         url = self.api_url + '?quickLinkJournal={j}&quickLinkVolume={v}&quickLinkPage={p}&quickLink=true'.format(
             j=self.journal_codes[journal], v=volume, p=page)
 
         result = requests.get(url)
         if result.status_code != 200:
-            raise ProviderError('error while requesting wiley API')
+            raise ProviderError('error while requesting search')
 
         j = result.json()
         if 'link' not in j:
-            raise ProviderError('unknown article, check your inputs')
+            raise ArticleNotFound()
 
         return self.base_url + j['link']
 
@@ -147,35 +168,50 @@ class Wiley(Provider):
 
 
 class ScienceDirect(Provider):
-    """Uses the Science Direct API provided by Elsevier
-    (see https://dev.elsevier.com/documentation/ScienceDirectSearchAPI.wadl, but actually, the ``PUT`` API is
-    described in https://dev.elsevier.com/tecdoc_sdsearch_migration.html, since the ``GET`` one is decommissioned).
+    """Science Direct (Elsevier).
 
-    **Requires an API key**.
-
-    .. warning::
-
-        Note that for this kind of usage, the person who uses the Elsevier API
-        needs to be a member of an organization that subscribed to an Elsevier product
-        (see https://dev.elsevier.com/policy.html, section "Federated Search").
+    Getting the DOI requires a valid API key (Get one at https://dev.elsevier.com/index.html).
     """
 
     PROVIDER_NAME = 'ScienceDirect'
     PROVIDER_CODE = 'sd'
     API_KEY_KWARG = 'true'
 
-    JOURNALS = [
-        'Chemical Physics'
-    ]
+    journal_codes = {
+        'Chemical Physics': 271366
+    }
 
-    base_url = 'https://api.elsevier.com/content/search/sciencedirect'
+    JOURNALS = list(journal_codes.keys())
+
+    api_url = 'https://api.elsevier.com/content/search/sciencedirect'
+    base_url = 'https://www.sciencedirect.com/search/advanced'
+
+    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        if journal not in self.journal_codes:
+            raise IncorrectJournalName()
+
+        return self.base_url + '?cid={}&volume={}&page={}'.format(self.journal_codes[journal], volume, page)
 
     def _api_call(self, journal: str, volume: str, page: str, **kwargs) -> dict:
+        """
+        Uses the Science Direct API provided by Elsevier
+        (see https://dev.elsevier.com/documentation/ScienceDirectSearchAPI.wadl, but actually, the ``PUT`` API is
+        described in https://dev.elsevier.com/tecdoc_sdsearch_migration.html, since the ``GET`` one is decommissioned).
+
+        **Requires an API key**.
+
+        .. warning::
+
+            Note that for this kind of usage, the person who uses the Elsevier API
+            needs to be a member of an organization that subscribed to an Elsevier product
+            (see https://dev.elsevier.com/policy.html, section "Federated Search").
+        """
+
         api_key = kwargs.get(API_KEY_FIELD, API_KEY.get(self.PROVIDER_NAME, ''))
         if api_key == '':
             raise ProviderError('no API key provided')
 
-        response = requests.put(self.base_url, data=json.dumps({
+        response = requests.put(self.api_url, data=json.dumps({
             'qs': '*',
             'pub': journal,
             'volume': volume,
@@ -194,7 +230,9 @@ class ScienceDirect(Provider):
                 raise ProviderError('{} (API usage error)'.format(v['message']))
             raise ProviderError('error while calling the API')
 
-        if v['resultsFound'] > 1:
+        if v['resultsFound'] == 0:
+            raise ArticleNotFound()
+        elif v['resultsFound'] > 1:
             # happen when a journal matches different titles (ex "Chemical Physics" matches "Chemical Physics Letters")
             for r in v['results']:
                 if r['sourceTitle'] == journal:
@@ -202,10 +240,6 @@ class ScienceDirect(Provider):
             raise ProviderError('no exact match for journal {}!?'.format(journal))
         else:
             return v['results'][0]
-
-    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
-        d = self._api_call(journal, volume, page, **kwargs)
-        return d['uri']
 
     def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
         d = self._api_call(journal, volume, page, **kwargs)
@@ -236,7 +270,7 @@ class Springer(Provider):
         """TOC of the volume, find your way into that ;)
         """
         if journal not in self.journal_codes:
-            raise ProviderError('not a valid name: {}'.format(journal))
+            raise IncorrectJournalName()
 
         return self.base_url + '/{}/volume/{}/toc'.format(self.journal_codes[journal], volume)
 
@@ -260,27 +294,28 @@ class Nature(Provider):
     base_url = 'https://www.nature.com'
 
     def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
-        """Requires a request"""
-
         if journal not in self.journal_codes:
-            raise ProviderError('not a valid name: {}'.format(journal))
+            raise IncorrectJournalName()
 
         url = self.base_url + '/search?journal={}&volume={}&spage={}'.format(
             self.journal_codes[journal], volume, page)
+
+        return url
+
+    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        """Requires a request"""
+
+        url = self.get_url(journal, volume, page, **kwargs)
 
         soup = BeautifulSoup(requests.get(url).content, 'lxml')
         links = soup.find_all(attrs={'data-track-action': 'search result'})
 
         if len(links) == 0:
-            raise ProviderError('article not found, did you put the first page?')
+            raise ArticleNotFound()
         elif len(links) > 1:
             raise ProviderError('More than one result?!')  # TODO: that may happen, though
 
-        return self.base_url + links[0].attrs['href']
-
-    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
-        url = self.get_url(journal, volume, page, **kwargs)
-        return url.replace(self.base_url + '/articles', self.DOI_BASE)
+        return links[0].attrs['href'].replace('/articles', self.DOI_BASE)
 
 
 class RSC(Provider):
@@ -305,16 +340,21 @@ class RSC(Provider):
     search_result_url = base_url + '/en/search/journalresult'
 
     def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
-        """Requires 2 (!) requests. For efficiency, the result will be the DOI link.
+        if journal not in self.journal_codes:
+            raise IncorrectJournalName()
+
+        url = self.search_url + '?artrefjournalname={}&artrefvolumeyear={}&artrefstartpage={}&fcategory=journal'.format(
+            self.journal_codes[journal], volume, page)
+
+        return url
+
+    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        """Requires 2 (!) requests.
 
         Note: for some reasons, an user-agent is mandatory
         """
 
-        if journal not in self.journal_codes:
-            raise ProviderError('not a valid name: {}'.format(journal))
-
-        url = self.search_url + '?artrefjournalname={}&artrefvolumeyear={}&artrefstartpage={}&fcategory=journal'.format(
-            self.journal_codes[journal], volume, page)
+        url = self.get_url(journal, volume, page)
 
         response = requests.get(url, headers={'User-Agent': 'tmp'})
         s = BeautifulSoup(response.content, 'lxml').find('input', attrs={'name': 'SearchTerm'}).attrs['value']
@@ -326,7 +366,7 @@ class RSC(Provider):
         }, headers={'User-Agent': 'goto-publi/0.1'})
 
         if len(response.content) < 50:
-            raise ProviderError('article not found')
+            raise ArticleNotFound()
 
         links = BeautifulSoup(response.content, 'lxml').select('.text--small a')
 
@@ -335,7 +375,4 @@ class RSC(Provider):
         elif len(links) > 1:
             raise ProviderError('More than one result?!')
 
-        return links[0].attrs['href']
-
-    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
-        return self.get_url(journal, volume, page)[16:]
+        return links[0].attrs['href'][16:]
