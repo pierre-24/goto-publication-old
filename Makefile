@@ -10,6 +10,7 @@ help:
 
 front:
 	npm i
+	mkdir -p static
 	gulp
 
 init:
