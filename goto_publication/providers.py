@@ -97,10 +97,12 @@ class AIP(Provider):
 
         search_url = self.get_url(journal, volume, page)
         result = self.session.get(search_url, allow_redirects=False)
+
         if result.status_code != 302:
-            raise ProviderError('article not found')
-        if 'cookieSet' in result.headers['Location']:
-            result = self.session.get(search_url, allow_redirects=False)
+            raise ArticleNotFound()
+        if 'cookieSet' in result.headers['Location'] or 'quickLink=true' in result.headers['Location']:
+            result = self.session.get(search_url, allow_redirects=False)  # request twice after setting cookies
+
         if 'doi' not in result.headers['Location']:
             raise ArticleNotFound()
 
