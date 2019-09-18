@@ -434,3 +434,34 @@ class APS(Provider):
 
         return self.DOI.format(j2=self.journal_codes[journal][1], v=volume, p=page)
 
+
+class IOP(Provider):
+    """Institute of Physics (IOP)"""
+
+    NAME = 'Institute of Physics (IOP)'
+    CODE = 'IOP'
+    WEBSITE_URL = 'https://iopscience.iop.org/'
+
+    journal_codes = {
+        'Journal of Physics A': '1751-8121'
+    }
+
+    JOURNALS = list(journal_codes.keys())
+    base_url = WEBSITE_URL + 'findcontent'
+    doi_regex = re.compile(r'article/(.*/.*/.*)\?')
+
+    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        if journal not in self.journal_codes:
+            raise IncorrectJournalName()
+
+        return self.base_url + '?CF_JOURNAL={}&CF_VOLUME={}&CF_ISSUE=&CF_PAGE={}'.format(
+            self.journal_codes[journal], volume, page)
+
+    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        url = self.get_url(journal, volume, page, **kwargs)
+
+        result = requests.get(url, allow_redirects=False)
+        if result.status_code != 301 or 'article' not in result.headers['Location']:
+            raise ArticleNotFound()
+
+        return self.doi_regex.search(result.headers['Location']).group(1)
