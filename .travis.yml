@@ -10,16 +10,12 @@ git:
 
 install:
   - pip3 install pipenv
-  - |
-    # install node
-    wget -qO- https://raw.githubusercontent.com/creationix/nvm/v${ZDS_NVM_VERSION}/install.sh | bash
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    nvm install node
+  - nvm install node
+  - export PATH=$PATH:./node/modules/.bin/
 
 
 script:
-  - nvm use
+  - nvm use default
   - make init
   - make front
   - make lint
