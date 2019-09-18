@@ -395,3 +395,42 @@ class RSC(Provider):
             raise ProviderError('More than one result?!')
 
         return links[0].attrs['href'][16:]
+
+
+class APS(Provider):
+    """American Physical Society"""
+
+    NAME = 'American Physical Society'
+    CODE = 'aps'
+    WEBSITE_URL = 'https://journals.aps.org/'
+    ICON_URL = 'https://cdn.journals.aps.org/development/journals/images/favicon.ico'
+
+    journal_codes = {
+        'Physical Review Letters': ('prl', 'PhysRevLett'),
+    }
+
+    DOI= '10.1103/{j2}.{v}.{p}'
+
+    JOURNALS = list(journal_codes.keys())
+    base_url = WEBSITE_URL + '{j1}/abstract/' + DOI
+
+    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        """Infers the article URL base on the way it is written (which is surprisingly easy).
+        """
+
+        if journal not in self.journal_codes:
+            raise IncorrectJournalName()
+
+        j1, j2 = self.journal_codes[journal]
+        return self.base_url.format(j1=j1, j2=j2, v=volume, p=page)
+
+    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        """Only checks that the url gives a 200 response. If so, the DOI is valid.
+        """
+        url = self.get_url(journal, volume, page, **kwargs)
+        response = requests.get(url)
+        if response.status_code != 200:
+            raise ArticleNotFound()
+
+        return self.DOI.format(j2=self.journal_codes[journal][1], v=volume, p=page)
+
