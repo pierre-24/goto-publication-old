@@ -14,6 +14,7 @@ from goto_publication import registry, providers
 REGISTRY = registry.Registry()
 REGISTRY.registers([  # please keep this alphabetic
     providers.ACS(),
+    providers.APS(),
     providers.AIP(),
     providers.Nature(),
     providers.RSC(),
