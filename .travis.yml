@@ -13,7 +13,7 @@ install:
   - nvm install node
 
 script:
-  - nvm use default
+  - nvm use node
   - make init
   - make front
   - make lint
