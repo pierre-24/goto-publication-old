@@ -1,0 +1,25 @@
+dist: trusty
+
+language: python
+
+python:
+  - 3.6
+
+git:
+  depth: 1
+
+install:
+  - pip3 install pipenv
+  - |
+    # install node
+    wget -qO- https://raw.githubusercontent.com/creationix/nvm/v${ZDS_NVM_VERSION}/install.sh | bash
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    nvm install node
+
+
+script:
+  - nvm use
+  - make init
+  - make front
+  - make lint
