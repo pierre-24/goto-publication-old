@@ -16,6 +16,7 @@ REGISTRY.registers([  # please keep this alphabetic
     providers.ACS(),
     providers.APS(),
     providers.AIP(),
+    providers.IOP(),
     providers.Nature(),
     providers.RSC(),
     providers.ScienceDirect(),
