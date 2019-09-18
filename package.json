@@ -4,7 +4,9 @@
   "description": "Citation-based redirection",
   "author": "Pierre Beaujean",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "gulp": "node ./node_modules/gulp/bin/gulp.js"
+  },
   "dependencies": {
     "autocompleter": "^5.1.0",
     "browserify": "^16.5.0",

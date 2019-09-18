@@ -11,8 +11,6 @@ git:
 install:
   - pip3 install pipenv
   - nvm install node
-  - export PATH=$PATH:./node/modules/.bin/
-
 
 script:
   - nvm use default
