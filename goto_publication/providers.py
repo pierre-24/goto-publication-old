@@ -2,6 +2,7 @@ import requests
 import re
 import json
 from bs4 import BeautifulSoup
+from typing import Union, Tuple, List
 
 from goto_publication.settings import API_KEY
 
@@ -18,6 +19,10 @@ class IncorrectJournalName(ProviderError):
 class ArticleNotFound(ProviderError):
     def __init__(self, *args):
         super().__init__('article not found', *args)
+
+
+class NoJournalList(ProviderError):
+    pass
 
 
 API_KEY_FIELD = 'apiKey'
@@ -59,6 +64,12 @@ class Provider:
         """Get the DOI of the article.
 
         Slower than `get_url()`, because some requests are made. But the DOI is guaranteed to be exact.
+        """
+
+        raise NotImplementedError()
+
+    def get_journals(self) -> List[Union[str, Tuple]]:
+        """Retrieve, at **any** cost, a list of the journals of this provider.
         """
 
         raise NotImplementedError()
@@ -120,6 +131,21 @@ class ACS(Provider):
 
         return self._get_url(self.journal_codes[journal], volume, page, **kwargs)
 
+    def get_journals(self) -> List[Union[str, Tuple]]:
+        result = self.session.get(self.WEBSITE_URL)
+        if result.status_code != 200:
+            raise NoJournalList()
+
+        soup = BeautifulSoup(result.content, 'lxml')
+        opts = soup.find('select', attrs={'class': 'quick-search_journals-select'}).find_all('option')
+
+        journals = []
+        for o in opts:
+            if o.attrs['value'] != '':
+                journals.append((o.text, o.attrs['value']))
+
+        return journals
+
 
 class APS(Provider):
     """American Physical Society"""
@@ -176,6 +202,21 @@ class AIP(ACS):
 
     def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
         return self._get_url(journal, volume, page, **kwargs)
+
+    def get_journals(self) -> List[Union[str, Tuple]]:
+        result = self.session.get(self.WEBSITE_URL)
+        if result.status_code != 200:
+            raise NoJournalList()
+
+        soup = BeautifulSoup(result.content, 'lxml')
+        opts = soup.find('div', attrs={'class': 'scitation-journals-covers'})\
+            .find_all('span', attrs={'class': 'journal-title'})
+
+        journals = []
+        for o in opts:
+            journals.append(o.find('a').text.strip().replace(' (co-published with ACA)', ''))
+
+        return journals
 
 
 class IOP(Provider):
