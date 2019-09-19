@@ -1,0 +1,20 @@
+dist: trusty
+
+language: python
+
+python:
+  - 3.6
+
+git:
+  depth: 1
+
+install:
+  - pip3 install pipenv
+  - nvm install node
+
+script:
+  - nvm use node
+  - make init
+  - make front
+  - make tests
+  - make lint
