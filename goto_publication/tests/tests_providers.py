@@ -33,16 +33,16 @@ class TestProviders(unittest.TestCase):
         self._check(providers.IOP(), ('Journal of Physics A', 52, 320201))  # G. Adresso et al.
 
     def test_Nature(self):
-        self._check(providers.Nature(), ('Nature', 227, 680))  # U.K. Laemmli et al. (second most cited paper)
+        self._check(providers.Nature(), ('Nature', 227, 680))  # U.K. Laemmli et al. (second most cited)
 
     def test_RSC(self):
-        pass
+        self._check(providers.RSC(), ('Physical Chemistry Chemical Physics (PCCP)', 21, 2222))  # (...)
 
     def test_ScienceDirect(self):
         pass  # doi requires API key
 
     def test_Springer(self):
-        pass
+        pass  # no DOI for Springer
 
     def test_Wiley(self):
-        pass  # no DOI for Wiley
+        self._check(providers.Wiley(), ('Chemistry - A European Journal', 15, 186))  # Pyyklö et al. (most cited)
