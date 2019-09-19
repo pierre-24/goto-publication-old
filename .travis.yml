@@ -16,4 +16,5 @@ script:
   - nvm use node
   - make init
   - make front
+  - make tests
   - make lint

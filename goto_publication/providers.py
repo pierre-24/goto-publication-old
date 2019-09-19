@@ -64,19 +64,22 @@ class Provider:
         raise NotImplementedError()
 
 
-class AIP(Provider):
-    """American Institute of Physics"""
+# !! Please keep the list alphabetic
 
-    NAME = 'American Institute of Physics (AIP)'
-    CODE = 'aip'
-    WEBSITE_URL = 'https://aip.scitation.org/'
 
-    JOURNALS = [
-        'Journal of Applied Physics',
-        'The Journal of Chemical Physics',
-        'Journal of Mathematical Physics'
-    ]
+class ACS(Provider):
+    """American chemical society. Their API is very close to the AIP one (except there is journal codes).
+    """
 
+    NAME = 'American Chemical Society'
+    CODE = 'acs'
+    WEBSITE_URL = 'https://pubs.acs.org/'
+
+    journal_codes = {
+        'Journal of the American Chemical Society': 'jacsat'
+    }
+
+    JOURNALS = list(journal_codes.keys())
     base_url = WEBSITE_URL + 'action/quickLink'
     doi_regex = re.compile(r'abs/(.*/.*)\?')
 
@@ -84,7 +87,7 @@ class AIP(Provider):
         super().__init__()
         self.session = requests.session()
 
-    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def _get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
         """Requires no request
         """
 
@@ -108,78 +111,205 @@ class AIP(Provider):
 
         return self.doi_regex.search(result.headers['Location']).group(1)
 
-
-class ACS(AIP):
-    """American chemical society. Their API is very close to the AIP one (except there is journal codes).
-    """
-
-    NAME = 'American Chemical Society'
-    CODE = 'acs'
-    WEBSITE_URL = 'https://pubs.acs.org/'
-
-    journal_codes = {
-        'Journal of the American Chemical Society': 'jacsat'
-    }
-
-    JOURNALS = list(journal_codes.keys())
-    base_url = WEBSITE_URL + 'action/quickLink'
-
-    def __init__(self):
-        super().__init__()
-        self.session = requests.session()
+    def __del__(self):
+        self.session.close()
 
     def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
         if journal not in self.journal_codes:
             raise IncorrectJournalName()
 
-        return super().get_url(self.journal_codes[journal], volume, page)
+        return self._get_url(self.journal_codes[journal], volume, page, **kwargs)
 
 
-class Wiley(Provider):
-    """Wiley.
+class APS(Provider):
+    """American Physical Society"""
 
-    Perform the request on their search page API, since there is no other correct API available.
-    Sorry about that, open to any suggestion.
-    """
-
-    NAME = 'Wiley'
-    CODE = 'wiley'
-    WEBSITE_URL = 'https://onlinelibrary.wiley.com/'
+    NAME = 'American Physical Society'
+    CODE = 'aps'
+    WEBSITE_URL = 'https://journals.aps.org/'
+    ICON_URL = 'https://cdn.journals.aps.org/development/journals/images/favicon.ico'
 
     journal_codes = {
-        'Chemistry - A European Journal': 15213765
+        'Physical Review Letters': ('prl', 'PhysRevLett'),
     }
 
-    JOURNALS = list(journal_codes.keys())
+    DOI = '10.1103/{j2}.{v}.{p}'
 
-    api_url = WEBSITE_URL + 'action/quickLink'
+    JOURNALS = list(journal_codes.keys())
+    base_url = WEBSITE_URL + '{j1}/abstract/' + DOI
 
     def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
-        """Require a single request to get the url (which contains the DOI)
+        """Infers the article URL base on the way it is written (which is surprisingly easy).
         """
+
         if journal not in self.journal_codes:
             raise IncorrectJournalName()
 
-        url = self.api_url + '?quickLinkJournal={j}&quickLinkVolume={v}&quickLinkPage={p}&quickLink=true'.format(
-            j=self.journal_codes[journal], v=volume, p=page)
-
-        result = requests.get(url)
-        if result.status_code != 200:
-            raise ProviderError('error while requesting search')
-
-        j = result.json()
-        if 'link' not in j:
-            raise ArticleNotFound()
-
-        return self.WEBSITE_URL + j['link'][1:]
+        j1, j2 = self.journal_codes[journal]
+        return self.base_url.format(j1=j1, j2=j2, v=volume, p=page)
 
     def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
-        result_url = self.get_url(journal, volume, page)
-        p = result_url.find('abs/')
-        if p == -1:
-            raise ProviderError('cannot find DOI')
+        """Only checks that the url gives a 200 response. If so, the DOI is valid.
+        """
+        url = self.get_url(journal, volume, page, **kwargs)
+        response = requests.get(url)
+        if response.status_code != 200:
+            raise ArticleNotFound()
 
-        return result_url[p + 4:]
+        return self.DOI.format(j2=self.journal_codes[journal][1], v=volume, p=page)
+
+
+class AIP(ACS):
+    """American Institute of Physics"""
+
+    NAME = 'American Institute of Physics (AIP)'
+    CODE = 'aip'
+    WEBSITE_URL = 'https://aip.scitation.org/'
+
+    JOURNALS = [
+        'Journal of Applied Physics',
+        'The Journal of Chemical Physics',
+        'Journal of Mathematical Physics'
+    ]
+
+    base_url = WEBSITE_URL + 'action/quickLink'
+
+    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        return self._get_url(journal, volume, page, **kwargs)
+
+
+class IOP(Provider):
+    """Institute of Physics (IOP)"""
+
+    NAME = 'Institute of Physics (IOP)'
+    CODE = 'IOP'
+    WEBSITE_URL = 'https://iopscience.iop.org/'
+
+    journal_codes = {
+        'Journal of Physics A': '1751-8121'
+    }
+
+    JOURNALS = list(journal_codes.keys())
+    base_url = WEBSITE_URL + 'findcontent'
+    doi_regex = re.compile(r'article/(.*/.*/.*)\?')
+
+    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        if journal not in self.journal_codes:
+            raise IncorrectJournalName()
+
+        return self.base_url + '?CF_JOURNAL={}&CF_VOLUME={}&CF_ISSUE=&CF_PAGE={}'.format(
+            self.journal_codes[journal], volume, page)
+
+    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        url = self.get_url(journal, volume, page, **kwargs)
+
+        result = requests.get(url, allow_redirects=False)
+        if result.status_code != 301 or 'article' not in result.headers['Location']:
+            raise ArticleNotFound()
+
+        return self.doi_regex.search(result.headers['Location']).group(1)
+
+
+class Nature(Provider):
+    """Even though they have an OpenSearch API (https://www.nature.com/opensearch/), not
+    everything seems to be indexed in it (not much of Nature for years < 2010, for example).
+
+    Therefore, this one will rely on the search page.
+    """
+
+    NAME = 'Nature'
+    CODE = 'nat'
+    DOI_BASE = '10.1038'
+    WEBSITE_URL = 'https://www.nature.com/'
+
+    journal_codes = {
+        'Nature': 'nature'
+    }
+
+    JOURNALS = list(journal_codes.keys())
+
+    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        if journal not in self.journal_codes:
+            raise IncorrectJournalName()
+
+        url = self.WEBSITE_URL + 'search?journal={}&volume={}&spage={}'.format(
+            self.journal_codes[journal], volume, page)
+
+        return url
+
+    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        """Requires a request"""
+
+        url = self.get_url(journal, volume, page, **kwargs)
+
+        soup = BeautifulSoup(requests.get(url).content, 'lxml')
+        links = soup.find_all(attrs={'data-track-action': 'search result'})
+
+        if len(links) == 0:
+            raise ArticleNotFound()
+        elif len(links) > 1:
+            raise ProviderError('More than one result?!')  # TODO: that may happen, though
+
+        return links[0].attrs['href'].replace('/articles', self.DOI_BASE)
+
+
+class RSC(Provider):
+    """Royal society of Chemistry
+
+    No trace of an API, but a painful two-request process to get any result:
+    the actual result page takes a long (mostly base64) payload as POST input, but this payload cannot be forged in
+    advance (it seems to contain, at least, some information on the system which generates it).
+    """
+
+    NAME = 'Royal society of Chemistry'
+    CODE = 'rsc'
+    WEBSITE_URL = 'https://pubs.rsc.org/'
+
+    journal_codes = {
+        'Physical Chemistry Chemical Physics (PCCP)': 'phys. chem. chem. phys.'
+    }
+
+    JOURNALS = list(journal_codes.keys())
+    search_url = WEBSITE_URL + 'en/results'
+    search_result_url = WEBSITE_URL + 'en/search/journalresult'
+
+    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        if journal not in self.journal_codes:
+            raise IncorrectJournalName()
+
+        url = self.search_url + '?artrefjournalname={}&artrefvolumeyear={}&artrefstartpage={}&fcategory=journal'.format(
+            self.journal_codes[journal], volume, page)
+
+        return url
+
+    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+        """Requires 2 (!) requests.
+
+        Note: for some reasons, an user-agent is mandatory
+        """
+
+        url = self.get_url(journal, volume, page)
+
+        response = requests.get(url, headers={'User-Agent': 'tmp'})
+        s = BeautifulSoup(response.content, 'lxml').find('input', attrs={'name': 'SearchTerm'}).attrs['value']
+        response = requests.post(self.search_result_url, data={
+            'searchterm': s,
+            'resultcount': 1,
+            'category': 'journal',
+            'pageno': 1
+        }, headers={'User-Agent': 'goto-publi/0.1'})
+
+        if len(response.content) < 50:
+            raise ArticleNotFound()
+
+        links = BeautifulSoup(response.content, 'lxml').select('.text--small a')
+
+        if len(links) == 0:
+            raise ProviderError('article not found, did you put the first page?')
+        elif len(links) > 1:
+            raise ProviderError('More than one result?!')
+
+        return links[0].attrs['href'][16:]
 
 
 class ScienceDirect(Provider):
@@ -295,173 +425,48 @@ class Springer(Provider):
         return self.base_url + '/{}/volume/{}/toc'.format(self.journal_codes[journal], volume)
 
 
-class Nature(Provider):
-    """Even though they have an OpenSearch API (https://www.nature.com/opensearch/), not
-    everything seems to be indexed in it (not much of Nature for years < 2010, for example).
+class Wiley(Provider):
+    """Wiley.
 
-    Therefore, this one will rely on the search page.
+    Perform the request on their search page API, since there is no other correct API available.
+    Sorry about that, open to any suggestion.
     """
 
-    NAME = 'Nature'
-    CODE = 'nat'
-    DOI_BASE = '10.1038'
-    WEBSITE_URL = 'https://www.nature.com/'
+    NAME = 'Wiley'
+    CODE = 'wiley'
+    WEBSITE_URL = 'https://onlinelibrary.wiley.com/'
 
     journal_codes = {
-        'Nature': 'nature'
+        'Chemistry - A European Journal': 15213765
     }
 
     JOURNALS = list(journal_codes.keys())
 
-    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
-        if journal not in self.journal_codes:
-            raise IncorrectJournalName()
-
-        url = self.WEBSITE_URL + 'search?journal={}&volume={}&spage={}'.format(
-            self.journal_codes[journal], volume, page)
-
-        return url
-
-    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
-        """Requires a request"""
-
-        url = self.get_url(journal, volume, page, **kwargs)
-
-        soup = BeautifulSoup(requests.get(url).content, 'lxml')
-        links = soup.find_all(attrs={'data-track-action': 'search result'})
-
-        if len(links) == 0:
-            raise ArticleNotFound()
-        elif len(links) > 1:
-            raise ProviderError('More than one result?!')  # TODO: that may happen, though
-
-        return links[0].attrs['href'].replace('/articles', self.DOI_BASE)
-
-
-class RSC(Provider):
-    """Royal society of Chemistry
-
-    No trace of an API, but a painful two-request process to get any result:
-    the actual result page takes a long (mostly base64) payload as POST input, but this payload cannot be forged in
-    advance (it seems to contain, at least, some information on the system which generates it).
-    """
-
-    NAME = 'Royal society of Chemistry'
-    CODE = 'rsc'
-    WEBSITE_URL = 'https://pubs.rsc.org/'
-
-    journal_codes = {
-        'Physical Chemistry Chemical Physics (PCCP)': 'phys. chem. chem. phys.'
-    }
-
-    JOURNALS = list(journal_codes.keys())
-    search_url = WEBSITE_URL + 'en/results'
-    search_result_url = WEBSITE_URL + 'en/search/journalresult'
+    api_url = WEBSITE_URL + 'action/quickLink'
 
     def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
-        if journal not in self.journal_codes:
-            raise IncorrectJournalName()
-
-        url = self.search_url + '?artrefjournalname={}&artrefvolumeyear={}&artrefstartpage={}&fcategory=journal'.format(
-            self.journal_codes[journal], volume, page)
-
-        return url
-
-    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
-        """Requires 2 (!) requests.
-
-        Note: for some reasons, an user-agent is mandatory
+        """Require a single request to get the url (which contains the DOI)
         """
-
-        url = self.get_url(journal, volume, page)
-
-        response = requests.get(url, headers={'User-Agent': 'tmp'})
-        s = BeautifulSoup(response.content, 'lxml').find('input', attrs={'name': 'SearchTerm'}).attrs['value']
-        response = requests.post(self.search_result_url, data={
-            'searchterm': s,
-            'resultcount': 1,
-            'category': 'journal',
-            'pageno': 1
-        }, headers={'User-Agent': 'goto-publi/0.1'})
-
-        if len(response.content) < 50:
-            raise ArticleNotFound()
-
-        links = BeautifulSoup(response.content, 'lxml').select('.text--small a')
-
-        if len(links) == 0:
-            raise ProviderError('article not found, did you put the first page?')
-        elif len(links) > 1:
-            raise ProviderError('More than one result?!')
-
-        return links[0].attrs['href'][16:]
-
-
-class APS(Provider):
-    """American Physical Society"""
-
-    NAME = 'American Physical Society'
-    CODE = 'aps'
-    WEBSITE_URL = 'https://journals.aps.org/'
-    ICON_URL = 'https://cdn.journals.aps.org/development/journals/images/favicon.ico'
-
-    journal_codes = {
-        'Physical Review Letters': ('prl', 'PhysRevLett'),
-    }
-
-    DOI= '10.1103/{j2}.{v}.{p}'
-
-    JOURNALS = list(journal_codes.keys())
-    base_url = WEBSITE_URL + '{j1}/abstract/' + DOI
-
-    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
-        """Infers the article URL base on the way it is written (which is surprisingly easy).
-        """
-
         if journal not in self.journal_codes:
             raise IncorrectJournalName()
 
-        j1, j2 = self.journal_codes[journal]
-        return self.base_url.format(j1=j1, j2=j2, v=volume, p=page)
+        url = self.api_url + '?quickLinkJournal={j}&quickLinkVolume={v}&quickLinkPage={p}&quickLink=true'.format(
+            j=self.journal_codes[journal], v=volume, p=page)
 
-    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
-        """Only checks that the url gives a 200 response. If so, the DOI is valid.
-        """
-        url = self.get_url(journal, volume, page, **kwargs)
-        response = requests.get(url)
-        if response.status_code != 200:
+        result = requests.get(url)
+        if result.status_code != 200:
+            raise ProviderError('error while requesting search')
+
+        j = result.json()
+        if 'link' not in j:
             raise ArticleNotFound()
 
-        return self.DOI.format(j2=self.journal_codes[journal][1], v=volume, p=page)
-
-
-class IOP(Provider):
-    """Institute of Physics (IOP)"""
-
-    NAME = 'Institute of Physics (IOP)'
-    CODE = 'IOP'
-    WEBSITE_URL = 'https://iopscience.iop.org/'
-
-    journal_codes = {
-        'Journal of Physics A': '1751-8121'
-    }
-
-    JOURNALS = list(journal_codes.keys())
-    base_url = WEBSITE_URL + 'findcontent'
-    doi_regex = re.compile(r'article/(.*/.*/.*)\?')
-
-    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
-        if journal not in self.journal_codes:
-            raise IncorrectJournalName()
-
-        return self.base_url + '?CF_JOURNAL={}&CF_VOLUME={}&CF_ISSUE=&CF_PAGE={}'.format(
-            self.journal_codes[journal], volume, page)
+        return self.WEBSITE_URL + j['link'][1:]
 
     def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
-        url = self.get_url(journal, volume, page, **kwargs)
+        result_url = self.get_url(journal, volume, page)
+        p = result_url.find('abs/')
+        if p == -1:
+            raise ProviderError('cannot find DOI')
 
-        result = requests.get(url, allow_redirects=False)
-        if result.status_code != 301 or 'article' not in result.headers['Location']:
-            raise ArticleNotFound()
-
-        return self.doi_regex.search(result.headers['Location']).group(1)
+        return result_url[p + 4:]
