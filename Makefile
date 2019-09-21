@@ -19,11 +19,11 @@ sync:
 	pipenv sync --dev
 
 lint:
-	pipenv run flake8 app.py goto_publi --max-line-length=120 --ignore=N802
+	lake8 app.py goto_publi --max-line-length=120 --ignore=N802
 
 run:
 	export FLASK_APP=app.py; export FLASK_DEBUG=1; flask run -h 127.0.0.1 -p 5000
 
 tests:
-	pipenv run python -m unittest discover -s goto_publication.tests
+	python -m unittest discover -s goto_publication.tests
 

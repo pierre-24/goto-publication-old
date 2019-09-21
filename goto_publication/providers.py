@@ -184,6 +184,23 @@ class APS(Provider):
 
         return self.DOI.format(j2=self.journal_codes[journal][1], v=volume, p=page)
 
+    def get_journals(self) -> List[Union[str, Tuple]]:
+        """
+        Note: the journal abbreviation is missing, since there is no possibility to guess it (except one request
+        per journal).
+        """
+        response = requests.get('https://journals.aps.org/')
+        soup = BeautifulSoup(response.content, 'lxml')
+
+        links = soup.find('ul', attrs={'class': 'dropdown'}).find_all('a')
+        journals = []
+
+        for l in links[:-4]:
+            text = l.text
+            journals.append((text, l.attrs['href'][1:-1]))
+
+        return journals
+
 
 class AIP(ACS):
     """American Institute of Physics"""
