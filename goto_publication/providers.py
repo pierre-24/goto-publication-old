@@ -185,19 +185,22 @@ class APS(Provider):
         return self.DOI.format(j2=self.journal_codes[journal][1], v=volume, p=page)
 
     def get_journals(self) -> List[Union[str, Tuple]]:
-        """
-        Note: the journal abbreviation is missing, since there is no possibility to guess it (except one request
-        per journal).
-        """
-        response = requests.get('https://journals.aps.org/')
+
+        response = requests.get(self.WEBSITE_URL + 'about')
         soup = BeautifulSoup(response.content, 'lxml')
 
-        links = soup.find('ul', attrs={'class': 'dropdown'}).find_all('a')
+        divs = soup.find_all('div', attrs={'class': 'article'})
         journals = []
 
-        for l in links[:-4]:
-            text = l.text
-            journals.append((text, l.attrs['href'][1:-1]))
+        for l in divs[:-1]:  # Remove "Physics", which is published by another provider
+            a = l.find('a', attrs={'class': 'button'})
+            journals.append(
+                (l.find('h5').text, (a.attrs['href'][1:-1], a.text[5:].replace('.', '').replace(' ', '')))
+            )
+
+        # add "Physical Review", which is not on the about page
+        journals.append(('Physical Review', ('pr', 'PhysRev')))
+        journals.append(('Physical Review (Series I)', ('pri', 'PhysRevSeriesI')))
 
         return journals
 

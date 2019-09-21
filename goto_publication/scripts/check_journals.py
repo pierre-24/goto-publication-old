@@ -8,8 +8,8 @@ from goto_publication import providers
 
 PROVIDERS = [  # will be replaced by REGISTER later on
     # providers.ACS(),
-    providers.APS()
-    # providers.AIP()
+    providers.APS(),
+    # providers.AIP(),
 ]
 
 if __name__ == '__main__':
