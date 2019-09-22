@@ -5,7 +5,6 @@ from bs4 import BeautifulSoup
 from typing import List, Any
 
 from goto_publication import journal
-from goto_publication.int_map import IntMap, N0, S
 
 
 class ProviderError(Exception):
@@ -178,9 +177,9 @@ class APS(Provider):
 
         # add the two "Physical Review", which are not on the "about" page
         journals.append(
-            journal.Journal('Physical Review', IntMap((['pr', 'PhysRev'], S(1, 188))), self))
+            journal.Journal('Physical Review', ['pr', 'PhysRev'], self))
         journals.append(
-            journal.Journal('Physical Review (Series I)', IntMap((['pri', 'PhysRevSeriesI'], S(1, 35))), self))
+            journal.Journal('Physical Review (Series I)', ['pri', 'PhysRevSeriesI'], self))
 
         return journals
 
@@ -222,7 +221,7 @@ class IOP(Provider):
     WEBSITE_URL = 'https://iopscience.iop.org/'
 
     JOURNALS = {
-        'Journal of Physics A': IntMap(('1751-8121', N0))
+        'Journal of Physics A': '1751-8121'
     }
 
     base_url = WEBSITE_URL + 'findcontent'
@@ -267,7 +266,7 @@ class Nature(Provider):
     WEBSITE_URL = 'https://www.nature.com/'
 
     JOURNALS = {
-        'Nature': IntMap(('nature', N0))
+        'Nature': 'nature'
     }
 
     def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
@@ -305,7 +304,7 @@ class RSC(Provider):
     WEBSITE_URL = 'https://pubs.rsc.org/'
 
     JOURNALS = {
-        'Physical Chemistry Chemical Physics (PCCP)': IntMap(('phys. chem. chem. phys.', N0))
+        'Physical Chemistry Chemical Physics (PCCP)': 'phys. chem. chem. phys.'
     }
 
     search_url = WEBSITE_URL + 'en/results'
@@ -359,7 +358,7 @@ class ScienceDirect(Provider):
     ICON_URL = 'https://sdfestaticassets-eu-west-1.sciencedirectassets.com/shared-assets/18/images/favSD.ico'
 
     JOURNALS = {
-        'Chemical Physics': IntMap((271366, N0))
+        'Chemical Physics': 271366
     }
 
     api_url = 'https://api.elsevier.com/content/search/sciencedirect'
@@ -452,8 +451,8 @@ class Springer(Provider):
         'https://link.springer.com/static/17c1f2edc5a95a03d2f5f7b0019142685841f5ad/sites/link/images/favicon-32x32.png'
 
     JOURNALS = {
-        'Theoretical Chemistry Accounts': IntMap((214, N0)),
-        'Theoretica chimica acta': IntMap((214, N0)),
+        'Theoretical Chemistry Accounts': 214,
+        'Theoretica chimica acta': 214,
     }
 
     base_url = WEBSITE_URL + 'journal_identifier/'
@@ -475,7 +474,7 @@ class Wiley(Provider):
     WEBSITE_URL = 'https://onlinelibrary.wiley.com/'
 
     JOURNALS = {
-        'Chemistry - A European Journal': IntMap((15213765, N0))
+        'Chemistry - A European Journal': 15213765
     }
 
     api_url = WEBSITE_URL + 'action/quickLink'
