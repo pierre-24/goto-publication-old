@@ -55,7 +55,16 @@ class S:
         self.end = end
 
     def __repr__(self):
-        return 'S({},{})'.format(repr(self.begin), repr(self.end))
+        if self.begin == mInf and self.end == Inf:
+            return 'Z'
+
+        if self.begin == 0 and self.end == Inf:
+            return 'N'
+
+        if self.begin == 1 and self.end == Inf:
+            return 'N0'
+
+        return 'S({}, {})'.format(repr(self.begin), repr(self.end))
 
     def __str__(self) -> str:
         return '[{};{}]'.format(self.begin, self.end)
@@ -97,6 +106,11 @@ class S:
         return self.is_in(v.begin) and self.is_in(v.end)
 
 
+N0 = S(begin=1)
+N = S(begin=0)
+Z = S()
+
+
 class IntMap:
     """Map between the integers and some values
     """
@@ -119,6 +133,9 @@ class IntMap:
                     self._set(*v)
             else:
                 self._set(values)
+
+    def __repr__(self):
+        return 'IntMap({})'.format(repr(self.subsets))
 
     def _set(self, value: Any, subset: S = S()) -> None:
         """Set a value for a given subset of indices.

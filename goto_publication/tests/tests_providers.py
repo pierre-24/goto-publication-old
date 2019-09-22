@@ -16,7 +16,8 @@ class TestProviders(unittest.TestCase):
         Otherwise, you will messed up the read count of the corresponding articles, which may result in troubles.
         """
 
-        result = requests.get('https://dx.doi.org/' + p.get_doi(*info, **kwargs), allow_redirects=False)
+        doi = p.get_doi(*info, **kwargs)
+        result = requests.get('https://dx.doi.org/' + doi, allow_redirects=False)
         self.assertEqual(result.status_code, 302)
 
     # !! Please keep the list alphabetic

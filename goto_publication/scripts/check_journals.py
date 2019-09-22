@@ -7,9 +7,10 @@ import sys
 from goto_publication import providers
 
 PROVIDERS = [  # will be replaced by REGISTER later on
-    # providers.ACS(),
+    providers.ACS(),
     providers.APS(),
-    # providers.AIP(),
+    providers.AIP(),
+    # providers.IOP()
 ]
 
 if __name__ == '__main__':
@@ -17,14 +18,16 @@ if __name__ == '__main__':
 
     for p in PROVIDERS:
         print('- Checking {} ...'.format(p.NAME))
+        missing = {}
 
-        for j in p.get_journals():
-            journal_name = j
-            if type(j) is tuple:
-                journal_name = j[0]
-            if journal_name not in p.JOURNALS:
-                print('  - missing {}'.format(j if type(j) is tuple else '\'{}\''.format(j)))
+        journals = p.get_journals()
+
+        for j in journals:
+            if j not in p.JOURNALS:
+                missing.update({j: journals[j]})
                 total_missing += 1
+
+        print(' ', repr(missing))
 
     print('\nTotal missing: {}'.format(total_missing))
 
