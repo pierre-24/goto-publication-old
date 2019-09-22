@@ -1,7 +1,8 @@
 from flask import Flask, render_template
 from flask_restful import Api
 
-from goto_publication import api_views, __version__, __program_name__
+from goto_publication import __version__, __program_name__
+import api_views
 
 # APP
 app = Flask(__name__)

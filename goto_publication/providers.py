@@ -2,10 +2,10 @@ import requests
 import re
 import json
 from bs4 import BeautifulSoup
-from typing import Dict
+from typing import List, Any
 
+from goto_publication import journal
 from goto_publication.int_map import IntMap, N0, S
-from goto_publication.settings import API_KEY
 
 
 class ProviderError(Exception):
@@ -14,7 +14,7 @@ class ProviderError(Exception):
 
 class IncorrectJournalName(ProviderError):
     def __init__(self, *args):
-        super().__init__('incorrect journal name', *args)
+        super().__init__('incorrect journal_identifier name', *args)
 
 
 class IncorrectVolume(ProviderError):
@@ -39,7 +39,6 @@ class Provider:
     NAME = ''
     WEBSITE_URL = ''  # !! please add trailing slash
     ICON_URL = ''
-    JOURNALS = {}
 
     API_KEY_KWARG = False
 
@@ -56,7 +55,7 @@ class Provider:
             'providerWebsite': self.WEBSITE_URL,
         }
 
-    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
+    def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Get an url that go close to the actual article (a search page with the form filled, or in the
         best cases, the actual article).
 
@@ -66,7 +65,7 @@ class Provider:
 
         raise NotImplementedError()
 
-    def get_doi(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
+    def get_doi(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Get the DOI of the article.
 
         Slower than `get_url()`, because some requests are made. But the DOI is guaranteed to be exact.
@@ -74,7 +73,7 @@ class Provider:
 
         raise NotImplementedError()
 
-    def get_journals(self) -> Dict[str, IntMap]:
+    def get_journals(self) -> List[journal.Journal]:
         """Retrieve, at **any** cost, a list of the journals of this provider.
         """
 
@@ -85,93 +84,12 @@ class Provider:
 
 
 class ACS(Provider):
-    """American chemical society. Their API is very close to the AIP one (except there is journal codes).
+    """American chemical society. Their API is very close to the AIP one (except there is journal_identifier codes).
     """
 
     NAME = 'American Chemical Society'
     CODE = 'acs'
     WEBSITE_URL = 'https://pubs.acs.org/'
-
-    JOURNALS = {
-        'Accounts of Chemical Research': IntMap([('achre4', N0)]),
-        'ACS Applied Bio Materials': IntMap([('aabmcb', N0)]),
-        'ACS Applied Electronic Materials': IntMap([('aaembp', N0)]),
-        'ACS Applied Energy Materials': IntMap([('aaemcq', N0)]),
-        'ACS Applied Materials & Interfaces': IntMap([('aamick', N0)]),
-        'ACS Applied Nano Materials': IntMap([('aanmf6', N0)]),
-        'ACS Biomaterials Science & Engineering': IntMap([('abseba', N0)]),
-        'ACS Catalysis': IntMap([('accacs', N0)]),
-        'ACS Central Science': IntMap([('acscii', N0)]),
-        'ACS Chemical Biology': IntMap([('acbcct', N0)]),
-        'ACS Chemical Neuroscience': IntMap([('acncdm', N0)]),
-        'ACS Combinatorial Science': IntMap([('acsccc', N0)]),
-        'ACS Earth and Space Chemistry': IntMap([('aesccq', N0)]),
-        'ACS Energy Letters': IntMap([('aelccp', N0)]),
-        'ACS Infectious Diseases': IntMap([('aidcbc', N0)]),
-        'ACS Macro Letters': IntMap([('amlccd', N0)]),
-        'ACS Medicinal Chemistry Letters': IntMap([('amclct', N0)]),
-        'ACS Nano': IntMap([('ancac3', N0)]),
-        'ACS Omega': IntMap([('acsodf', N0)]),
-        'ACS Pharmacology & Translational Science': IntMap([('aptsfn', N0)]),
-        'ACS Photonics': IntMap([('apchd5', N0)]),
-        'ACS Sensors': IntMap([('ascefj', N0)]),
-        'ACS Sustainable Chemistry & Engineering': IntMap([('ascecg', N0)]),
-        'ACS Synthetic Biology': IntMap([('asbcd6', N0)]),
-        'Analytical Chemistry': IntMap([('ancham', N0)]),
-        'Biochemistry': IntMap([('bichaw', N0)]),
-        'Bioconjugate Chemistry': IntMap([('bcches', N0)]),
-        'Biomacromolecules': IntMap([('bomaf6', N0)]),
-        'Biotechnology Progress': IntMap([('bipret', N0)]),
-        'C&EN Global Enterprise': IntMap([('cgeabj', N0)]),
-        'Chemical & Engineering News Archive': IntMap([('cenear', N0)]),
-        'Chemical Research in Toxicology': IntMap([('crtoec', N0)]),
-        'Chemical Reviews': IntMap([('chreay', N0)]),
-        'Chemistry of Materials': IntMap([('cmatex', N0)]),
-        'Crystal Growth & Design': IntMap([('cgdefu', N0)]),
-        'Energy & Fuels': IntMap([('enfuem', N0)]),
-        'Environmental Science & Technology': IntMap([('esthag', N0)]),
-        'Environmental Science & Technology Letters': IntMap([('estlcu', N0)]),
-        'I&EC Product Research and Development': IntMap([('iepra6.2', N0)]),
-        'Industrial & Engineering Chemistry': IntMap([('iechad', N0)]),
-        'Industrial & Engineering Chemistry Analytical Edition': IntMap([('iecac0', N0)]),
-        'Industrial & Engineering Chemistry Chemical & Engineering Data Series': IntMap([('iecjc0', N0)]),
-        'Industrial & Engineering Chemistry Fundamentals': IntMap([('iecfa7', N0)]),
-        'Industrial & Engineering Chemistry Process Design and Development': IntMap([('iepdaw', N0)]),
-        'Industrial & Engineering Chemistry Product Research and Development': IntMap([('iepra6', N0)]),
-        'Industrial & Engineering Chemistry Research': IntMap([('iecred', N0)]),
-        'Industrial and Engineering Chemistry, News Edition': IntMap([('iecnav', N0)]),
-        'Inorganic Chemistry': IntMap([('inocaj', N0)]),
-        'Journal of Agricultural and Food Chemistry': IntMap([('jafcau', N0)]),
-        'Journal of Chemical & Engineering Data': IntMap([('jceaax', N0)]),
-        'Journal of Chemical Documentation': IntMap([('jci001', N0)]),
-        'Journal of Chemical Education': IntMap([('jceda8', N0)]),
-        'Journal of Chemical Information and Computer Sciences': IntMap([('jcics1', N0)]),
-        'Journal of Chemical Information and Modeling': IntMap([('jcisd8', N0)]),
-        'Journal of the American Chemical Society': IntMap([('jacsat', N0)]),
-        'Journal of Chemical Theory and Computation': IntMap([('jctcce', N0)]),
-        'Journal of Combinatorial Chemistry': IntMap([('jcchff', N0)]),
-        'Journal of Industrial & Engineering Chemistry': IntMap([('iechad.1', N0)]),
-        'Journal of Medicinal and Pharmaceutical Chemistry': IntMap([('jmcmar.1', N0)]),
-        'Journal of Medicinal Chemistry': IntMap([('jmcmar', N0)]),
-        'Journal of Natural Products': IntMap([('jnprdf', N0)]),
-        'The Journal of Organic Chemistry': IntMap([('joceah', N0)]),
-        'The Journal of Physical Chemistry': IntMap([('jpchax.2', N0)]),
-        'The Journal of Physical Chemistry A': IntMap([('jpcafh', N0)]),
-        'The Journal of Physical Chemistry B': IntMap([('jpcbfk', N0)]),
-        'The Journal of Physical Chemistry C': IntMap([('jpccck', N0)]),
-        'The Journal of Physical Chemistry Letters': IntMap([('jpclcd', N0)]),
-        'Journal of Proteome Research': IntMap([('jprobs', N0)]),
-        'Langmuir': IntMap([('langd5', N0)]),
-        'Macromolecules': IntMap([('mamobx', N0)]),
-        'Molecular Pharmaceutics': IntMap([('mpohbp', N0)]),
-        'Nano Letters': IntMap([('nalefd', N0)]),
-        'News Edition, American Chemical Society': IntMap([('neaca9', N0)]),
-        'Organic Letters': IntMap([('orlef7', N0)]),
-        'Organic Process Research & Development': IntMap([('oprdfk', N0)]),
-        'Organometallics': IntMap([('orgnd7', N0)]), 'PNAS': IntMap([('pnas', N0)]),
-        'Product R&D': IntMap([('iepra6.1', N0)]),
-        'The Journal of Physical and Colloid Chemistry': IntMap([('jpchax.1', N0)])
-    }
 
     base_url = WEBSITE_URL + 'action/quickLink'
     doi_regex = re.compile(r'abs/(.*/.*)\?')
@@ -184,18 +102,18 @@ class ACS(Provider):
         if self.session is not None:
             self.session.close()
 
-    def _get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
+    def _get_url(self, journal_identifiers: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Requires no request
         """
 
         return self.base_url + '?quickLinkJournal={j}&quickLinkVolume={v}&quickLinkPage={p}&quickLink=true'.format(
-            j=journal, v=volume, p=page)
+            j=journal_identifiers, v=volume, p=page)
 
-    def get_doi(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
+    def get_doi(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Requires a request, and eventually a second to set up the cookies.
         """
 
-        search_url = self.get_url(journal, volume, page)
+        search_url = self.get_url(journal_identifier, volume, page)
         result = self.session.get(search_url, allow_redirects=False)
 
         if result.status_code != 302:
@@ -208,20 +126,10 @@ class ACS(Provider):
 
         return self.doi_regex.search(result.headers['Location']).group(1)
 
-    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
-        if journal not in self.JOURNALS:
-            raise IncorrectJournalName()
+    def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
+        return self._get_url(journal_identifier, volume, page, **kwargs)
 
-        try:
-            j = self.JOURNALS[journal][int(volume)]
-        except KeyError:
-            raise IncorrectVolume()
-        except ValueError:
-            raise ProviderError('volume is not an integer')
-
-        return self._get_url(j, volume, page, **kwargs)
-
-    def get_journals(self) -> Dict[str, IntMap]:
+    def get_journals(self) -> List[journal.Journal]:
         result = self.session.get(self.WEBSITE_URL)
         if result.status_code != 200:
             raise NoJournalList()
@@ -229,10 +137,10 @@ class ACS(Provider):
         soup = BeautifulSoup(result.content, 'lxml')
         opts = soup.find('select', attrs={'class': 'quick-search_journals-select'}).find_all('option')
 
-        journals = {}
+        journals = []
         for o in opts:
             if o.attrs['value'] != '':
-                journals[o.text] = IntMap((o.attrs['value'], N0))
+                journals.append(journal.Journal(o.text, o.attrs['value'], self))
 
         return journals
 
@@ -245,72 +153,44 @@ class APS(Provider):
     WEBSITE_URL = 'https://journals.aps.org/'
     ICON_URL = 'https://cdn.journals.aps.org/development/journals/images/favicon.ico'
 
-    JOURNALS = {
-        'Physical Review Letters': IntMap([(('prl', 'PhysRevLett'), N0)]),
-        'Physical Review X': IntMap([(('prx', 'PhysRevX'), N0)]),
-        'Reviews of Modern Physics': IntMap([(('rmp', 'RevModPhys'), N0)]),
-        'Physical Review A': IntMap([(('pra', 'PhysRevA'), N0)]),
-        'Physical Review B': IntMap([(('prb', 'PhysRevB'), N0)]),
-        'Physical Review C': IntMap([(('prc', 'PhysRevC'), N0)]),
-        'Physical Review D': IntMap([(('prd', 'PhysRevD'), N0)]),
-        'Physical Review E': IntMap([(('pre', 'PhysRevE'), N0)]),
-        'Physical Review Research': IntMap([(('prresearch', 'PhysRevResearch'), N0)]),
-        'Physical Review Accelerators and Beams': IntMap([(('prab', 'PhysRevAccelBeams'), N0)]),
-        'Physical Review Applied': IntMap([(('prapplied', 'PhysRevApplied'), N0)]),
-        'Physical Review Fluids': IntMap([(('prfluids', 'PhysRevFluids'), N0)]),
-        'Physical Review Materials': IntMap([(('prmaterials', 'PhysRevMaterials'), N0)]),
-        'Physical Review Physics Education Research': IntMap([(('prper', 'PhysRevPhysEducRes'), N0)]),
-        'Physical Review': IntMap([(('pr', 'PhysRev'), S(1, 188))]),
-        'Physical Review (Series I)': IntMap([(('pri', 'PhysRevSeriesI'), S(1, 35))])
-    }
-
     DOI = '10.1103/{j2}.{v}.{p}'
-
     base_url = WEBSITE_URL + '{j1}/abstract/' + DOI
 
-    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
+    def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Infers the article URL base on the way it is written (which is surprisingly easy).
         """
 
-        if journal not in self.JOURNALS:
-            raise IncorrectJournalName()
+        return self.base_url.format(j1=journal_identifier[0], j2=journal_identifier[1], v=volume, p=page)
 
-        try:
-            j1, j2 = self.JOURNALS[journal][int(volume)]
-        except KeyError:
-            raise IncorrectVolume()
-        except ValueError:
-            raise ProviderError('volume is not an integer')
-
-        return self.base_url.format(j1=j1, j2=j2, v=volume, p=page)
-
-    def get_doi(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
+    def get_doi(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Only checks that the url gives a 200 response. If so, the DOI is valid.
         """
-        url = self.get_url(journal, volume, page, **kwargs)
+        url = self.get_url(journal_identifier, volume, page, **kwargs)
         response = requests.get(url)
         if response.status_code != 200:
             raise ArticleNotFound()
 
-        return self.DOI.format(j2=self.JOURNALS[journal][volume][1], v=volume, p=page)
+        return self.DOI.format(j2=self.JOURNALS[journal_identifier][volume][1], v=volume, p=page)
 
-    def get_journals(self) -> Dict[str, IntMap]:
+    def get_journals(self) -> List[journal.Journal]:
 
         response = requests.get(self.WEBSITE_URL + 'about')
         soup = BeautifulSoup(response.content, 'lxml')
 
         divs = soup.find_all('div', attrs={'class': 'article'})
-        journals = {}
+        journals = []
 
         for l in divs[:-1]:  # Remove "Physics", which is published by another provider
             a = l.find('a', attrs={'class': 'button'})
             title = l.find('h5').text
-            journals[title] = IntMap(
-                ((a.attrs['href'][1:-1], a.text[5:].replace('.', '').replace(' ', '')), N0))
+            identifier = [a.attrs['href'][1:-1], a.text[5:].replace('.', '').replace(' ', '')]
+            journals.append(journal.Journal(title, identifier, self))
 
-        # add "Physical Review", which is not on the "about" page
-        journals['Physical Review'] = IntMap((('pr', 'PhysRev'), S(1, 188)))
-        journals['Physical Review (Series I)'] = IntMap((('pri', 'PhysRevSeriesI'), S(1, 35)))
+        # add the two "Physical Review", which are not on the "about" page
+        journals.append(
+            journal.Journal('Physical Review', IntMap((['pr', 'PhysRev'], S(1, 188))), self))
+        journals.append(
+            journal.Journal('Physical Review (Series I)', IntMap((['pri', 'PhysRevSeriesI'], S(1, 35))), self))
 
         return journals
 
@@ -322,40 +202,12 @@ class AIP(ACS):
     CODE = 'aip'
     WEBSITE_URL = 'https://aip.scitation.org/'
 
-    JOURNALS = {
-        'AIP Advances': IntMap([('', N0)]),
-        'AIP Conference Proceedings': IntMap([('', N0)]),
-        'APL Bioengineering': IntMap([('', N0)]),
-        'APL Materials': IntMap([('', N0)]),
-        'APL Photonics': IntMap([('', N0)]),
-        'Applied Physics Letters': IntMap([('', N0)]),
-        'Applied Physics Reviews': IntMap([('', N0)]),
-        'Biomicrofluidics': IntMap([('', N0)]),
-        'Chaos: An Interdisciplinary Journal of Nonlinear Science': IntMap([('', N0)]),
-        'Computers in Physics': IntMap([('', N0)]),
-        'Computing in Science & Engineering': IntMap([('', N0)]),
-        'Journal of Physical & Chemical Reference Data': IntMap([('', N0)]),
-        'Journal of Renewable & Sustainable Energy': IntMap([('', N0)]),
-        'Journal of Applied Physics': IntMap([('', N0)]),
-        'Journal of Mathematical Physics': IntMap([('', N0)]),
-        'Low Temperature Physics': IntMap([('', N0)]),
-        'Magnetism & Magnetic Materials': IntMap([('', N0)]),
-        'Matter and Radiation at Extremes': IntMap([('', N0)]),
-        'Physics of Fluids': IntMap([('', N0)]),
-        'Physics of Plasmas': IntMap([('', N0)]),
-        'Physics Today': IntMap([('', N0)]),
-        'Review of Scientific Instruments': IntMap([('', N0)]),
-        'Scilight': IntMap([('', N0)]),
-        'Structural Dynamics': IntMap([('', N0)]),
-        'The Journal of Chemical Physics': IntMap([('', N0)])
-    }
-
     base_url = WEBSITE_URL + 'action/quickLink'
 
-    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
-        return self._get_url(journal, volume, page, **kwargs)
+    def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
+        return self._get_url(journal_identifier, volume, page, **kwargs)
 
-    def get_journals(self) -> Dict[str, IntMap]:
+    def get_journals(self) -> List[journal.Journal]:
         result = self.session.get(self.WEBSITE_URL)
         if result.status_code != 200:
             raise NoJournalList()
@@ -364,10 +216,10 @@ class AIP(ACS):
         opts = soup.find('div', attrs={'class': 'scitation-journals-covers'})\
             .find_all('span', attrs={'class': 'journal-title'})
 
-        journals = {}
+        journals = []
         for o in opts:
             text = o.find('a').text.strip().replace(' (co-published with ACA)', '')
-            journals[text] = IntMap(('', N0))
+            journals.append(journal.Journal(text, '', self))
 
         return journals
 
@@ -386,21 +238,12 @@ class IOP(Provider):
     base_url = WEBSITE_URL + 'findcontent'
     doi_regex = re.compile(r'article/(.*/.*/.*)\?')
 
-    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
-        if journal not in self.JOURNALS:
-            raise IncorrectJournalName()
+    def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
+        return self.base_url + '?CF_JOURNAL={}&CF_VOLUME={}&CF_ISSUE=&CF_PAGE={}'.format(
+            journal_identifier, volume, page)
 
-        try:
-            j = self.JOURNALS[journal][int(volume)]
-        except KeyError:
-            raise IncorrectVolume()
-        except ValueError:
-            raise ProviderError('volume is not an integer')
-
-        return self.base_url + '?CF_JOURNAL={}&CF_VOLUME={}&CF_ISSUE=&CF_PAGE={}'.format(j, volume, page)
-
-    def get_doi(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
-        url = self.get_url(journal, volume, page, **kwargs)
+    def get_doi(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
+        url = self.get_url(journal_identifier, volume, page, **kwargs)
 
         result = requests.get(url, allow_redirects=False, headers={'User-Agent': 'tmp'})
         if result.status_code != 301 or 'article' not in result.headers['Location']:
@@ -408,7 +251,7 @@ class IOP(Provider):
 
         return self.doi_regex.search(result.headers['Location']).group(1)
 
-    def get_journals(self) -> Dict[str, IntMap]:
+    def get_journals(self) -> List[journal.Journal]:
         print(self.WEBSITE_URL + 'journalList')
         result = requests.get(self.WEBSITE_URL + 'journalList', headers={'User-Agent': 'tmp'})
         if result.status_code != 200:
@@ -418,7 +261,7 @@ class IOP(Provider):
         links = soup.find('div', attrs={'id': 'archive-titles-tab'}).find_all('a')
         print(links)
 
-        return {}
+        return []
 
 
 class Nature(Provider):
@@ -437,25 +280,16 @@ class Nature(Provider):
         'Nature': IntMap(('nature', N0))
     }
 
-    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
-        if journal not in self.JOURNALS:
-            raise IncorrectJournalName()
-
-        try:
-            j = self.JOURNALS[journal][int(volume)]
-        except KeyError:
-            raise IncorrectVolume()
-        except ValueError:
-            raise ProviderError('volume is not an integer')
-
-        url = self.WEBSITE_URL + 'search?journal={}&volume={}&spage={}'.format(j, volume, page)
+    def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
+        url = self.WEBSITE_URL + 'search?journal_identifier={}&volume={}&spage={}'.format(
+            journal_identifier, volume, page)
 
         return url
 
-    def get_doi(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
+    def get_doi(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Requires a request"""
 
-        url = self.get_url(journal, volume, page, **kwargs)
+        url = self.get_url(journal_identifier, volume, page, **kwargs)
 
         soup = BeautifulSoup(requests.get(url).content, 'lxml')
         links = soup.find_all(attrs={'data-track-action': 'search result'})
@@ -487,36 +321,26 @@ class RSC(Provider):
     search_url = WEBSITE_URL + 'en/results'
     search_result_url = WEBSITE_URL + 'en/search/journalresult'
 
-    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
-        if journal not in self.JOURNALS:
-            raise IncorrectJournalName()
-
-        try:
-            j = self.JOURNALS[journal][int(volume)]
-        except KeyError:
-            raise IncorrectVolume()
-        except ValueError:
-            raise ProviderError('volume is not an integer')
-
+    def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
         url = self.search_url + '?artrefjournalname={}&artrefvolumeyear={}&artrefstartpage={}&fcategory=journal'.format(
-            j, volume, page)
+            journal_identifier, volume, page)
 
         return url
 
-    def get_doi(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
+    def get_doi(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Requires 2 (!) requests.
 
         Note: for some reasons, an user-agent is mandatory
         """
 
-        url = self.get_url(journal, volume, page)
+        url = self.get_url(journal_identifier, volume, page)
 
         response = requests.get(url, headers={'User-Agent': 'tmp'})
         s = BeautifulSoup(response.content, 'lxml').find('input', attrs={'name': 'SearchTerm'}).attrs['value']
         response = requests.post(self.search_result_url, data={
             'searchterm': s,
             'resultcount': 1,
-            'category': 'journal',
+            'category': 'journal_identifier',
             'pageno': 1
         }, headers={'User-Agent': 'tmp'})
 
@@ -536,7 +360,7 @@ class RSC(Provider):
 class ScienceDirect(Provider):
     """Science Direct (Elsevier).
 
-    Getting the DOI requires a valid API key (Get one at https://dev.elsevier.com/index.html).
+    No DOI provided
     """
 
     NAME = 'ScienceDirect'
@@ -552,18 +376,26 @@ class ScienceDirect(Provider):
     api_url = 'https://api.elsevier.com/content/search/sciencedirect'
     base_url = WEBSITE_URL + 'search/advanced'
 
-    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
-        if journal not in self.JOURNALS:
-            raise IncorrectJournalName()
+    def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
+        return self.base_url + '?cid={}&volume={}&page={}'.format(journal_identifier, volume, page)
 
-        try:
-            j = self.JOURNALS[journal][int(volume)]
-        except KeyError:
-            raise IncorrectVolume()
-        except ValueError:
-            raise ProviderError('volume is not an integer')
 
-        return self.base_url + '?cid={}&volume={}&page={}'.format(j, volume, page)
+class ScienceDirectAPI(ScienceDirect):
+    """Science Direct (Elsevier) API.
+
+    Getting the DOI requires a valid API key (Get one at https://dev.elsevier.com/index.html).
+    """
+
+    NAME = 'ScienceDirect (API)'
+    CODE = 'sd'
+    API_KEY_KWARG = True
+    WEBSITE_URL = 'https://api.elsevier.com/'
+    ICON_URL = 'https://dev.elsevier.com/img/favicon.ico'
+    api_url = WEBSITE_URL + 'content/search/sciencedirect'
+
+    def __init__(self, api_key: str = ''):
+        super().__init__()
+        self.api_key = api_key
 
     def _api_call(self, journal: str, volume: [str, int], page: str, **kwargs) -> dict:
         """
@@ -580,7 +412,7 @@ class ScienceDirect(Provider):
             (see https://dev.elsevier.com/policy.html, section "Federated Search").
         """
 
-        api_key = kwargs.get(API_KEY_FIELD, API_KEY.get(self.NAME, ''))
+        api_key = kwargs.get(API_KEY_FIELD, self.api_key)
         if api_key == '':
             raise ProviderError('no API key provided')
 
@@ -614,8 +446,8 @@ class ScienceDirect(Provider):
         else:
             return v['results'][0]
 
-    def get_doi(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
-        d = self._api_call(journal, volume, page, **kwargs)
+    def get_doi(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
+        d = self._api_call(journal_identifier, volume, page, **kwargs)
         return d['doi']
 
 
@@ -638,23 +470,11 @@ class Springer(Provider):
         'Theoretica chimica acta': IntMap((214, N0)),
     }
 
-    base_url = WEBSITE_URL + 'journal/'
+    base_url = WEBSITE_URL + 'journal_identifier/'
 
-    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
-        """TOC of the volume, find your way into that ;)
-        """
-
-        if journal not in self.JOURNALS:
-            raise IncorrectJournalName()
-
-        try:
-            j = self.JOURNALS[journal][int(volume)]
-        except KeyError:
-            raise IncorrectVolume()
-        except ValueError:
-            raise ProviderError('volume is not an integer')
-
-        return self.base_url + '/{}/volume/{}/toc'.format(j, volume)
+    def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
+        """Go to TOC of the volume, find your way into that ;)"""
+        return self.base_url + '/{}/volume/{}/toc'.format(journal_identifier, volume)
 
 
 class Wiley(Provider):
@@ -674,21 +494,12 @@ class Wiley(Provider):
 
     api_url = WEBSITE_URL + 'action/quickLink'
 
-    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
+    def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Require a single request to get the url (which contains the DOI)
         """
-        if journal not in self.JOURNALS:
-            raise IncorrectJournalName()
-
-        try:
-            j = self.JOURNALS[journal][int(volume)]
-        except KeyError:
-            raise IncorrectVolume()
-        except ValueError:
-            raise ProviderError('volume is not an integer')
 
         url = self.api_url + '?quickLinkJournal={j}&quickLinkVolume={v}&quickLinkPage={p}&quickLink=true'.format(
-            j=j, v=volume, p=page)
+            j=journal_identifier, v=volume, p=page)
 
         result = requests.get(url)
         if result.status_code != 200:
@@ -700,8 +511,8 @@ class Wiley(Provider):
 
         return self.WEBSITE_URL + j['link'][1:]
 
-    def get_doi(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
-        result_url = self.get_url(journal, volume, page)
+    def get_doi(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
+        result_url = self.get_url(journal_identifier, volume, page)
         p = result_url.find('abs/')
         if p == -1:
             raise ProviderError('cannot find DOI')

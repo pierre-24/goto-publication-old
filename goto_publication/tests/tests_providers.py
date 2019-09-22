@@ -31,8 +31,7 @@ class TestProviders(unittest.TestCase):
         self._check(providers.AIP(), ('The Journal of Chemical Physics', 151, '064303'))  # Beaujean et al.
 
     def test_IOP(self):
-        pass  # maintenance
-        # self._check(providers.IOP(), ('Journal of Physics A', 52, 320201))  # G. Adresso et al.
+        self._check(providers.IOP(), ('Journal of Physics A', 52, 320201))  # G. Adresso et al.
 
     def test_Nature(self):
         self._check(providers.Nature(), ('Nature', 227, 680))  # U.K. Laemmli et al. (second most cited)

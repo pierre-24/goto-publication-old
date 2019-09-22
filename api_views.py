@@ -1,8 +1,12 @@
 from typing import Tuple, Union, Callable
 from flask_restful import Resource, reqparse
 
-from goto_publication import REGISTRY, registry
+from goto_publication import registry
 from goto_publication.providers import API_KEY_FIELD
+
+import settings
+
+REGISTRY = registry.Registry(settings.REGISTER_PATH, settings.PROVIDERS)
 
 
 def make_error(msg: str, arg: str) -> dict:

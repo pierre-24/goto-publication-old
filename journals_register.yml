@@ -1,0 +1,864 @@
+# generated on 2019-09-22 20:31:15.436701
+- abbr: null
+  identifier:
+  - - achre4
+    - 1
+    - Inf
+  name: Accounts of Chemical Research
+  provider: acs
+- abbr: null
+  identifier:
+  - - aabmcb
+    - 1
+    - Inf
+  name: ACS Applied Bio Materials
+  provider: acs
+- abbr: null
+  identifier:
+  - - aaembp
+    - 1
+    - Inf
+  name: ACS Applied Electronic Materials
+  provider: acs
+- abbr: null
+  identifier:
+  - - aaemcq
+    - 1
+    - Inf
+  name: ACS Applied Energy Materials
+  provider: acs
+- abbr: null
+  identifier:
+  - - aamick
+    - 1
+    - Inf
+  name: ACS Applied Materials & Interfaces
+  provider: acs
+- abbr: null
+  identifier:
+  - - aanmf6
+    - 1
+    - Inf
+  name: ACS Applied Nano Materials
+  provider: acs
+- abbr: null
+  identifier:
+  - - abseba
+    - 1
+    - Inf
+  name: ACS Biomaterials Science & Engineering
+  provider: acs
+- abbr: null
+  identifier:
+  - - accacs
+    - 1
+    - Inf
+  name: ACS Catalysis
+  provider: acs
+- abbr: null
+  identifier:
+  - - acscii
+    - 1
+    - Inf
+  name: ACS Central Science
+  provider: acs
+- abbr: null
+  identifier:
+  - - acbcct
+    - 1
+    - Inf
+  name: ACS Chemical Biology
+  provider: acs
+- abbr: null
+  identifier:
+  - - acncdm
+    - 1
+    - Inf
+  name: ACS Chemical Neuroscience
+  provider: acs
+- abbr: null
+  identifier:
+  - - acsccc
+    - 1
+    - Inf
+  name: ACS Combinatorial Science
+  provider: acs
+- abbr: null
+  identifier:
+  - - aesccq
+    - 1
+    - Inf
+  name: ACS Earth and Space Chemistry
+  provider: acs
+- abbr: null
+  identifier:
+  - - aelccp
+    - 1
+    - Inf
+  name: ACS Energy Letters
+  provider: acs
+- abbr: null
+  identifier:
+  - - aidcbc
+    - 1
+    - Inf
+  name: ACS Infectious Diseases
+  provider: acs
+- abbr: null
+  identifier:
+  - - amlccd
+    - 1
+    - Inf
+  name: ACS Macro Letters
+  provider: acs
+- abbr: null
+  identifier:
+  - - amclct
+    - 1
+    - Inf
+  name: ACS Medicinal Chemistry Letters
+  provider: acs
+- abbr: null
+  identifier:
+  - - ancac3
+    - 1
+    - Inf
+  name: ACS Nano
+  provider: acs
+- abbr: null
+  identifier:
+  - - acsodf
+    - 1
+    - Inf
+  name: ACS Omega
+  provider: acs
+- abbr: null
+  identifier:
+  - - aptsfn
+    - 1
+    - Inf
+  name: ACS Pharmacology & Translational Science
+  provider: acs
+- abbr: null
+  identifier:
+  - - apchd5
+    - 1
+    - Inf
+  name: ACS Photonics
+  provider: acs
+- abbr: null
+  identifier:
+  - - ascefj
+    - 1
+    - Inf
+  name: ACS Sensors
+  provider: acs
+- abbr: null
+  identifier:
+  - - ascecg
+    - 1
+    - Inf
+  name: ACS Sustainable Chemistry & Engineering
+  provider: acs
+- abbr: null
+  identifier:
+  - - asbcd6
+    - 1
+    - Inf
+  name: ACS Synthetic Biology
+  provider: acs
+- abbr: null
+  identifier:
+  - - ancham
+    - 1
+    - Inf
+  name: Analytical Chemistry
+  provider: acs
+- abbr: null
+  identifier:
+  - - bichaw
+    - 1
+    - Inf
+  name: Biochemistry
+  provider: acs
+- abbr: null
+  identifier:
+  - - bcches
+    - 1
+    - Inf
+  name: Bioconjugate Chemistry
+  provider: acs
+- abbr: null
+  identifier:
+  - - bomaf6
+    - 1
+    - Inf
+  name: Biomacromolecules
+  provider: acs
+- abbr: null
+  identifier:
+  - - bipret
+    - 1
+    - Inf
+  name: Biotechnology Progress
+  provider: acs
+- abbr: null
+  identifier:
+  - - cgeabj
+    - 1
+    - Inf
+  name: C&EN Global Enterprise
+  provider: acs
+- abbr: null
+  identifier:
+  - - cenear
+    - 1
+    - Inf
+  name: Chemical & Engineering News Archive
+  provider: acs
+- abbr: null
+  identifier:
+  - - crtoec
+    - 1
+    - Inf
+  name: Chemical Research in Toxicology
+  provider: acs
+- abbr: null
+  identifier:
+  - - chreay
+    - 1
+    - Inf
+  name: Chemical Reviews
+  provider: acs
+- abbr: null
+  identifier:
+  - - cmatex
+    - 1
+    - Inf
+  name: Chemistry of Materials
+  provider: acs
+- abbr: null
+  identifier:
+  - - cgdefu
+    - 1
+    - Inf
+  name: Crystal Growth & Design
+  provider: acs
+- abbr: null
+  identifier:
+  - - enfuem
+    - 1
+    - Inf
+  name: Energy & Fuels
+  provider: acs
+- abbr: null
+  identifier:
+  - - esthag
+    - 1
+    - Inf
+  name: Environmental Science & Technology
+  provider: acs
+- abbr: null
+  identifier:
+  - - estlcu
+    - 1
+    - Inf
+  name: Environmental Science & Technology Letters
+  provider: acs
+- abbr: null
+  identifier:
+  - - iepra6.2
+    - 1
+    - Inf
+  name: I&EC Product Research and Development
+  provider: acs
+- abbr: null
+  identifier:
+  - - iechad
+    - 1
+    - Inf
+  name: Industrial & Engineering Chemistry
+  provider: acs
+- abbr: null
+  identifier:
+  - - iecac0
+    - 1
+    - Inf
+  name: Industrial & Engineering Chemistry Analytical Edition
+  provider: acs
+- abbr: null
+  identifier:
+  - - iecjc0
+    - 1
+    - Inf
+  name: Industrial & Engineering Chemistry Chemical & Engineering Data Series
+  provider: acs
+- abbr: null
+  identifier:
+  - - iecfa7
+    - 1
+    - Inf
+  name: Industrial & Engineering Chemistry Fundamentals
+  provider: acs
+- abbr: null
+  identifier:
+  - - iepdaw
+    - 1
+    - Inf
+  name: Industrial & Engineering Chemistry Process Design and Development
+  provider: acs
+- abbr: null
+  identifier:
+  - - iepra6
+    - 1
+    - Inf
+  name: Industrial & Engineering Chemistry Product Research and Development
+  provider: acs
+- abbr: null
+  identifier:
+  - - iecred
+    - 1
+    - Inf
+  name: Industrial & Engineering Chemistry Research
+  provider: acs
+- abbr: null
+  identifier:
+  - - iecnav
+    - 1
+    - Inf
+  name: Industrial and Engineering Chemistry, News Edition
+  provider: acs
+- abbr: null
+  identifier:
+  - - inocaj
+    - 1
+    - Inf
+  name: Inorganic Chemistry
+  provider: acs
+- abbr: null
+  identifier:
+  - - jacsat
+    - 1
+    - Inf
+  name: Journal of the American Chemical Society
+  provider: acs
+- abbr: null
+  identifier:
+  - - jafcau
+    - 1
+    - Inf
+  name: Journal of Agricultural and Food Chemistry
+  provider: acs
+- abbr: null
+  identifier:
+  - - jceaax
+    - 1
+    - Inf
+  name: Journal of Chemical & Engineering Data
+  provider: acs
+- abbr: null
+  identifier:
+  - - jci001
+    - 1
+    - Inf
+  name: Journal of Chemical Documentation
+  provider: acs
+- abbr: null
+  identifier:
+  - - jceda8
+    - 1
+    - Inf
+  name: Journal of Chemical Education
+  provider: acs
+- abbr: null
+  identifier:
+  - - jcics1
+    - 1
+    - Inf
+  name: Journal of Chemical Information and Computer Sciences
+  provider: acs
+- abbr: null
+  identifier:
+  - - jcisd8
+    - 1
+    - Inf
+  name: Journal of Chemical Information and Modeling
+  provider: acs
+- abbr: null
+  identifier:
+  - - jctcce
+    - 1
+    - Inf
+  name: Journal of Chemical Theory and Computation
+  provider: acs
+- abbr: null
+  identifier:
+  - - jcchff
+    - 1
+    - Inf
+  name: Journal of Combinatorial Chemistry
+  provider: acs
+- abbr: null
+  identifier:
+  - - iechad.1
+    - 1
+    - Inf
+  name: Journal of Industrial & Engineering Chemistry
+  provider: acs
+- abbr: null
+  identifier:
+  - - jmcmar.1
+    - 1
+    - Inf
+  name: Journal of Medicinal and Pharmaceutical Chemistry
+  provider: acs
+- abbr: null
+  identifier:
+  - - jmcmar
+    - 1
+    - Inf
+  name: Journal of Medicinal Chemistry
+  provider: acs
+- abbr: null
+  identifier:
+  - - jnprdf
+    - 1
+    - Inf
+  name: Journal of Natural Products
+  provider: acs
+- abbr: null
+  identifier:
+  - - joceah
+    - 1
+    - Inf
+  name: The Journal of Organic Chemistry
+  provider: acs
+- abbr: null
+  identifier:
+  - - jpchax
+    - 1
+    - Inf
+  name: The Journal of Physical Chemistry
+  provider: acs
+- abbr: null
+  identifier:
+  - - jpchax.2
+    - 1
+    - Inf
+  name: The Journal of Physical Chemistry
+  provider: acs
+- abbr: null
+  identifier:
+  - - jpcafh
+    - 1
+    - Inf
+  name: The Journal of Physical Chemistry A
+  provider: acs
+- abbr: null
+  identifier:
+  - - jpcbfk
+    - 1
+    - Inf
+  name: The Journal of Physical Chemistry B
+  provider: acs
+- abbr: null
+  identifier:
+  - - jpccck
+    - 1
+    - Inf
+  name: The Journal of Physical Chemistry C
+  provider: acs
+- abbr: null
+  identifier:
+  - - jpclcd
+    - 1
+    - Inf
+  name: The Journal of Physical Chemistry Letters
+  provider: acs
+- abbr: null
+  identifier:
+  - - jprobs
+    - 1
+    - Inf
+  name: Journal of Proteome Research
+  provider: acs
+- abbr: null
+  identifier:
+  - - langd5
+    - 1
+    - Inf
+  name: Langmuir
+  provider: acs
+- abbr: null
+  identifier:
+  - - mamobx
+    - 1
+    - Inf
+  name: Macromolecules
+  provider: acs
+- abbr: null
+  identifier:
+  - - mpohbp
+    - 1
+    - Inf
+  name: Molecular Pharmaceutics
+  provider: acs
+- abbr: null
+  identifier:
+  - - nalefd
+    - 1
+    - Inf
+  name: Nano Letters
+  provider: acs
+- abbr: null
+  identifier:
+  - - neaca9
+    - 1
+    - Inf
+  name: News Edition, American Chemical Society
+  provider: acs
+- abbr: null
+  identifier:
+  - - orlef7
+    - 1
+    - Inf
+  name: Organic Letters
+  provider: acs
+- abbr: null
+  identifier:
+  - - oprdfk
+    - 1
+    - Inf
+  name: Organic Process Research & Development
+  provider: acs
+- abbr: null
+  identifier:
+  - - orgnd7
+    - 1
+    - Inf
+  name: Organometallics
+  provider: acs
+- abbr: null
+  identifier:
+  - - pnas
+    - 1
+    - Inf
+  name: PNAS
+  provider: acs
+- abbr: null
+  identifier:
+  - - iepra6.1
+    - 1
+    - Inf
+  name: Product R&D
+  provider: acs
+- abbr: null
+  identifier:
+  - - jpchax.1
+    - 1
+    - Inf
+  name: The Journal of Physical and Colloid Chemistry
+  provider: acs
+- abbr: null
+  identifier:
+  - - - prl
+      - PhysRevLett
+    - 1
+    - Inf
+  name: Physical Review Letters
+  provider: aps
+- abbr: null
+  identifier:
+  - - - prx
+      - PhysRevX
+    - 1
+    - Inf
+  name: Physical Review X
+  provider: aps
+- abbr: null
+  identifier:
+  - - - rmp
+      - RevModPhys
+    - 1
+    - Inf
+  name: Reviews of Modern Physics
+  provider: aps
+- abbr: null
+  identifier:
+  - - - pra
+      - PhysRevA
+    - 1
+    - Inf
+  name: Physical Review A
+  provider: aps
+- abbr: null
+  identifier:
+  - - - prb
+      - PhysRevB
+    - 1
+    - Inf
+  name: Physical Review B
+  provider: aps
+- abbr: null
+  identifier:
+  - - - prc
+      - PhysRevC
+    - 1
+    - Inf
+  name: Physical Review C
+  provider: aps
+- abbr: null
+  identifier:
+  - - - prd
+      - PhysRevD
+    - 1
+    - Inf
+  name: Physical Review D
+  provider: aps
+- abbr: null
+  identifier:
+  - - - pre
+      - PhysRevE
+    - 1
+    - Inf
+  name: Physical Review E
+  provider: aps
+- abbr: null
+  identifier:
+  - - - prresearch
+      - PhysRevResearch
+    - 1
+    - Inf
+  name: Physical Review Research
+  provider: aps
+- abbr: null
+  identifier:
+  - - - prab
+      - PhysRevAccelBeams
+    - 1
+    - Inf
+  name: Physical Review Accelerators and Beams
+  provider: aps
+- abbr: null
+  identifier:
+  - - - prapplied
+      - PhysRevApplied
+    - 1
+    - Inf
+  name: Physical Review Applied
+  provider: aps
+- abbr: null
+  identifier:
+  - - - prfluids
+      - PhysRevFluids
+    - 1
+    - Inf
+  name: Physical Review Fluids
+  provider: aps
+- abbr: null
+  identifier:
+  - - - prmaterials
+      - PhysRevMaterials
+    - 1
+    - Inf
+  name: Physical Review Materials
+  provider: aps
+- abbr: null
+  identifier:
+  - - - prper
+      - PhysRevPhysEducRes
+    - 1
+    - Inf
+  name: Physical Review Physics Education Research
+  provider: aps
+- abbr: null
+  identifier:
+  - - - pr
+      - PhysRev
+    - 1
+    - 188
+  name: Physical Review
+  provider: aps
+- abbr: null
+  identifier:
+  - - - pri
+      - PhysRevSeriesI
+    - 1
+    - 35
+  name: Physical Review (Series I)
+  provider: aps
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: AIP Advances
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: AIP Conference Proceedings
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: APL Bioengineering
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: APL Materials
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: APL Photonics
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Applied Physics Letters
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Applied Physics Reviews
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Biomicrofluidics
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: 'Chaos: An Interdisciplinary Journal of Nonlinear Science'
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Computers in Physics
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Computing in Science & Engineering
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Journal of Applied Physics
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: The Journal of Chemical Physics
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Journal of Mathematical Physics
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Journal of Physical & Chemical Reference Data
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Journal of Renewable & Sustainable Energy
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Low Temperature Physics
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Magnetism & Magnetic Materials
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Matter and Radiation at Extremes
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Physics of Fluids
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Physics of Plasmas
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Physics Today
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Review of Scientific Instruments
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Scilight
+  provider: aip
+- abbr: null
+  identifier:
+  - - ''
+    - 1
+    - Inf
+  name: Structural Dynamics
+  provider: aip

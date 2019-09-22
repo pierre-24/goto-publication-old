@@ -207,3 +207,27 @@ class IntMap:
                 break
 
         raise KeyError(item)
+
+    def serialize(self) -> List[List[Any]]:
+        li = []
+        for e in self.subsets:
+            li.append([
+                e[0],
+                e[1].begin if type(e[1].begin) is int else 'mInf',
+                e[1].end if type(e[1].end) is int else 'Inf'])
+
+        return li
+
+    @classmethod
+    def deserialize(cls, li: List[List[Any]]):
+        imap = cls()
+        for e in li:
+            val, beg, end = e
+            if beg == 'mInf':
+                beg = mInf
+            if end == 'Inf':
+                end = Inf
+
+            imap._set(val, S(beg, end))
+
+        return imap

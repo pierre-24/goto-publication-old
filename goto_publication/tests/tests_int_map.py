@@ -125,3 +125,10 @@ class TestIntMap(unittest.TestCase):
 
         with self.assertRaises(KeyError):
             _ = imap[10]
+
+        # test serialization (as a list)
+        li = imap.serialize()
+        imap2 = int_map.IntMap.deserialize(li)
+
+        self.assertEqual(imap2.serialize(), li)
+        self.assertEqual(imap2.subsets, imap.subsets)
