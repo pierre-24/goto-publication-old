@@ -241,16 +241,18 @@ class IOP(Provider):
         return self.doi_regex.search(result.headers['Location']).group(1)
 
     def get_journals(self) -> List[journal.Journal]:
-        print(self.WEBSITE_URL + 'journalList')
         result = requests.get(self.WEBSITE_URL + 'journalList', headers={'User-Agent': 'tmp'})
         if result.status_code != 200:
             raise NoJournalList()
 
         soup = BeautifulSoup(result.content, 'lxml')
         links = soup.find('div', attrs={'id': 'archive-titles-tab'}).find_all('a')
-        print(links)
+        journals = []
 
-        return []
+        for l in links:
+            journals.append(journal.Journal(l.text, l.attrs['href'][9:], self))
+
+        return journals
 
 
 class Nature(Provider):

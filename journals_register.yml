@@ -1,4 +1,4 @@
-# generated on 2019-09-22 21:13:29.004042
+# generated on 2019-09-22 21:21:24.559467
 - abbr: null
   identifier: achre4
   name: Accounts of Chemical Research
@@ -515,3 +515,573 @@
   identifier: ''
   name: Structural Dynamics
   provider: aip
+- abbr: null
+  identifier: 0022-3689
+  name: 'Journal of Physics A: General Physics'
+  provider: IOP
+- abbr: null
+  identifier: 2516-1075
+  name: Electronic Structure
+  provider: IOP
+- abbr: null
+  identifier: 2515-7655
+  name: 'Journal of Physics: Energy'
+  provider: IOP
+- abbr: null
+  identifier: 2515-7639
+  name: 'Journal of Physics: Materials'
+  provider: IOP
+- abbr: null
+  identifier: 2515-7647
+  name: 'Journal of Physics: Photonics'
+  provider: IOP
+- abbr: null
+  identifier: 2399-7532
+  name: Multifunctional Materials
+  provider: IOP
+- abbr: null
+  identifier: 2516-1067
+  name: Plasma Research Express
+  provider: IOP
+- abbr: null
+  identifier: 2631-8695
+  name: Engineering Research Express
+  provider: IOP
+- abbr: null
+  identifier: 2515-7620
+  name: Environmental Research Communications
+  provider: IOP
+- abbr: null
+  identifier: 2631-6331
+  name: Functional Composites and Structures
+  provider: IOP
+- abbr: null
+  identifier: 2631-7990
+  name: International Journal of Extreme Manufacturing
+  provider: IOP
+- abbr: null
+  identifier: 2516-1091
+  name: Progress in Biomedical Engineering
+  provider: IOP
+- abbr: null
+  identifier: 0305-4470
+  name: 'Journal of Physics A: Mathematical and General'
+  provider: IOP
+- abbr: null
+  identifier: 2516-1083
+  name: Progress in Energy
+  provider: IOP
+- abbr: null
+  identifier: 1751-8121
+  name: 'Journal of Physics A: Mathematical and Theoretical'
+  provider: IOP
+- abbr: null
+  identifier: 0301-0015
+  name: 'Journal of Physics A: Mathematical, Nuclear and General'
+  provider: IOP
+- abbr: null
+  identifier: 0022-3700
+  name: 'Journal of Physics B: Atomic and Molecular Physics'
+  provider: IOP
+- abbr: null
+  identifier: 0953-4075
+  name: 'Journal of Physics B: Atomic, Molecular and Optical Physics'
+  provider: IOP
+- abbr: null
+  identifier: 2632-3338
+  name: The Planetary Science Journal
+  provider: IOP
+- abbr: null
+  identifier: 0022-3719
+  name: 'Journal of Physics C: Solid State Physics'
+  provider: IOP
+- abbr: null
+  identifier: 2399-6528
+  name: Journal of Physics Communications
+  provider: IOP
+- abbr: null
+  identifier: 0953-8984
+  name: 'Journal of Physics: Condensed Matter'
+  provider: IOP
+- abbr: null
+  identifier: 2632-072X
+  name: 'Journal of Physics: Complexity'
+  provider: IOP
+- abbr: null
+  identifier: 0022-3727
+  name: 'Journal of Physics D: Applied Physics'
+  provider: IOP
+- abbr: null
+  identifier: 0022-3735
+  name: 'Journal of Physics E: Scientific Instruments'
+  provider: IOP
+- abbr: null
+  identifier: 0305-4608
+  name: 'Journal of Physics F: Metal Physics'
+  provider: IOP
+- abbr: null
+  identifier: 0954-3899
+  name: 'Journal of Physics G: Nuclear and Particle Physics'
+  provider: IOP
+- abbr: null
+  identifier: 0305-4616
+  name: 'Journal of Physics G: Nuclear Physics'
+  provider: IOP
+- abbr: null
+  identifier: 1742-6596
+  name: 'Journal of Physics: Conference Series'
+  provider: IOP
+- abbr: null
+  identifier: 1367-2630
+  name: New Journal of Physics
+  provider: IOP
+- abbr: null
+  identifier: 2053-1583
+  name: 2D Materials
+  provider: IOP
+- abbr: null
+  identifier: 1004-423X
+  name: Acta Physica Sinica (Overseas Edition)
+  provider: IOP
+- abbr: null
+  identifier: 2043-6262
+  name: 'Advances in Natural Sciences: Nanoscience and Nanotechnology'
+  provider: IOP
+- abbr: null
+  identifier: 1882-0786
+  name: Applied Physics Express
+  provider: IOP
+- abbr: null
+  identifier: 1538-3881
+  name: The Astronomical Journal
+  provider: IOP
+- abbr: null
+  identifier: 0004-637X
+  name: The Astrophysical Journal
+  provider: IOP
+- abbr: null
+  identifier: 2041-8205
+  name: The Astrophysical Journal Letters
+  provider: IOP
+- abbr: null
+  identifier: 1538-4357
+  name: The Astrophysical Journal Letters
+  provider: IOP
+- abbr: null
+  identifier: 0067-0049
+  name: The Astrophysical Journal Supplement Series
+  provider: IOP
+- abbr: null
+  identifier: 2515-5172
+  name: Research Notes of the AAS
+  provider: IOP
+- abbr: null
+  identifier: 1758-5090
+  name: Biofabrication
+  provider: IOP
+- abbr: null
+  identifier: 1748-3190
+  name: Bioinspiration & Biomimetics
+  provider: IOP
+- abbr: null
+  identifier: 1748-605X
+  name: Biomedical Materials
+  provider: IOP
+- abbr: null
+  identifier: 2057-1976
+  name: Biomedical Physics & Engineering Express
+  provider: IOP
+- abbr: null
+  identifier: 0508-3443
+  name: British Journal of Applied Physics
+  provider: IOP
+- abbr: null
+  identifier: 1009-9271
+  name: Chinese Journal of Astronomy and Astrophysics
+  provider: IOP
+- abbr: null
+  identifier: 1674-0068
+  name: Chinese Journal of Chemical Physics
+  provider: IOP
+- abbr: null
+  identifier: 1003-7713
+  name: Chinese Journal of Chemical Physics
+  provider: IOP
+- abbr: null
+  identifier: 1009-1963
+  name: Chinese Physics
+  provider: IOP
+- abbr: null
+  identifier: 1674-1056
+  name: Chinese Physics B
+  provider: IOP
+- abbr: null
+  identifier: 1674-1137
+  name: Chinese Physics C
+  provider: IOP
+- abbr: null
+  identifier: 0256-307X
+  name: Chinese Physics Letters
+  provider: IOP
+- abbr: null
+  identifier: 0264-9381
+  name: Classical and Quantum Gravity
+  provider: IOP
+- abbr: null
+  identifier: 0143-0815
+  name: Clinical Physics and Physiological Measurement
+  provider: IOP
+- abbr: null
+  identifier: 0253-6102
+  name: Communications in Theoretical Physics
+  provider: IOP
+- abbr: null
+  identifier: 1749-4699
+  name: Computational Science & Discovery
+  provider: IOP
+- abbr: null
+  identifier: 0967-1846
+  name: Distributed Systems Engineering
+  provider: IOP
+- abbr: null
+  identifier: 2057-1739
+  name: Convergent Science Physical Oncology
+  provider: IOP
+- abbr: null
+  identifier: 1748-9326
+  name: Environmental Research Letters
+  provider: IOP
+- abbr: null
+  identifier: 0143-0807
+  name: European Journal of Physics
+  provider: IOP
+- abbr: null
+  identifier: 0295-5075
+  name: EPL (Europhysics Letters)
+  provider: IOP
+- abbr: null
+  identifier: 1873-7005
+  name: Fluid Dynamics Research
+  provider: IOP
+- abbr: null
+  identifier: 2058-8585
+  name: Flexible and Printed Electronics
+  provider: IOP
+- abbr: null
+  identifier: 0266-5611
+  name: Inverse Problems
+  provider: IOP
+- abbr: null
+  identifier: 1755-1315
+  name: 'IOP Conference Series: Earth and Environmental Science'
+  provider: IOP
+- abbr: null
+  identifier: 1757-899X
+  name: 'IOP Conference Series: Materials Science and Engineering'
+  provider: IOP
+- abbr: null
+  identifier: 1064-5632
+  name: 'Izvestiya: Mathematics'
+  provider: IOP
+- abbr: null
+  identifier: 1347-4065
+  name: Japanese Journal of Applied Physics
+  provider: IOP
+- abbr: null
+  identifier: 1752-7163
+  name: Journal of Breath Research
+  provider: IOP
+- abbr: null
+  identifier: 1475-7516
+  name: Journal of Cosmology and Astroparticle Physics
+  provider: IOP
+- abbr: null
+  identifier: 1742-2140
+  name: Journal of Geophysics and Engineering
+  provider: IOP
+- abbr: null
+  identifier: 1748-0221
+  name: Journal of Instrumentation
+  provider: IOP
+- abbr: null
+  identifier: 1126-6708
+  name: Journal of High Energy Physics
+  provider: IOP
+- abbr: null
+  identifier: 0960-1317
+  name: Journal of Micromechanics and Microengineering
+  provider: IOP
+- abbr: null
+  identifier: 1741-2552
+  name: Journal of Neural Engineering
+  provider: IOP
+- abbr: null
+  identifier: 0368-3281
+  name: Journal of Nuclear Energy. Part C, Plasma Physics, Accelerators, Thermonuclear
+    Research
+  provider: IOP
+- abbr: null
+  identifier: 2040-8986
+  name: Journal of Optics
+  provider: IOP
+- abbr: null
+  identifier: 1464-4258
+  name: 'Journal of Optics A: Pure and Applied Optics'
+  provider: IOP
+- abbr: null
+  identifier: 1464-4266
+  name: 'Journal of Optics B: Quantum and Semiclassical Optics'
+  provider: IOP
+- abbr: null
+  identifier: 0150-536X
+  name: Journal of Optics
+  provider: IOP
+- abbr: null
+  identifier: 0952-4746
+  name: Journal of Radiological Protection
+  provider: IOP
+- abbr: null
+  identifier: 0950-7671
+  name: Journal of Scientific Instruments
+  provider: IOP
+- abbr: null
+  identifier: 2050-6120
+  name: Methods and Applications in Fluorescence
+  provider: IOP
+- abbr: null
+  identifier: 0260-2814
+  name: Journal of the Society for Radiological Protection
+  provider: IOP
+- abbr: null
+  identifier: 1674-4926
+  name: Journal of Semiconductors
+  provider: IOP
+- abbr: null
+  identifier: 1742-5468
+  name: 'Journal of Statistical Mechanics: Theory and Experiment'
+  provider: IOP
+- abbr: null
+  identifier: 1555-6611
+  name: Laser Physics
+  provider: IOP
+- abbr: null
+  identifier: 1612-202X
+  name: Laser Physics Letters
+  provider: IOP
+- abbr: null
+  identifier: 0025-5726
+  name: Mathematics of the USSR-Izvestiya
+  provider: IOP
+- abbr: null
+  identifier: 2632-2153
+  name: 'Machine Learning: Science and Technology'
+  provider: IOP
+- abbr: null
+  identifier: 0025-5734
+  name: Mathematics of the USSR-Sbornik
+  provider: IOP
+- abbr: null
+  identifier: 2053-1591
+  name: Materials Research Express
+  provider: IOP
+- abbr: null
+  identifier: 0957-0233
+  name: Measurement Science and Technology
+  provider: IOP
+- abbr: null
+  identifier: 0026-1394
+  name: Metrologia
+  provider: IOP
+- abbr: null
+  identifier: 0965-0393
+  name: Modelling and Simulation in Materials Science and Engineering
+  provider: IOP
+- abbr: null
+  identifier: 0957-4484
+  name: Nanotechnology
+  provider: IOP
+- abbr: null
+  identifier: 2399-1984
+  name: Nano Futures
+  provider: IOP
+- abbr: null
+  identifier: 0951-7715
+  name: Nonlinearity
+  provider: IOP
+- abbr: null
+  identifier: 0335-7368
+  name: Nouvelle Revue d'Optique
+  provider: IOP
+- abbr: null
+  identifier: 0029-4780
+  name: "Nouvelle Revue d'Optique Appliqu\xE9e"
+  provider: IOP
+- abbr: null
+  identifier: 0029-5515
+  name: Nuclear Fusion
+  provider: IOP
+- abbr: null
+  identifier: 1402-4896
+  name: Physica Scripta
+  provider: IOP
+- abbr: null
+  identifier: 1478-3975
+  name: Physical Biology
+  provider: IOP
+- abbr: null
+  identifier: 0031-9112
+  name: Physics Bulletin
+  provider: IOP
+- abbr: null
+  identifier: 0031-9120
+  name: Physics Education
+  provider: IOP
+- abbr: null
+  identifier: 0031-9155
+  name: Physics in Medicine & Biology
+  provider: IOP
+- abbr: null
+  identifier: 0305-4624
+  name: Physics in Technology
+  provider: IOP
+- abbr: null
+  identifier: 1063-7869
+  name: Physics-Uspekhi
+  provider: IOP
+- abbr: null
+  identifier: 0967-3334
+  name: Physiological Measurement
+  provider: IOP
+- abbr: null
+  identifier: 0032-1028
+  name: Plasma Physics
+  provider: IOP
+- abbr: null
+  identifier: 0741-3335
+  name: Plasma Physics and Controlled Fusion
+  provider: IOP
+- abbr: null
+  identifier: 1009-0630
+  name: Plasma Science and Technology
+  provider: IOP
+- abbr: null
+  identifier: 0963-0252
+  name: Plasma Sources Science and Technology
+  provider: IOP
+- abbr: null
+  identifier: 0370-1328
+  name: Proceedings of the Physical Society
+  provider: IOP
+- abbr: null
+  identifier: 0370-1298
+  name: Proceedings of the Physical Society. Section A
+  provider: IOP
+- abbr: null
+  identifier: 2058-7058
+  name: Physics World
+  provider: IOP
+- abbr: null
+  identifier: 0370-1301
+  name: Proceedings of the Physical Society. Section B
+  provider: IOP
+- abbr: null
+  identifier: 0959-5309
+  name: Proceedings of the Physical Society
+  provider: IOP
+- abbr: null
+  identifier: 1478-7814
+  name: Proceedings of the Physical Society of London
+  provider: IOP
+- abbr: null
+  identifier: 0963-9659
+  name: 'Pure and Applied Optics: Journal of the European Optical Society Part A'
+  provider: IOP
+- abbr: null
+  identifier: 1538-3873
+  name: Publications of the Astronomical Society of the Pacific
+  provider: IOP
+- abbr: null
+  identifier: 1355-5111
+  name: 'Quantum and Semiclassical Optics: Journal of the European Optical Society
+    Part B'
+  provider: IOP
+- abbr: null
+  identifier: 1063-7818
+  name: Quantum Electronics
+  provider: IOP
+- abbr: null
+  identifier: 0954-8998
+  name: 'Quantum Optics: Journal of the European Optical Society Part B'
+  provider: IOP
+- abbr: null
+  identifier: 0034-4885
+  name: Reports on Progress in Physics
+  provider: IOP
+- abbr: null
+  identifier: 1674-4527
+  name: Research in Astronomy and Astrophysics
+  provider: IOP
+- abbr: null
+  identifier: 0034-6683
+  name: Review of Physics in Technology
+  provider: IOP
+- abbr: null
+  identifier: 1468-4810
+  name: Russian Academy of Sciences. Izvestiya Mathematics
+  provider: IOP
+- abbr: null
+  identifier: 1468-4802
+  name: Russian Academy of Sciences. Sbornik Mathematics
+  provider: IOP
+- abbr: null
+  identifier: 0036-021X
+  name: Russian Chemical Reviews
+  provider: IOP
+- abbr: null
+  identifier: 0036-0279
+  name: Russian Mathematical Surveys
+  provider: IOP
+- abbr: null
+  identifier: 2058-9565
+  name: Quantum Science and Technology
+  provider: IOP
+- abbr: null
+  identifier: 1064-5616
+  name: 'Sbornik: Mathematics'
+  provider: IOP
+- abbr: null
+  identifier: 1468-6996
+  name: Science and Technology of Advanced Materials
+  provider: IOP
+- abbr: null
+  identifier: 0268-1242
+  name: Semiconductor Science and Technology
+  provider: IOP
+- abbr: null
+  identifier: 0964-1726
+  name: Smart Materials and Structures
+  provider: IOP
+- abbr: null
+  identifier: 0049-1748
+  name: Soviet Journal of Quantum Electronics
+  provider: IOP
+- abbr: null
+  identifier: 0038-5670
+  name: Soviet Physics Uspekhi
+  provider: IOP
+- abbr: null
+  identifier: 0953-2048
+  name: Superconductor Science and Technology
+  provider: IOP
+- abbr: null
+  identifier: 2051-672X
+  name: 'Surface Topography: Metrology and Properties'
+  provider: IOP
+- abbr: null
+  identifier: 1475-4878
+  name: Transactions of the Optical Society
+  provider: IOP
+- abbr: null
+  identifier: 2053-1613
+  name: Translational Materials Research
+  provider: IOP
