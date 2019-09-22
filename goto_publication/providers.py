@@ -160,7 +160,7 @@ class APS(Provider):
         if response.status_code != 200:
             raise ArticleNotFound()
 
-        return self.DOI.format(j2=self.JOURNALS[journal_identifier][volume][1], v=volume, p=page)
+        return self.DOI.format(j2=journal_identifier[1], v=volume, p=page)
 
     def get_journals(self) -> List[journal.Journal]:
 
@@ -330,7 +330,7 @@ class RSC(Provider):
         response = requests.post(self.search_result_url, data={
             'searchterm': s,
             'resultcount': 1,
-            'category': 'journal_identifier',
+            'category': 'journal',
             'pageno': 1
         }, headers={'User-Agent': 'tmp'})
 
@@ -350,12 +350,11 @@ class RSC(Provider):
 class ScienceDirect(Provider):
     """Science Direct (Elsevier).
 
-    No DOI provided
+    No DOI provided.
     """
 
     NAME = 'ScienceDirect'
     CODE = 'sd'
-    API_KEY_KWARG = 'true'
     WEBSITE_URL = 'https://www.sciencedirect.com/'
     ICON_URL = 'https://sdfestaticassets-eu-west-1.sciencedirectassets.com/shared-assets/18/images/favSD.ico'
 
@@ -374,14 +373,19 @@ class ScienceDirectAPI(ScienceDirect):
     """Science Direct (Elsevier) API.
 
     Getting the DOI requires a valid API key (Get one at https://dev.elsevier.com/index.html).
+
+    .. warning::
+
+        Note that for this kind of usage, the person who uses the Elsevier API
+        needs to be a member of an organization that subscribed to an Elsevier product
+        (see https://dev.elsevier.com/policy.html, section "Federated Search").
     """
 
     NAME = 'ScienceDirect (API)'
-    CODE = 'sd'
     API_KEY_KWARG = True
-    WEBSITE_URL = 'https://api.elsevier.com/'
     ICON_URL = 'https://dev.elsevier.com/img/favicon.ico'
-    api_url = WEBSITE_URL + 'content/search/sciencedirect'
+
+    api_url = 'https://api.elsevier.com/content/search/sciencedirect'
 
     def __init__(self, api_key: str = ''):
         super().__init__()
@@ -392,14 +396,6 @@ class ScienceDirectAPI(ScienceDirect):
         Uses the Science Direct API provided by Elsevier
         (see https://dev.elsevier.com/documentation/ScienceDirectSearchAPI.wadl, but actually, the ``PUT`` API is
         described in https://dev.elsevier.com/tecdoc_sdsearch_migration.html, since the ``GET`` one is decommissioned).
-
-        **Requires an API key**.
-
-        .. warning::
-
-            Note that for this kind of usage, the person who uses the Elsevier API
-            needs to be a member of an organization that subscribed to an Elsevier product
-            (see https://dev.elsevier.com/policy.html, section "Federated Search").
         """
 
         api_key = kwargs.get(API_KEY_FIELD, self.api_key)
