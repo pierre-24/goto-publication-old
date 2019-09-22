@@ -1,4 +1,4 @@
-from typing import List, Callable
+from typing import List
 import yaml
 
 from goto_publication import providers, journal as jrnl
@@ -56,53 +56,48 @@ class Registry:
 
         return list(e[0] for e in distances[:5])
 
-    def _get_result(self,
-                    callback: Callable[[jrnl.Journal, str, str, dict], dict],
-                    journal: str,
-                    volume: str,
-                    page: str,
-                    **kwargs: dict) -> dict:
+    def _check_input(self, journal: str, volume: str, page: str, **kwargs: dict) -> None:
+        """Check input correctness, raise ``RegistryError`` if not.
+        """
 
         if len(journal) == 0:
-            raise RegistryError('journal_identifier', 'Journal cannot be empty')
+            raise RegistryError('journal', 'Journal cannot be empty')
 
         if journal not in self.journals:
-            raise RegistryError('journal_identifier', 'Unknown journal_identifier "{}"'.format(journal))
+            raise RegistryError('journal', 'Unknown journal "{}"'.format(journal))
 
         if len(volume) == 0:
             raise RegistryError('volume', 'Volume cannot be empty')
-
-        journal_obj = self.journals[journal]
-        provider_name = journal_obj.provider.NAME
-        response = journal_obj.provider.get_info()
-
-        try:
-            response.update(callback(journal_obj, volume, page, **kwargs))
-        except jrnl.JournalError as e:
-            raise RegistryError('journal', str(e))
-        except providers.ProviderError as e:
-            raise RegistryError('journal', '{}: {}'.format(provider_name, str(e)))
-        except NotImplementedError:
-            raise RegistryError('journal', '{}: {}'.format(provider_name, 'not yet implemented'))
-
-        return response
 
     def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> dict:
         """Get the URL
         """
 
-        def cb_url(j, v, pg, **kw):
-            url = j.get_url(v, pg, **kw)
-            return {'url': url}
+        self._check_input(journal, volume, page, **kwargs)
 
-        return self._get_result(cb_url, journal, volume, page, **kwargs)
+        journal_obj = self.journals[journal]
+        response = journal_obj.provider.get_info()
+
+        try:
+            response.update({'url': journal_obj.get_url(volume, page, **kwargs)})
+        except jrnl.JournalError as e:
+            raise RegistryError('journal', str(e))
+
+        return response
 
     def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> dict:
         """Get the DOI
         """
 
-        def cb_doi(j, v, pg, **kw):
-            doi = j.get_doi(v, pg, **kw)
-            return {'doi': doi, 'url': 'https://dx.doi.org/' + doi}
+        self._check_input(journal, volume, page, **kwargs)
 
-        return self._get_result(cb_doi, journal, volume, page, **kwargs)
+        journal_obj = self.journals[journal]
+        response = journal_obj.provider.get_info()
+
+        try:
+            doi = journal_obj.get_doi(volume, page, **kwargs)
+            response.update({'doi': doi, 'url': 'https://dx.doi.org/' + doi})
+        except jrnl.JournalError as e:
+            raise RegistryError('journal', str(e))
+
+        return response

@@ -6,12 +6,17 @@ import distance
 
 class JournalError(Exception):
     def __init__(self, j, v, *args):
-        super().__init__('{}: {}'.format(j, v), *args)
+        super().__init__('{} ({})'.format(v, j), *args)
 
 
 class InvalidVolume(JournalError):
-    def __init__(self, j):
-        super().__init__(j, 'invalid volume')
+    def __init__(self, j, v: int):
+        super().__init__(j, 'Invalid volume {}'.format(v))
+
+
+class AccessError(JournalError):
+    def __init__(self, p, j, v):
+        super().__init__(j + ' [' + p + ']', v)
 
 
 class Journal:
@@ -59,14 +64,24 @@ class Journal:
         try:
             return self.identifier[int(volume)]
         except (KeyError, ValueError):
-            raise InvalidVolume(volume)
+            raise InvalidVolume(self.name, volume)
 
     def get_url(self, volume: [int, str], page: [int, str], **kwargs: dict) -> str:
         """Get the corresponding url"""
 
-        return self.provider.get_url(self.get_journal_identifiers(volume), volume, page, **kwargs)
+        try:
+            return self.provider.get_url(self.get_journal_identifiers(volume), volume, page, **kwargs)
+        except providers.ProviderError as e:
+            raise AccessError(self.provider.CODE, self.name, str(e))
+        except NotImplementedError:
+            raise AccessError(self.provider.CODE, self.name, 'Not yet implemented')
 
     def get_doi(self, volume: [int, str], page: [int, str], **kwargs: dict) -> str:
         """Get the corresponding DOI"""
 
-        return self.provider.get_doi(self.get_journal_identifiers(volume), volume, page, **kwargs)
+        try:
+            return self.provider.get_doi(self.get_journal_identifiers(volume), volume, page, **kwargs)
+        except providers.ProviderError as e:
+            raise AccessError(self.provider.CODE, self.name, str(e))
+        except NotImplementedError:
+            raise AccessError(self.provider.CODE, self.name, 'Not yet implemented')

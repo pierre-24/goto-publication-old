@@ -12,19 +12,9 @@ class ProviderError(Exception):
     pass
 
 
-class IncorrectJournalName(ProviderError):
-    def __init__(self, *args):
-        super().__init__('incorrect journal_identifier name', *args)
-
-
-class IncorrectVolume(ProviderError):
-    def __init__(self, *args):
-        super().__init__('incorrect volume', *args)
-
-
 class ArticleNotFound(ProviderError):
     def __init__(self, *args):
-        super().__init__('article not found', *args)
+        super().__init__('Article not found', *args)
 
 
 class NoJournalList(ProviderError):
