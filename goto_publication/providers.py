@@ -56,7 +56,7 @@ class Provider:
             'providerWebsite': self.WEBSITE_URL,
         }
 
-    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Get an url that go close to the actual article (a search page with the form filled, or in the
         best cases, the actual article).
 
@@ -66,7 +66,7 @@ class Provider:
 
         raise NotImplementedError()
 
-    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_doi(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Get the DOI of the article.
 
         Slower than `get_url()`, because some requests are made. But the DOI is guaranteed to be exact.
@@ -125,8 +125,10 @@ class ACS(Provider):
         'C&EN Global Enterprise': IntMap([('cgeabj', N0)]),
         'Chemical & Engineering News Archive': IntMap([('cenear', N0)]),
         'Chemical Research in Toxicology': IntMap([('crtoec', N0)]),
-        'Chemical Reviews': IntMap([('chreay', N0)]), 'Chemistry of Materials': IntMap([('cmatex', N0)]),
-        'Crystal Growth & Design': IntMap([('cgdefu', N0)]), 'Energy & Fuels': IntMap([('enfuem', N0)]),
+        'Chemical Reviews': IntMap([('chreay', N0)]),
+        'Chemistry of Materials': IntMap([('cmatex', N0)]),
+        'Crystal Growth & Design': IntMap([('cgdefu', N0)]),
+        'Energy & Fuels': IntMap([('enfuem', N0)]),
         'Environmental Science & Technology': IntMap([('esthag', N0)]),
         'Environmental Science & Technology Letters': IntMap([('estlcu', N0)]),
         'I&EC Product Research and Development': IntMap([('iepra6.2', N0)]),
@@ -178,14 +180,18 @@ class ACS(Provider):
         super().__init__()
         self.session = requests.session()
 
-    def _get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def __del__(self):
+        if self.session is not None:
+            self.session.close()
+
+    def _get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Requires no request
         """
 
         return self.base_url + '?quickLinkJournal={j}&quickLinkVolume={v}&quickLinkPage={p}&quickLink=true'.format(
             j=journal, v=volume, p=page)
 
-    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_doi(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Requires a request, and eventually a second to set up the cookies.
         """
 
@@ -202,17 +208,16 @@ class ACS(Provider):
 
         return self.doi_regex.search(result.headers['Location']).group(1)
 
-    def __del__(self):
-        self.session.close()
-
-    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         if journal not in self.JOURNALS:
             raise IncorrectJournalName()
 
         try:
-            j = self.JOURNALS[journal][volume]
+            j = self.JOURNALS[journal][int(volume)]
         except KeyError:
             raise IncorrectVolume()
+        except ValueError:
+            raise ProviderError('volume is not an integer')
 
         return self._get_url(j, volume, page, **kwargs)
 
@@ -263,7 +268,7 @@ class APS(Provider):
 
     base_url = WEBSITE_URL + '{j1}/abstract/' + DOI
 
-    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Infers the article URL base on the way it is written (which is surprisingly easy).
         """
 
@@ -271,13 +276,15 @@ class APS(Provider):
             raise IncorrectJournalName()
 
         try:
-            j1, j2 = self.JOURNALS[journal][volume]
+            j1, j2 = self.JOURNALS[journal][int(volume)]
         except KeyError:
             raise IncorrectVolume()
+        except ValueError:
+            raise ProviderError('volume is not an integer')
 
         return self.base_url.format(j1=j1, j2=j2, v=volume, p=page)
 
-    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_doi(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Only checks that the url gives a 200 response. If so, the DOI is valid.
         """
         url = self.get_url(journal, volume, page, **kwargs)
@@ -315,8 +322,6 @@ class AIP(ACS):
     CODE = 'aip'
     WEBSITE_URL = 'https://aip.scitation.org/'
 
-    nts = IntMap('')
-
     JOURNALS = {
         'AIP Advances': IntMap([('', N0)]),
         'AIP Conference Proceedings': IntMap([('', N0)]),
@@ -347,7 +352,7 @@ class AIP(ACS):
 
     base_url = WEBSITE_URL + 'action/quickLink'
 
-    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         return self._get_url(journal, volume, page, **kwargs)
 
     def get_journals(self) -> Dict[str, IntMap]:
@@ -381,18 +386,20 @@ class IOP(Provider):
     base_url = WEBSITE_URL + 'findcontent'
     doi_regex = re.compile(r'article/(.*/.*/.*)\?')
 
-    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         if journal not in self.JOURNALS:
             raise IncorrectJournalName()
 
         try:
-            j = self.JOURNALS[journal][volume]
+            j = self.JOURNALS[journal][int(volume)]
         except KeyError:
             raise IncorrectVolume()
+        except ValueError:
+            raise ProviderError('volume is not an integer')
 
         return self.base_url + '?CF_JOURNAL={}&CF_VOLUME={}&CF_ISSUE=&CF_PAGE={}'.format(j, volume, page)
 
-    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_doi(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         url = self.get_url(journal, volume, page, **kwargs)
 
         result = requests.get(url, allow_redirects=False, headers={'User-Agent': 'tmp'})
@@ -430,20 +437,22 @@ class Nature(Provider):
         'Nature': IntMap(('nature', N0))
     }
 
-    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         if journal not in self.JOURNALS:
             raise IncorrectJournalName()
 
         try:
-            j = self.JOURNALS[journal][volume]
+            j = self.JOURNALS[journal][int(volume)]
         except KeyError:
             raise IncorrectVolume()
+        except ValueError:
+            raise ProviderError('volume is not an integer')
 
         url = self.WEBSITE_URL + 'search?journal={}&volume={}&spage={}'.format(j, volume, page)
 
         return url
 
-    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_doi(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Requires a request"""
 
         url = self.get_url(journal, volume, page, **kwargs)
@@ -478,21 +487,23 @@ class RSC(Provider):
     search_url = WEBSITE_URL + 'en/results'
     search_result_url = WEBSITE_URL + 'en/search/journalresult'
 
-    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         if journal not in self.JOURNALS:
             raise IncorrectJournalName()
 
         try:
-            j = self.JOURNALS[journal][volume]
+            j = self.JOURNALS[journal][int(volume)]
         except KeyError:
             raise IncorrectVolume()
+        except ValueError:
+            raise ProviderError('volume is not an integer')
 
         url = self.search_url + '?artrefjournalname={}&artrefvolumeyear={}&artrefstartpage={}&fcategory=journal'.format(
             j, volume, page)
 
         return url
 
-    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_doi(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Requires 2 (!) requests.
 
         Note: for some reasons, an user-agent is mandatory
@@ -541,18 +552,20 @@ class ScienceDirect(Provider):
     api_url = 'https://api.elsevier.com/content/search/sciencedirect'
     base_url = WEBSITE_URL + 'search/advanced'
 
-    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         if journal not in self.JOURNALS:
             raise IncorrectJournalName()
 
         try:
-            j = self.JOURNALS[journal][volume]
+            j = self.JOURNALS[journal][int(volume)]
         except KeyError:
             raise IncorrectVolume()
+        except ValueError:
+            raise ProviderError('volume is not an integer')
 
         return self.base_url + '?cid={}&volume={}&page={}'.format(j, volume, page)
 
-    def _api_call(self, journal: str, volume: str, page: str, **kwargs) -> dict:
+    def _api_call(self, journal: str, volume: [str, int], page: str, **kwargs) -> dict:
         """
         Uses the Science Direct API provided by Elsevier
         (see https://dev.elsevier.com/documentation/ScienceDirectSearchAPI.wadl, but actually, the ``PUT`` API is
@@ -601,7 +614,7 @@ class ScienceDirect(Provider):
         else:
             return v['results'][0]
 
-    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_doi(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         d = self._api_call(journal, volume, page, **kwargs)
         return d['doi']
 
@@ -627,7 +640,7 @@ class Springer(Provider):
 
     base_url = WEBSITE_URL + 'journal/'
 
-    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         """TOC of the volume, find your way into that ;)
         """
 
@@ -635,9 +648,11 @@ class Springer(Provider):
             raise IncorrectJournalName()
 
         try:
-            j = self.JOURNALS[journal][volume]
+            j = self.JOURNALS[journal][int(volume)]
         except KeyError:
             raise IncorrectVolume()
+        except ValueError:
+            raise ProviderError('volume is not an integer')
 
         return self.base_url + '/{}/volume/{}/toc'.format(j, volume)
 
@@ -659,16 +674,18 @@ class Wiley(Provider):
 
     api_url = WEBSITE_URL + 'action/quickLink'
 
-    def get_url(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_url(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Require a single request to get the url (which contains the DOI)
         """
         if journal not in self.JOURNALS:
             raise IncorrectJournalName()
 
         try:
-            j = self.JOURNALS[journal][volume]
+            j = self.JOURNALS[journal][int(volume)]
         except KeyError:
             raise IncorrectVolume()
+        except ValueError:
+            raise ProviderError('volume is not an integer')
 
         url = self.api_url + '?quickLinkJournal={j}&quickLinkVolume={v}&quickLinkPage={p}&quickLink=true'.format(
             j=j, v=volume, p=page)
@@ -683,7 +700,7 @@ class Wiley(Provider):
 
         return self.WEBSITE_URL + j['link'][1:]
 
-    def get_doi(self, journal: str, volume: str, page: str, **kwargs: dict) -> str:
+    def get_doi(self, journal: str, volume: [str, int], page: str, **kwargs: dict) -> str:
         result_url = self.get_url(journal, volume, page)
         p = result_url.find('abs/')
         if p == -1:
