@@ -15,6 +15,8 @@ class Registry:
     """Store all providers and perform actions
     """
 
+    NUM_SUGGESTIONS = 10
+
     def __init__(self, registry_path: str, providers_: List[providers.Provider]):
         # register the providers
         self.providers = {}
@@ -54,7 +56,7 @@ class Registry:
         distances = [(i, j.close_to(q)) for i, j in self.journals.items()]
         distances.sort(key=lambda k: k[1])
 
-        return list(e[0] for e in distances[:5])
+        return list(e[0] for e in distances[:self.NUM_SUGGESTIONS])
 
     def _check_input(self, journal: str, volume: str, page: str, **kwargs: dict) -> None:
         """Check input correctness, raise ``RegistryError`` if not.
