@@ -3,6 +3,7 @@ import re
 import json
 from bs4 import BeautifulSoup
 from typing import List, Any
+import iso4
 
 from goto_publication import journal
 
@@ -129,7 +130,10 @@ class ACS(Provider):
         journals = []
         for o in opts:
             if o.attrs['value'] != '':
-                journals.append(journal.Journal(o.text, o.attrs['value'], self))
+                abbr = iso4.abbreviate(o.text, periods=False, disambiguation_langs=set('en'))
+                if o.text[:3] == 'ACS':
+                    abbr = 'ACS' + abbr[2:]
+                journals.append(journal.Journal(o.text, o.attrs['value'], self, abbr))
 
         return journals
 
@@ -179,7 +183,7 @@ class APS(Provider):
         journals.append(
             journal.Journal('Physical Review', ['pr', 'PhysRev'], self))
         journals.append(
-            journal.Journal('Physical Review (Series I)', ['pri', 'PhysRevSeriesI'], self))
+            journal.Journal('Physical Review (Series I)', ['pri', 'PhysRevSeriesI'], self, 'Phys Rev'))
 
         return journals
 
@@ -208,7 +212,7 @@ class AIP(ACS):
         journals = []
         for o in opts:
             text = o.find('a').text.strip().replace(' (co-published with ACA)', '')
-            journals.append(journal.Journal(text, '', self))
+            journals.append(journal.Journal(text, text, self))
 
         return journals
 

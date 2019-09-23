@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "886827deaacce0ff21eb58e8ad4af139c8ef34a31fd055b5f2fe56897f819c9b"
+            "sha256": "4fec08e6d2d39c4ec771f71cd93113366236f8b57c9cc22f259ec9f05031c2dc"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -82,6 +82,10 @@
                 "sha256:ea8b7f6188e6fa117537c3df7da9fc686d485087abf6ac197f9c46432f7e4a3c"
             ],
             "version": "==2.8"
+        },
+        "iso4": {
+            "git": "https://github.com/pierre-24/iso4.git",
+            "ref": "7358cccdfcac0a15de4fec58a1a6c5077fa04315"
         },
         "itsdangerous": {
             "hashes": [

@@ -11,6 +11,7 @@ requests = "*"
 beautifulsoup4 = "*"
 lxml = "*"
 pyyaml = "*"
+iso4 = {ref = "dev", git = "https://github.com/pierre-24/iso4.git"}
 
 [dev-packages]
 "flake8" = "*"

@@ -2,6 +2,7 @@ from typing import Any, Dict
 
 from goto_publication import providers
 import distance
+import iso4
 
 
 class JournalError(Exception):
@@ -23,9 +24,10 @@ class Journal:
         self.identifier = identifier
         self.abbr = abbr
 
-        self.search_terms = [self.name.lower()]
-        if self.abbr is not None:
-            self.search_terms.append(self.abbr.lower())
+        if self.abbr is None:
+            self.abbr = iso4.abbreviate(self.name, periods=False, disambiguation_langs=set('en'))
+
+        self.search_terms = [self.name.lower(), self.abbr.lower()]
 
         self.provider = provider
 
