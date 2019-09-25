@@ -1,1839 +1,1863 @@
-# generated on 2019-09-25 19:08:59.114932
-- abbr: null
+# generated on 2019-09-25 19:12:21.238849
+- abbr: Acc Chem Res
   identifier: achre4
   name: Accounts of Chemical Research
   provider: acs
-- abbr: null
+- abbr: ACS Appl Bio Mater
   identifier: aabmcb
   name: ACS Applied Bio Materials
   provider: acs
-- abbr: null
+- abbr: ACS Appl Electron Mater
   identifier: aaembp
   name: ACS Applied Electronic Materials
   provider: acs
-- abbr: null
+- abbr: ACS Appl Energy Mater
   identifier: aaemcq
   name: ACS Applied Energy Materials
   provider: acs
-- abbr: null
+- abbr: ACS Appl Mater  Interface
   identifier: aamick
   name: ACS Applied Materials & Interfaces
   provider: acs
-- abbr: null
+- abbr: ACS Appl Nano Mater
   identifier: aanmf6
   name: ACS Applied Nano Materials
   provider: acs
-- abbr: null
+- abbr: ACS Biomater Sci  Eng
   identifier: abseba
   name: ACS Biomaterials Science & Engineering
   provider: acs
-- abbr: null
+- abbr: ACS Catal
   identifier: accacs
   name: ACS Catalysis
   provider: acs
-- abbr: null
+- abbr: ACS Central Sci
   identifier: acscii
   name: ACS Central Science
   provider: acs
-- abbr: null
+- abbr: ACS Chem Biology
   identifier: acbcct
   name: ACS Chemical Biology
   provider: acs
-- abbr: null
+- abbr: ACS Chem Neurosci
   identifier: acncdm
   name: ACS Chemical Neuroscience
   provider: acs
-- abbr: null
+- abbr: ACS Comb Sci
   identifier: acsccc
   name: ACS Combinatorial Science
   provider: acs
-- abbr: null
+- abbr: ACS Earth Space Chem
   identifier: aesccq
   name: ACS Earth and Space Chemistry
   provider: acs
-- abbr: null
+- abbr: ACS Energy Lett
   identifier: aelccp
   name: ACS Energy Letters
   provider: acs
-- abbr: null
+- abbr: ACS Infect Dis
   identifier: aidcbc
   name: ACS Infectious Diseases
   provider: acs
-- abbr: null
+- abbr: ACS Macro Lett
   identifier: amlccd
   name: ACS Macro Letters
   provider: acs
-- abbr: null
+- abbr: ACS Med Chem Lett
   identifier: amclct
   name: ACS Medicinal Chemistry Letters
   provider: acs
-- abbr: null
+- abbr: ACS Nano
   identifier: ancac3
   name: ACS Nano
   provider: acs
-- abbr: null
+- abbr: ACS Omega
   identifier: acsodf
   name: ACS Omega
   provider: acs
-- abbr: null
+- abbr: ACS Pharmacol  Transl Sci
   identifier: aptsfn
   name: ACS Pharmacology & Translational Science
   provider: acs
-- abbr: null
+- abbr: ACS Photonics
   identifier: apchd5
   name: ACS Photonics
   provider: acs
-- abbr: null
+- abbr: ACS Sens
   identifier: ascefj
   name: ACS Sensors
   provider: acs
-- abbr: null
+- abbr: ACS Sustain Chem  Eng
   identifier: ascecg
   name: ACS Sustainable Chemistry & Engineering
   provider: acs
-- abbr: null
+- abbr: ACS Synth Biology
   identifier: asbcd6
   name: ACS Synthetic Biology
   provider: acs
-- abbr: null
+- abbr: Anal Chem
   identifier: ancham
   name: Analytical Chemistry
   provider: acs
-- abbr: null
+- abbr: Biochemistry
   identifier: bichaw
   name: Biochemistry
   provider: acs
-- abbr: null
+- abbr: Bioconjugate Chem
   identifier: bcches
   name: Bioconjugate Chemistry
   provider: acs
-- abbr: null
+- abbr: Biomacromolecules
   identifier: bomaf6
   name: Biomacromolecules
   provider: acs
-- abbr: null
+- abbr: Biotechnol Prog
   identifier: bipret
   name: Biotechnology Progress
   provider: acs
-- abbr: null
+- abbr: C&EN Glob Enterp
   identifier: cgeabj
   name: C&EN Global Enterprise
   provider: acs
-- abbr: null
+- abbr: Chem  Eng News Arch
   identifier: cenear
   name: Chemical & Engineering News Archive
   provider: acs
-- abbr: null
+- abbr: Chem Res Toxicol
   identifier: crtoec
   name: Chemical Research in Toxicology
   provider: acs
-- abbr: null
+- abbr: Chem Rev
   identifier: chreay
   name: Chemical Reviews
   provider: acs
-- abbr: null
+- abbr: Chem Mater
   identifier: cmatex
   name: Chemistry of Materials
   provider: acs
-- abbr: null
+- abbr: Cryst Growth  Des
   identifier: cgdefu
   name: Crystal Growth & Design
   provider: acs
-- abbr: null
+- abbr: Energy  Fuel
   identifier: enfuem
   name: Energy & Fuels
   provider: acs
-- abbr: null
+- abbr: Environ Sci  Technol
   identifier: esthag
   name: Environmental Science & Technology
   provider: acs
-- abbr: null
+- abbr: Environ Sci  Technol Lett
   identifier: estlcu
   name: Environmental Science & Technology Letters
   provider: acs
-- abbr: null
+- abbr: I&EC Prod Res Dev
   identifier: iepra6.2
   name: I&EC Product Research and Development
   provider: acs
-- abbr: null
+- abbr: Ind  Eng Chem
   identifier: iechad
   name: Industrial & Engineering Chemistry
   provider: acs
-- abbr: null
+- abbr: Ind  Eng Chem Anal Ed
   identifier: iecac0
   name: Industrial & Engineering Chemistry Analytical Edition
   provider: acs
-- abbr: null
+- abbr: Ind  Eng Chem Chem  Eng Data Ser
   identifier: iecjc0
   name: Industrial & Engineering Chemistry Chemical & Engineering Data Series
   provider: acs
-- abbr: null
+- abbr: Ind  Eng Chem Fundam
   identifier: iecfa7
   name: Industrial & Engineering Chemistry Fundamentals
   provider: acs
-- abbr: null
+- abbr: Ind  Eng Chem Process Des Dev
   identifier: iepdaw
   name: Industrial & Engineering Chemistry Process Design and Development
   provider: acs
-- abbr: null
+- abbr: Ind  Eng Chem Prod Res Dev
   identifier: iepra6
   name: Industrial & Engineering Chemistry Product Research and Development
   provider: acs
-- abbr: null
+- abbr: Ind  Eng Chem Res
   identifier: iecred
   name: Industrial & Engineering Chemistry Research
   provider: acs
-- abbr: null
+- abbr: Ind Eng Chem News Ed
   identifier: iecnav
   name: Industrial and Engineering Chemistry, News Edition
   provider: acs
-- abbr: null
+- abbr: Inorg Chem
   identifier: inocaj
   name: Inorganic Chemistry
   provider: acs
-- abbr: null
+- abbr: J Am Chem Soc
   identifier: jacsat
   name: Journal of the American Chemical Society
   provider: acs
-- abbr: null
+- abbr: J Agric Food Chem
   identifier: jafcau
   name: Journal of Agricultural and Food Chemistry
   provider: acs
-- abbr: null
+- abbr: J Chem  Eng Data
   identifier: jceaax
   name: Journal of Chemical & Engineering Data
   provider: acs
-- abbr: null
+- abbr: J Chem Doc
   identifier: jci001
   name: Journal of Chemical Documentation
   provider: acs
-- abbr: null
+- abbr: J Chem Educ
   identifier: jceda8
   name: Journal of Chemical Education
   provider: acs
-- abbr: null
+- abbr: J Chem Inf Comput Sci
   identifier: jcics1
   name: Journal of Chemical Information and Computer Sciences
   provider: acs
-- abbr: null
+- abbr: J Chem Inf Model
   identifier: jcisd8
   name: Journal of Chemical Information and Modeling
   provider: acs
-- abbr: null
+- abbr: J Chem Theory Comput
   identifier: jctcce
   name: Journal of Chemical Theory and Computation
   provider: acs
-- abbr: null
+- abbr: J Comb Chem
   identifier: jcchff
   name: Journal of Combinatorial Chemistry
   provider: acs
-- abbr: null
+- abbr: J Ind  Eng Chem
   identifier: iechad.1
   name: Journal of Industrial & Engineering Chemistry
   provider: acs
-- abbr: null
+- abbr: J Med Pharm Chem
   identifier: jmcmar.1
   name: Journal of Medicinal and Pharmaceutical Chemistry
   provider: acs
-- abbr: null
+- abbr: J Med Chem
   identifier: jmcmar
   name: Journal of Medicinal Chemistry
   provider: acs
-- abbr: null
+- abbr: J Nat Prod
   identifier: jnprdf
   name: Journal of Natural Products
   provider: acs
-- abbr: null
+- abbr: J Org Chem
   identifier: joceah
   name: The Journal of Organic Chemistry
   provider: acs
-- abbr: null
+- abbr: J Phys Chem
   identifier: jpchax
   name: The Journal of Physical Chemistry
   provider: acs
-- abbr: null
+- abbr: J Phys Chem
   identifier: jpchax.2
   name: The Journal of Physical Chemistry
   provider: acs
-- abbr: null
+- abbr: J Phys Chem
   identifier: jpcafh
   name: The Journal of Physical Chemistry A
   provider: acs
-- abbr: null
+- abbr: J Phys Chem B
   identifier: jpcbfk
   name: The Journal of Physical Chemistry B
   provider: acs
-- abbr: null
+- abbr: J Phys Chem C
   identifier: jpccck
   name: The Journal of Physical Chemistry C
   provider: acs
-- abbr: null
+- abbr: J Phys Chem Lett
   identifier: jpclcd
   name: The Journal of Physical Chemistry Letters
   provider: acs
-- abbr: null
+- abbr: J Proteome Res
   identifier: jprobs
   name: Journal of Proteome Research
   provider: acs
-- abbr: null
+- abbr: Langmuir
   identifier: langd5
   name: Langmuir
   provider: acs
-- abbr: null
+- abbr: Macromolecules
   identifier: mamobx
   name: Macromolecules
   provider: acs
-- abbr: null
+- abbr: Mol Pharm
   identifier: mpohbp
   name: Molecular Pharmaceutics
   provider: acs
-- abbr: null
+- abbr: Nano Lett
   identifier: nalefd
   name: Nano Letters
   provider: acs
-- abbr: null
+- abbr: News Ed Am Chem Soc
   identifier: neaca9
   name: News Edition, American Chemical Society
   provider: acs
-- abbr: null
+- abbr: Org Lett
   identifier: orlef7
   name: Organic Letters
   provider: acs
-- abbr: null
+- abbr: Org Process Res  Dev
   identifier: oprdfk
   name: Organic Process Research & Development
   provider: acs
-- abbr: null
+- abbr: Organometallics
   identifier: orgnd7
   name: Organometallics
   provider: acs
-- abbr: null
+- abbr: PNAS
   identifier: pnas
   name: PNAS
   provider: acs
-- abbr: null
+- abbr: Prod R&D
   identifier: iepra6.1
   name: Product R&D
   provider: acs
-- abbr: null
+- abbr: J Phys Colloid Chem
   identifier: jpchax.1
   name: The Journal of Physical and Colloid Chemistry
   provider: acs
-- abbr: null
+- abbr: Phys Rev Lett
   identifier:
   - prl
   - PhysRevLett
   name: Physical Review Letters
   provider: aps
-- abbr: null
+- abbr: Phys Rev X
   identifier:
   - prx
   - PhysRevX
   name: Physical Review X
   provider: aps
-- abbr: null
+- abbr: Rev Mod Phys
   identifier:
   - rmp
   - RevModPhys
   name: Reviews of Modern Physics
   provider: aps
-- abbr: null
+- abbr: Phys Rev
   identifier:
   - pra
   - PhysRevA
   name: Physical Review A
   provider: aps
-- abbr: null
+- abbr: Phys Rev B
   identifier:
   - prb
   - PhysRevB
   name: Physical Review B
   provider: aps
-- abbr: null
+- abbr: Phys Rev C
   identifier:
   - prc
   - PhysRevC
   name: Physical Review C
   provider: aps
-- abbr: null
+- abbr: Phys Rev D
   identifier:
   - prd
   - PhysRevD
   name: Physical Review D
   provider: aps
-- abbr: null
+- abbr: Phys Rev
   identifier:
   - pre
   - PhysRevE
   name: Physical Review E
   provider: aps
-- abbr: null
+- abbr: Phys Rev Res
   identifier:
   - prresearch
   - PhysRevResearch
   name: Physical Review Research
   provider: aps
-- abbr: null
+- abbr: Phys Rev Accel Beam
   identifier:
   - prab
   - PhysRevAccelBeams
   name: Physical Review Accelerators and Beams
   provider: aps
-- abbr: null
+- abbr: Phys Rev Appl
   identifier:
   - prapplied
   - PhysRevApplied
   name: Physical Review Applied
   provider: aps
-- abbr: null
+- abbr: Phys Rev Fluid
   identifier:
   - prfluids
   - PhysRevFluids
   name: Physical Review Fluids
   provider: aps
-- abbr: null
+- abbr: Phys Rev Mater
   identifier:
   - prmaterials
   - PhysRevMaterials
   name: Physical Review Materials
   provider: aps
-- abbr: null
+- abbr: Phys Rev Phys Educ Res
   identifier:
   - prper
   - PhysRevPhysEducRes
   name: Physical Review Physics Education Research
   provider: aps
-- abbr: null
+- abbr: Phys Rev
   identifier:
   - pr
   - PhysRev
   name: Physical Review
   provider: aps
-- abbr: null
+- abbr: Phys Rev
   identifier:
   - pri
   - PhysRevSeriesI
   name: Physical Review (Series I)
   provider: aps
-- abbr: null
-  identifier: ''
+- abbr: AIP Adv
+  identifier: AIP Advances
   name: AIP Advances
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: AIP Conf Proc
+  identifier: AIP Conference Proceedings
   name: AIP Conference Proceedings
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: APL Bioeng
+  identifier: APL Bioengineering
   name: APL Bioengineering
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: APL Mater
+  identifier: APL Materials
   name: APL Materials
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: APL Photonics
+  identifier: APL Photonics
   name: APL Photonics
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: Appl Phys Lett
+  identifier: Applied Physics Letters
   name: Applied Physics Letters
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: Appl Phys Rev
+  identifier: Applied Physics Reviews
   name: Applied Physics Reviews
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: Biomicrofluidics
+  identifier: Biomicrofluidics
   name: Biomicrofluidics
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: Chaos Interdiscip J Nonlinear Sci
+  identifier: 'Chaos: An Interdisciplinary Journal of Nonlinear Science'
   name: 'Chaos: An Interdisciplinary Journal of Nonlinear Science'
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: Comput Phys
+  identifier: Computers in Physics
   name: Computers in Physics
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: Comput Sci  Eng
+  identifier: Computing in Science & Engineering
   name: Computing in Science & Engineering
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: J Appl Phys
+  identifier: Journal of Applied Physics
   name: Journal of Applied Physics
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: J Chem Phys
+  identifier: The Journal of Chemical Physics
   name: The Journal of Chemical Physics
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: J Math Phys
+  identifier: Journal of Mathematical Physics
   name: Journal of Mathematical Physics
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: J Phys  Chem Ref Data
+  identifier: Journal of Physical & Chemical Reference Data
   name: Journal of Physical & Chemical Reference Data
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: J Renew  Sustain Energy
+  identifier: Journal of Renewable & Sustainable Energy
   name: Journal of Renewable & Sustainable Energy
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: Low Temp Phys
+  identifier: Low Temperature Physics
   name: Low Temperature Physics
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: Magn  Magn Mater
+  identifier: Magnetism & Magnetic Materials
   name: Magnetism & Magnetic Materials
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: Matter Radiat Extreme
+  identifier: Matter and Radiation at Extremes
   name: Matter and Radiation at Extremes
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: Phys Fluid
+  identifier: Physics of Fluids
   name: Physics of Fluids
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: Phys Plasma
+  identifier: Physics of Plasmas
   name: Physics of Plasmas
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: Phys Today
+  identifier: Physics Today
   name: Physics Today
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: Rev Sci Instrum
+  identifier: Review of Scientific Instruments
   name: Review of Scientific Instruments
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: Scilight
+  identifier: Scilight
   name: Scilight
   provider: aip
-- abbr: null
-  identifier: ''
+- abbr: Struct Dyn
+  identifier: Structural Dynamics
   name: Structural Dynamics
   provider: aip
-- abbr: null
+- abbr: J Phys Gen Phys
   identifier: 0022-3689
   name: 'Journal of Physics A: General Physics'
   provider: IOP
-- abbr: null
+- abbr: Electron Struct
   identifier: 2516-1075
   name: Electronic Structure
   provider: IOP
-- abbr: null
+- abbr: J Phys Energy
   identifier: 2515-7655
   name: 'Journal of Physics: Energy'
   provider: IOP
-- abbr: null
+- abbr: J Phys Mater
   identifier: 2515-7639
   name: 'Journal of Physics: Materials'
   provider: IOP
-- abbr: null
+- abbr: J Phys Photonics
   identifier: 2515-7647
   name: 'Journal of Physics: Photonics'
   provider: IOP
-- abbr: null
+- abbr: Multifunct Mater
   identifier: 2399-7532
   name: Multifunctional Materials
   provider: IOP
-- abbr: null
+- abbr: Plasma Res Express
   identifier: 2516-1067
   name: Plasma Research Express
   provider: IOP
-- abbr: null
+- abbr: Eng Res Express
   identifier: 2631-8695
   name: Engineering Research Express
   provider: IOP
-- abbr: null
+- abbr: Environ Res Commun
   identifier: 2515-7620
   name: Environmental Research Communications
   provider: IOP
-- abbr: null
+- abbr: Funct Compos Struct
   identifier: 2631-6331
   name: Functional Composites and Structures
   provider: IOP
-- abbr: null
+- abbr: Int J Extreme Manuf
   identifier: 2631-7990
   name: International Journal of Extreme Manufacturing
   provider: IOP
-- abbr: null
+- abbr: Prog Biomed Eng
   identifier: 2516-1091
   name: Progress in Biomedical Engineering
   provider: IOP
-- abbr: null
+- abbr: J Phys Math Gen
   identifier: 0305-4470
   name: 'Journal of Physics A: Mathematical and General'
   provider: IOP
-- abbr: null
+- abbr: Prog Energy
   identifier: 2516-1083
   name: Progress in Energy
   provider: IOP
-- abbr: null
+- abbr: J Phys Math Theor
   identifier: 1751-8121
   name: 'Journal of Physics A: Mathematical and Theoretical'
   provider: IOP
-- abbr: null
+- abbr: J Phys Math Nucl Gen
   identifier: 0301-0015
   name: 'Journal of Physics A: Mathematical, Nuclear and General'
   provider: IOP
-- abbr: null
+- abbr: J Phys B At Mol Phys
   identifier: 0022-3700
   name: 'Journal of Physics B: Atomic and Molecular Physics'
   provider: IOP
-- abbr: null
+- abbr: J Phys B At Mol Opt Phys
   identifier: 0953-4075
   name: 'Journal of Physics B: Atomic, Molecular and Optical Physics'
   provider: IOP
-- abbr: null
+- abbr: Planet Sci J
   identifier: 2632-3338
   name: The Planetary Science Journal
   provider: IOP
-- abbr: null
+- abbr: J Phys C Solid State Phys
   identifier: 0022-3719
   name: 'Journal of Physics C: Solid State Physics'
   provider: IOP
-- abbr: null
+- abbr: J Phys Commun
   identifier: 2399-6528
   name: Journal of Physics Communications
   provider: IOP
-- abbr: null
+- abbr: J Phys Condens Matter
   identifier: 0953-8984
   name: 'Journal of Physics: Condensed Matter'
   provider: IOP
-- abbr: null
+- abbr: J Phys Complex
   identifier: 2632-072X
   name: 'Journal of Physics: Complexity'
   provider: IOP
-- abbr: null
+- abbr: J Phys D Appl Phys
   identifier: 0022-3727
   name: 'Journal of Physics D: Applied Physics'
   provider: IOP
-- abbr: null
+- abbr: J Phys Sci Instrum
   identifier: 0022-3735
   name: 'Journal of Physics E: Scientific Instruments'
   provider: IOP
-- abbr: null
+- abbr: J Phys F Met Phys
   identifier: 0305-4608
   name: 'Journal of Physics F: Metal Physics'
   provider: IOP
-- abbr: null
+- abbr: J Phys G Nucl Part Phys
   identifier: 0954-3899
   name: 'Journal of Physics G: Nuclear and Particle Physics'
   provider: IOP
-- abbr: null
+- abbr: J Phys G Nucl Phys
   identifier: 0305-4616
   name: 'Journal of Physics G: Nuclear Physics'
   provider: IOP
-- abbr: null
+- abbr: J Phys Conf Ser
   identifier: 1742-6596
   name: 'Journal of Physics: Conference Series'
   provider: IOP
-- abbr: null
+- abbr: New J Phys
   identifier: 1367-2630
   name: New Journal of Physics
   provider: IOP
-- abbr: null
+- abbr: 2D Mater
   identifier: 2053-1583
   name: 2D Materials
   provider: IOP
-- abbr: null
+- abbr: Acta Phys Sin (overseas Ed
   identifier: 1004-423X
   name: Acta Physica Sinica (Overseas Edition)
   provider: IOP
-- abbr: null
+- abbr: Adv Nat Sci Nanosci Nanotechnol
   identifier: 2043-6262
   name: 'Advances in Natural Sciences: Nanoscience and Nanotechnology'
   provider: IOP
-- abbr: null
+- abbr: Appl Phys Express
   identifier: 1882-0786
   name: Applied Physics Express
   provider: IOP
-- abbr: null
+- abbr: Astron J
   identifier: 1538-3881
   name: The Astronomical Journal
   provider: IOP
-- abbr: null
+- abbr: Astrophys J
   identifier: 0004-637X
   name: The Astrophysical Journal
   provider: IOP
-- abbr: null
+- abbr: Astrophys J Lett
   identifier: 2041-8205
   name: The Astrophysical Journal Letters
   provider: IOP
-- abbr: null
+- abbr: Astrophys J Lett
   identifier: 1538-4357
   name: The Astrophysical Journal Letters
   provider: IOP
-- abbr: null
+- abbr: Astrophys J Suppl Ser
   identifier: 0067-0049
   name: The Astrophysical Journal Supplement Series
   provider: IOP
-- abbr: null
+- abbr: Res Note AA
   identifier: 2515-5172
   name: Research Notes of the AAS
   provider: IOP
-- abbr: null
+- abbr: Biofabrication
   identifier: 1758-5090
   name: Biofabrication
   provider: IOP
-- abbr: null
+- abbr: Bioinspiration  Biomimetics
   identifier: 1748-3190
   name: Bioinspiration & Biomimetics
   provider: IOP
-- abbr: null
+- abbr: Biomed Mater
   identifier: 1748-605X
   name: Biomedical Materials
   provider: IOP
-- abbr: null
+- abbr: Biomed Phys  Eng Express
   identifier: 2057-1976
   name: Biomedical Physics & Engineering Express
   provider: IOP
-- abbr: null
+- abbr: Br J Appl Phys
   identifier: 0508-3443
   name: British Journal of Applied Physics
   provider: IOP
-- abbr: null
+- abbr: Chin J Astron Astrophys
   identifier: 1009-9271
   name: Chinese Journal of Astronomy and Astrophysics
   provider: IOP
-- abbr: null
+- abbr: Chin J Chem Phys
   identifier: 1674-0068
   name: Chinese Journal of Chemical Physics
   provider: IOP
-- abbr: null
+- abbr: Chin J Chem Phys
   identifier: 1003-7713
   name: Chinese Journal of Chemical Physics
   provider: IOP
-- abbr: null
+- abbr: Chin Phys
   identifier: 1009-1963
   name: Chinese Physics
   provider: IOP
-- abbr: null
+- abbr: Chin Phys B
   identifier: 1674-1056
   name: Chinese Physics B
   provider: IOP
-- abbr: null
+- abbr: Chin Phys C
   identifier: 1674-1137
   name: Chinese Physics C
   provider: IOP
-- abbr: null
+- abbr: Chin Phys Lett
   identifier: 0256-307X
   name: Chinese Physics Letters
   provider: IOP
-- abbr: null
+- abbr: Class Quantum Gravity
   identifier: 0264-9381
   name: Classical and Quantum Gravity
   provider: IOP
-- abbr: null
+- abbr: Clin Phys Physiol Meas
   identifier: 0143-0815
   name: Clinical Physics and Physiological Measurement
   provider: IOP
-- abbr: null
+- abbr: Combust Theory Model
+  identifier: ldjournals.iop.org/journal/1364-7830
+  name: Combustion Theory and Modelling
+  provider: IOP
+- abbr: Commun Theor Phys
   identifier: 0253-6102
   name: Communications in Theoretical Physics
   provider: IOP
-- abbr: null
+- abbr: Comput Sci  Discov
   identifier: 1749-4699
   name: Computational Science & Discovery
   provider: IOP
-- abbr: null
+- abbr: Distrib Syst Eng
   identifier: 0967-1846
   name: Distributed Systems Engineering
   provider: IOP
-- abbr: null
+- abbr: Converg Sci Phys Oncol
   identifier: 2057-1739
   name: Convergent Science Physical Oncology
   provider: IOP
-- abbr: null
+- abbr: Environ Res Lett
   identifier: 1748-9326
   name: Environmental Research Letters
   provider: IOP
-- abbr: null
+- abbr: Eur J Phys
   identifier: 0143-0807
   name: European Journal of Physics
   provider: IOP
-- abbr: null
+- abbr: EPL (europhysics Lett
   identifier: 0295-5075
   name: EPL (Europhysics Letters)
   provider: IOP
-- abbr: null
+- abbr: Fluid Dyn Res
   identifier: 1873-7005
   name: Fluid Dynamics Research
   provider: IOP
-- abbr: null
+- abbr: Flex Print Electron
   identifier: 2058-8585
   name: Flexible and Printed Electronics
   provider: IOP
-- abbr: null
+- abbr: Inverse Probl
   identifier: 0266-5611
   name: Inverse Problems
   provider: IOP
-- abbr: null
+- abbr: IOP Conf Ser Earth Environ Sci
   identifier: 1755-1315
   name: 'IOP Conference Series: Earth and Environmental Science'
   provider: IOP
-- abbr: null
+- abbr: IOP Conf Ser Mater Sci Eng
   identifier: 1757-899X
   name: 'IOP Conference Series: Materials Science and Engineering'
   provider: IOP
-- abbr: null
+- abbr: Izv Math
   identifier: 1064-5632
   name: 'Izvestiya: Mathematics'
   provider: IOP
-- abbr: null
+- abbr: Jpn J Appl Phys
   identifier: 1347-4065
   name: Japanese Journal of Applied Physics
   provider: IOP
-- abbr: null
+- abbr: J Breath Res
   identifier: 1752-7163
   name: Journal of Breath Research
   provider: IOP
-- abbr: null
+- abbr: J Cosmol Astropart Phys
   identifier: 1475-7516
   name: Journal of Cosmology and Astroparticle Physics
   provider: IOP
-- abbr: null
+- abbr: J Geophys Eng
   identifier: 1742-2140
   name: Journal of Geophysics and Engineering
   provider: IOP
-- abbr: null
+- abbr: J Instrum
   identifier: 1748-0221
   name: Journal of Instrumentation
   provider: IOP
-- abbr: null
+- abbr: J High Energy Phys
   identifier: 1126-6708
   name: Journal of High Energy Physics
   provider: IOP
-- abbr: null
+- abbr: J Micromechanics Microengineering
   identifier: 0960-1317
   name: Journal of Micromechanics and Microengineering
   provider: IOP
-- abbr: null
+- abbr: J Neural Eng
   identifier: 1741-2552
   name: Journal of Neural Engineering
   provider: IOP
-- abbr: null
+- abbr: J Nucl Energy Part C Plasma Phys Accel Thermonucl Res
   identifier: 0368-3281
   name: Journal of Nuclear Energy. Part C, Plasma Physics, Accelerators, Thermonuclear
     Research
   provider: IOP
-- abbr: null
+- abbr: J Opt
   identifier: 2040-8986
   name: Journal of Optics
   provider: IOP
-- abbr: null
+- abbr: J Opt Pure Appl Opt
   identifier: 1464-4258
   name: 'Journal of Optics A: Pure and Applied Optics'
   provider: IOP
-- abbr: null
+- abbr: J Opt B Quantum Semiclassical Opt
   identifier: 1464-4266
   name: 'Journal of Optics B: Quantum and Semiclassical Optics'
   provider: IOP
-- abbr: null
+- abbr: J Opt
   identifier: 0150-536X
   name: Journal of Optics
   provider: IOP
-- abbr: null
+- abbr: J Radiol Prot
   identifier: 0952-4746
   name: Journal of Radiological Protection
   provider: IOP
-- abbr: null
+- abbr: J Sci Instrum
   identifier: 0950-7671
   name: Journal of Scientific Instruments
   provider: IOP
-- abbr: null
+- abbr: Method Appl Fluoresc
   identifier: 2050-6120
   name: Methods and Applications in Fluorescence
   provider: IOP
-- abbr: null
+- abbr: J Soc Radiol Prot
   identifier: 0260-2814
   name: Journal of the Society for Radiological Protection
   provider: IOP
-- abbr: null
+- abbr: J Semicond
   identifier: 1674-4926
   name: Journal of Semiconductors
   provider: IOP
-- abbr: null
+- abbr: J Stat Mech Theory Exp
   identifier: 1742-5468
   name: 'Journal of Statistical Mechanics: Theory and Experiment'
   provider: IOP
-- abbr: null
+- abbr: J Turbul
+  identifier: ldjournals.iop.org/journal/1468-5248
+  name: Journal of Turbulence
+  provider: IOP
+- abbr: Laser Phys
   identifier: 1555-6611
   name: Laser Physics
   provider: IOP
-- abbr: null
+- abbr: Laser Phys Lett
   identifier: 1612-202X
   name: Laser Physics Letters
   provider: IOP
-- abbr: null
+- abbr: Math Ussr-izvestiya
   identifier: 0025-5726
   name: Mathematics of the USSR-Izvestiya
   provider: IOP
-- abbr: null
+- abbr: Mach Learn Sci Technol
   identifier: 2632-2153
   name: 'Machine Learning: Science and Technology'
   provider: IOP
-- abbr: null
+- abbr: Math Ussr-sbornik
   identifier: 0025-5734
   name: Mathematics of the USSR-Sbornik
   provider: IOP
-- abbr: null
+- abbr: Mater Res Express
   identifier: 2053-1591
   name: Materials Research Express
   provider: IOP
-- abbr: null
+- abbr: Meas Sci Technol
   identifier: 0957-0233
   name: Measurement Science and Technology
   provider: IOP
-- abbr: null
+- abbr: Metrologia
   identifier: 0026-1394
   name: Metrologia
   provider: IOP
-- abbr: null
+- abbr: Model Simul Mater Sci Eng
   identifier: 0965-0393
   name: Modelling and Simulation in Materials Science and Engineering
   provider: IOP
-- abbr: null
+- abbr: Nanotechnology
   identifier: 0957-4484
   name: Nanotechnology
   provider: IOP
-- abbr: null
+- abbr: Nano Futur
   identifier: 2399-1984
   name: Nano Futures
   provider: IOP
-- abbr: null
+- abbr: Netw Comput Neural Syst
+  identifier: ldjournals.iop.org/journal/0954-898X
+  name: 'Network: Computation in Neural Systems'
+  provider: IOP
+- abbr: Nonlinearity
   identifier: 0951-7715
   name: Nonlinearity
   provider: IOP
-- abbr: null
+- abbr: Nouv Rev d'optique
   identifier: 0335-7368
   name: Nouvelle Revue d'Optique
   provider: IOP
-- abbr: null
+- abbr: Nouv Rev d'optique Appl
   identifier: 0029-4780
   name: "Nouvelle Revue d'Optique Appliqu\xE9e"
   provider: IOP
-- abbr: null
+- abbr: Nucl Fusion
   identifier: 0029-5515
   name: Nuclear Fusion
   provider: IOP
-- abbr: null
+- abbr: Phys Scr
   identifier: 1402-4896
   name: Physica Scripta
   provider: IOP
-- abbr: null
+- abbr: Phys Biology
   identifier: 1478-3975
   name: Physical Biology
   provider: IOP
-- abbr: null
+- abbr: Phys Bull
   identifier: 0031-9112
   name: Physics Bulletin
   provider: IOP
-- abbr: null
+- abbr: Phys Educ
   identifier: 0031-9120
   name: Physics Education
   provider: IOP
-- abbr: null
+- abbr: Phys Med  Biology
   identifier: 0031-9155
   name: Physics in Medicine & Biology
   provider: IOP
-- abbr: null
+- abbr: Phys Technol
   identifier: 0305-4624
   name: Physics in Technology
   provider: IOP
-- abbr: null
+- abbr: Physics-Uspekhi
   identifier: 1063-7869
   name: Physics-Uspekhi
   provider: IOP
-- abbr: null
+- abbr: Physiol Meas
   identifier: 0967-3334
   name: Physiological Measurement
   provider: IOP
-- abbr: null
+- abbr: Plasma Phys
   identifier: 0032-1028
   name: Plasma Physics
   provider: IOP
-- abbr: null
+- abbr: Plasma Phys Control Fusion
   identifier: 0741-3335
   name: Plasma Physics and Controlled Fusion
   provider: IOP
-- abbr: null
+- abbr: Plasma Sci Technol
   identifier: 1009-0630
   name: Plasma Science and Technology
   provider: IOP
-- abbr: null
+- abbr: Plasma Source Sci Technol
   identifier: 0963-0252
   name: Plasma Sources Science and Technology
   provider: IOP
-- abbr: null
+- abbr: Proc Phys Soc
   identifier: 0370-1328
   name: Proceedings of the Physical Society
   provider: IOP
-- abbr: null
+- abbr: Proc Phys Soc Sect
   identifier: 0370-1298
   name: Proceedings of the Physical Society. Section A
   provider: IOP
-- abbr: null
+- abbr: Phys World
   identifier: 2058-7058
   name: Physics World
   provider: IOP
-- abbr: null
+- abbr: Public Underst Sci
+  identifier: ldjournals.iop.org/journal/0963-6625
+  name: Public Understanding of Science
+  provider: IOP
+- abbr: Proc Phys Soc Sect B
   identifier: 0370-1301
   name: Proceedings of the Physical Society. Section B
   provider: IOP
-- abbr: null
+- abbr: Proc Phys Soc
   identifier: 0959-5309
   name: Proceedings of the Physical Society
   provider: IOP
-- abbr: null
+- abbr: Proc Phys Soc Lond
   identifier: 1478-7814
   name: Proceedings of the Physical Society of London
   provider: IOP
-- abbr: null
+- abbr: Pure Appl Opt J Eur Opt Soc Part
   identifier: 0963-9659
   name: 'Pure and Applied Optics: Journal of the European Optical Society Part A'
   provider: IOP
-- abbr: null
+- abbr: Publ Astron Soc Pac
   identifier: 1538-3873
   name: Publications of the Astronomical Society of the Pacific
   provider: IOP
-- abbr: null
+- abbr: Quant Finance
+  identifier: ldjournals.iop.org/journal/1469-7688
+  name: Quantitative Finance
+  provider: IOP
+- abbr: Quantum Semiclassical Opt J Eur Opt Soc Part B
   identifier: 1355-5111
   name: 'Quantum and Semiclassical Optics: Journal of the European Optical Society
     Part B'
   provider: IOP
-- abbr: null
+- abbr: Quantum Electron
   identifier: 1063-7818
   name: Quantum Electronics
   provider: IOP
-- abbr: null
+- abbr: Quantum Opt J Eur Opt Soc Part B
   identifier: 0954-8998
   name: 'Quantum Optics: Journal of the European Optical Society Part B'
   provider: IOP
-- abbr: null
+- abbr: Rep Prog Phys
   identifier: 0034-4885
   name: Reports on Progress in Physics
   provider: IOP
-- abbr: null
+- abbr: Res Astron Astrophys
   identifier: 1674-4527
   name: Research in Astronomy and Astrophysics
   provider: IOP
-- abbr: null
+- abbr: Rev Phys Technol
   identifier: 0034-6683
   name: Review of Physics in Technology
   provider: IOP
-- abbr: null
+- abbr: Russ Acad Sci Izv Math
   identifier: 1468-4810
   name: Russian Academy of Sciences. Izvestiya Mathematics
   provider: IOP
-- abbr: null
+- abbr: Russ Acad Sci Sb Math
   identifier: 1468-4802
   name: Russian Academy of Sciences. Sbornik Mathematics
   provider: IOP
-- abbr: null
+- abbr: Russ Chem Rev
   identifier: 0036-021X
   name: Russian Chemical Reviews
   provider: IOP
-- abbr: null
+- abbr: Russ Math Surv
   identifier: 0036-0279
   name: Russian Mathematical Surveys
   provider: IOP
-- abbr: null
+- abbr: Quantum Sci Technol
   identifier: 2058-9565
   name: Quantum Science and Technology
   provider: IOP
-- abbr: null
+- abbr: Sb Math
   identifier: 1064-5616
   name: 'Sbornik: Mathematics'
   provider: IOP
-- abbr: null
+- abbr: Sci Technol Adv Mater
   identifier: 1468-6996
   name: Science and Technology of Advanced Materials
   provider: IOP
-- abbr: null
+- abbr: Semicond Sci Technol
   identifier: 0268-1242
   name: Semiconductor Science and Technology
   provider: IOP
-- abbr: null
+- abbr: Smart Mater Struct
   identifier: 0964-1726
   name: Smart Materials and Structures
   provider: IOP
-- abbr: null
+- abbr: Sov J Quantum Electron
   identifier: 0049-1748
   name: Soviet Journal of Quantum Electronics
   provider: IOP
-- abbr: null
+- abbr: Sov Phys Uspekhi
   identifier: 0038-5670
   name: Soviet Physics Uspekhi
   provider: IOP
-- abbr: null
+- abbr: Supercond Sci Technol
   identifier: 0953-2048
   name: Superconductor Science and Technology
   provider: IOP
-- abbr: null
+- abbr: Surf Topogr Metrol Prop
   identifier: 2051-672X
   name: 'Surface Topography: Metrology and Properties'
   provider: IOP
-- abbr: null
+- abbr: Trans Opt Soc
   identifier: 1475-4878
   name: Transactions of the Optical Society
   provider: IOP
-- abbr: null
+- abbr: Wave Random Media
+  identifier: ldjournals.iop.org/journal/0959-7174
+  name: Waves in Random Media
+  provider: IOP
+- abbr: Transl Mater Res
   identifier: 2053-1613
   name: Translational Materials Research
   provider: IOP
-- abbr: null
+- abbr: Acta Pharmacol Sin
   identifier: aps
   name: Acta Pharmacologica Sinica
   provider: nat
-- abbr: null
+- abbr: BDJ Pract
   identifier: bdjinpractice
   name: BDJ In Practice
   provider: nat
-- abbr: null
+- abbr: BDJ Open
   identifier: bdjopen
   name: BDJ Open
   provider: nat
-- abbr: null
+- abbr: BDJ Stud
   identifier: bdjstudent
   name: BDJ Student
   provider: nat
-- abbr: null
+- abbr: BDJ Team
   identifier: bdjteam
   name: BDJ Team
   provider: nat
-- abbr: null
+- abbr: Blood Cancer J
   identifier: bcj
   name: Blood Cancer Journal
   provider: nat
-- abbr: null
+- abbr: Bone Marrow Transplant
   identifier: bmt
   name: Bone Marrow Transplantation
   provider: nat
-- abbr: null
+- abbr: Bone Res
   identifier: boneres
   name: Bone Research
   provider: nat
-- abbr: null
+- abbr: Br Dent J
   identifier: bdj
   name: British Dental Journal
   provider: nat
-- abbr: null
+- abbr: Br J Cancer
   identifier: bjc
   name: British Journal of Cancer
   provider: nat
-- abbr: null
+- abbr: Cancer Gene Ther
   identifier: cgt
   name: Cancer Gene Therapy
   provider: nat
-- abbr: null
+- abbr: Cell Death  Dis
   identifier: cddis
   name: Cell Death & Disease
   provider: nat
-- abbr: null
+- abbr: Cell Death Differ
   identifier: cdd
   name: Cell Death and Differentiation
   provider: nat
-- abbr: null
+- abbr: Cell Death Discov
   identifier: cddiscovery
   name: Cell Death Discovery
   provider: nat
-- abbr: null
+- abbr: Cell Discov
   identifier: celldisc
   name: Cell Discovery
   provider: nat
-- abbr: null
+- abbr: Cell Res
   identifier: cr
   name: Cell Research
   provider: nat
-- abbr: null
+- abbr: Cell  Mol Immunol
   identifier: cmi
   name: Cellular & Molecular Immunology
   provider: nat
-- abbr: null
+- abbr: Commun Biology
   identifier: commsbio
   name: Communications Biology
   provider: nat
-- abbr: null
+- abbr: Commun Chem
   identifier: commschem
   name: Communications Chemistry
   provider: nat
-- abbr: null
+- abbr: Commun Mater
   identifier: commsmat
   name: Communications Materials
   provider: nat
-- abbr: null
+- abbr: Commun Phys
   identifier: commsphys
   name: Communications Physics
   provider: nat
-- abbr: null
+- abbr: Eur J Clin Nutr
   identifier: ejcn
   name: European Journal of Clinical Nutrition
   provider: nat
-- abbr: null
+- abbr: Eur J Hum Genet
   identifier: ejhg
   name: European Journal of Human Genetics
   provider: nat
-- abbr: null
+- abbr: Evidence-based Dent
   identifier: ebd
   name: Evidence-Based Dentistry
   provider: nat
-- abbr: null
+- abbr: Exp  Mol Med
   identifier: emm
   name: Experimental & Molecular Medicine
   provider: nat
-- abbr: null
+- abbr: Eye
   identifier: eye
   name: Eye
   provider: nat
-- abbr: null
+- abbr: Gene Ther
   identifier: gt
   name: Gene Therapy
   provider: nat
-- abbr: null
+- abbr: Gene Immun
   identifier: gene
   name: Genes and Immunity
   provider: nat
-- abbr: null
+- abbr: Genet Med
   identifier: gim
   name: Genetics in Medicine
   provider: nat
-- abbr: null
+- abbr: Heredity
   identifier: hdy
   name: Heredity
   provider: nat
-- abbr: null
+- abbr: Hortic Res
   identifier: hortres
   name: Horticulture Research
   provider: nat
-- abbr: null
+- abbr: Hum Genome Var
   identifier: hgv
   name: Human Genome Variation
   provider: nat
-- abbr: null
+- abbr: Hypertens Res
   identifier: hr
   name: Hypertension Research
   provider: nat
-- abbr: null
+- abbr: Int J Impot Res
   identifier: ijir
   name: International Journal of Impotence Research
   provider: nat
-- abbr: null
+- abbr: Int J Obes
   identifier: ijo
   name: International Journal of Obesity
   provider: nat
-- abbr: null
+- abbr: Int J Obes Suppl
   identifier: ijosup
   name: International Journal of Obesity Supplements
   provider: nat
-- abbr: null
+- abbr: Int J Oral Sci
   identifier: ijos
   name: International Journal of Oral Science
   provider: nat
-- abbr: null
+- abbr: J Expo Sci Environ Epidemiology
   identifier: jes
   name: Journal of Exposure Science and Environmental Epidemiology
   provider: nat
-- abbr: null
+- abbr: J Hum Genet
   identifier: jhg
   name: Journal of Human Genetics
   provider: nat
-- abbr: null
+- abbr: J Hum Hypertens
   identifier: jhh
   name: Journal of Human Hypertension
   provider: nat
-- abbr: null
+- abbr: J Perinatol
   identifier: jp
   name: Journal of Perinatology
   provider: nat
-- abbr: null
+- abbr: Lab Anim
   identifier: laban
   name: Lab Animal
   provider: nat
-- abbr: null
+- abbr: Lab Investig
   identifier: labinvest
   name: Laboratory Investigation
   provider: nat
-- abbr: null
+- abbr: Leukemia
   identifier: leu
   name: Leukemia
   provider: nat
-- abbr: null
+- abbr: Leuk Suppl
   identifier: leusup
   name: Leukemia Supplements
   provider: nat
-- abbr: null
+- abbr: Light Sci  Appl
   identifier: lsa
   name: 'Light: Science & Applications'
   provider: nat
-- abbr: null
+- abbr: Microsystems  Nanoeng
   identifier: micronano
   name: Microsystems & Nanoengineering
   provider: nat
-- abbr: null
+- abbr: Mod Pathol
   identifier: modpathol
   name: Modern Pathology
   provider: nat
-- abbr: null
+- abbr: Mol Psychiatry
   identifier: mp
   name: Molecular Psychiatry
   provider: nat
-- abbr: null
+- abbr: Mucosal Immunol
   identifier: mi
   name: Mucosal Immunology
   provider: nat
-- abbr: null
+- abbr: Nature
   identifier: nature
   name: Nature
   provider: nat
-- abbr: null
+- abbr: Nat Astron
   identifier: natastron
   name: Nature Astronomy
   provider: nat
-- abbr: null
+- abbr: Nat Biomed Eng
   identifier: natbiomedeng
   name: Nature Biomedical Engineering
   provider: nat
-- abbr: null
+- abbr: Nat Biotechnol
   identifier: nbt
   name: Nature Biotechnology
   provider: nat
-- abbr: null
+- abbr: Nat Cancer
   identifier: natcancer
   name: Nature Cancer
   provider: nat
-- abbr: null
+- abbr: Nat Catal
   identifier: natcatal
   name: Nature Catalysis
   provider: nat
-- abbr: null
+- abbr: Nat Cell Biology
   identifier: ncb
   name: Nature Cell Biology
   provider: nat
-- abbr: null
+- abbr: Nat Chem Biology
   identifier: nchembio
   name: Nature Chemical Biology
   provider: nat
-- abbr: null
+- abbr: Nat Chem
   identifier: nchem
   name: Nature Chemistry
   provider: nat
-- abbr: null
+- abbr: Nat Clim Chang
   identifier: nclimate
   name: Nature Climate Change
   provider: nat
-- abbr: null
+- abbr: Nat Commun
   identifier: ncomms
   name: Nature Communications
   provider: nat
-- abbr: null
+- abbr: Nat Ecol  Evol
   identifier: natecolevol
   name: Nature Ecology & Evolution
   provider: nat
-- abbr: null
+- abbr: Nat Electron
   identifier: natelectron
   name: Nature Electronics
   provider: nat
-- abbr: null
+- abbr: Nat Energy
   identifier: nenergy
   name: Nature Energy
   provider: nat
-- abbr: null
+- abbr: Nat Food
   identifier: natfood
   name: Nature Food
   provider: nat
-- abbr: null
+- abbr: Nat Genet
   identifier: ng
   name: Nature Genetics
   provider: nat
-- abbr: null
+- abbr: Nat Geosci
   identifier: ngeo
   name: Nature Geoscience
   provider: nat
-- abbr: null
+- abbr: Nat Hum Behav
   identifier: nathumbehav
   name: Nature Human Behaviour
   provider: nat
-- abbr: null
+- abbr: Nat Immunol
   identifier: ni
   name: Nature Immunology
   provider: nat
-- abbr: null
+- abbr: Nat Mach Intell
   identifier: natmachintell
   name: Nature Machine Intelligence
   provider: nat
-- abbr: null
+- abbr: Nat Mater
   identifier: nmat
   name: Nature Materials
   provider: nat
-- abbr: null
+- abbr: Nat Med
   identifier: nm
   name: Nature Medicine
   provider: nat
-- abbr: null
+- abbr: Nat Metab
   identifier: natmetab
   name: Nature Metabolism
   provider: nat
-- abbr: null
+- abbr: Nat Method
   identifier: nmeth
   name: Nature Methods
   provider: nat
-- abbr: null
+- abbr: Nat Microbiol
   identifier: nmicrobiol
   name: Nature Microbiology
   provider: nat
-- abbr: null
+- abbr: Nat Nanotechnol
   identifier: nnano
   name: Nature Nanotechnology
   provider: nat
-- abbr: null
+- abbr: Nat Neurosci
   identifier: neuro
   name: Nature Neuroscience
   provider: nat
-- abbr: null
+- abbr: Nat Photonics
   identifier: nphoton
   name: Nature Photonics
   provider: nat
-- abbr: null
+- abbr: Nat Phys
   identifier: nphys
   name: Nature Physics
   provider: nat
-- abbr: null
+- abbr: Nat Plant
   identifier: nplants
   name: Nature Plants
   provider: nat
-- abbr: null
+- abbr: Nat Protoc
   identifier: nprot
   name: Nature Protocols
   provider: nat
-- abbr: null
+- abbr: Nat Rev Cancer
   identifier: nrc
   name: Nature Reviews Cancer
   provider: nat
-- abbr: null
+- abbr: Nat Rev Cardiol
   identifier: nrcardio
   name: Nature Reviews Cardiology
   provider: nat
-- abbr: null
+- abbr: Nat Rev Chem
   identifier: natrevchem
   name: Nature Reviews Chemistry
   provider: nat
-- abbr: null
+- abbr: Nat Rev Clin Oncol
   identifier: nrclinonc
   name: Nature Reviews Clinical Oncology
   provider: nat
-- abbr: null
+- abbr: Nat Rev Dis Prim
   identifier: nrdp
   name: Nature Reviews Disease Primers
   provider: nat
-- abbr: null
+- abbr: Nat Rev Drug Discov
   identifier: nrd
   name: Nature Reviews Drug Discovery
   provider: nat
-- abbr: null
+- abbr: Nat Rev Earth  Environ
   identifier: natrevearthenviron
   name: Nature Reviews Earth & Environment
   provider: nat
-- abbr: null
+- abbr: Nat Rev Endocrinol
   identifier: nrendo
   name: Nature Reviews Endocrinology
   provider: nat
-- abbr: null
+- abbr: Nat Rev Gastroenterol  Hepatol
   identifier: nrgastro
   name: Nature Reviews Gastroenterology & Hepatology
   provider: nat
-- abbr: null
+- abbr: Nat Rev Genet
   identifier: nrg
   name: Nature Reviews Genetics
   provider: nat
-- abbr: null
+- abbr: Nat Rev Immunol
   identifier: nri
   name: Nature Reviews Immunology
   provider: nat
-- abbr: null
+- abbr: Nat Rev Mater
   identifier: natrevmats
   name: Nature Reviews Materials
   provider: nat
-- abbr: null
+- abbr: Nat Rev Microbiol
   identifier: nrmicro
   name: Nature Reviews Microbiology
   provider: nat
-- abbr: null
+- abbr: Nat Rev Mol Cell Biology
   identifier: nrm
   name: Nature Reviews Molecular Cell Biology
   provider: nat
-- abbr: null
+- abbr: Nat Rev Nephrol
   identifier: nrneph
   name: Nature Reviews Nephrology
   provider: nat
-- abbr: null
+- abbr: Nat Rev Neurol
   identifier: nrneurol
   name: Nature Reviews Neurology
   provider: nat
-- abbr: null
+- abbr: Nat Rev Neurosci
   identifier: nrn
   name: Nature Reviews Neuroscience
   provider: nat
-- abbr: null
+- abbr: Nat Rev Phys
   identifier: natrevphys
   name: Nature Reviews Physics
   provider: nat
-- abbr: null
+- abbr: Nat Rev Rheumatol
   identifier: nrrheum
   name: Nature Reviews Rheumatology
   provider: nat
-- abbr: null
+- abbr: Nat Rev Urol
   identifier: nrurol
   name: Nature Reviews Urology
   provider: nat
-- abbr: null
+- abbr: Nat Struct  Mol Biology
   identifier: nsmb
   name: Nature Structural & Molecular Biology
   provider: nat
-- abbr: null
+- abbr: Nat Sustain
   identifier: natsustain
   name: Nature Sustainability
   provider: nat
-- abbr: null
+- abbr: Neuropsychopharmacology
   identifier: npp
   name: Neuropsychopharmacology
   provider: nat
-- abbr: null
+- abbr: NPG Asia Mater
   identifier: am
   name: NPG Asia Materials
   provider: nat
-- abbr: null
+- abbr: npj 2D Mater Appl
   identifier: npj2dmaterials
   name: npj 2D Materials and Applications
   provider: nat
-- abbr: null
+- abbr: npj Aging Mech Dis
   identifier: npjamd
   name: npj Aging and Mechanisms of Disease
   provider: nat
-- abbr: null
+- abbr: npj Biofilms Microbiomes
   identifier: npjbiofilms
   name: npj Biofilms and Microbiomes
   provider: nat
-- abbr: null
+- abbr: npj Breast Cancer
   identifier: npjbcancer
   name: npj Breast Cancer
   provider: nat
-- abbr: null
+- abbr: npj Clean Water
   identifier: npjcleanwater
   name: npj Clean Water
   provider: nat
-- abbr: null
+- abbr: npj Clim Atmospheric Sci
   identifier: npjclimatsci
   name: npj Climate and Atmospheric Science
   provider: nat
-- abbr: null
+- abbr: npj Comput Mater
   identifier: npjcompumats
   name: npj Computational Materials
   provider: nat
-- abbr: null
+- abbr: npj Digit Med
   identifier: npjdigitalmed
   name: npj Digital Medicine
   provider: nat
-- abbr: null
+- abbr: npj Flex Electron
   identifier: npjflexelectron
   name: npj Flexible Electronics
   provider: nat
-- abbr: null
+- abbr: npj Genom Med
   identifier: npjgenmed
   name: npj Genomic Medicine
   provider: nat
-- abbr: null
+- abbr: npj Mater Degrad
   identifier: npjmatdeg
   name: npj Materials Degradation
   provider: nat
-- abbr: null
+- abbr: npj Microgravity
   identifier: npjmgrav
   name: npj Microgravity
   provider: nat
-- abbr: null
+- abbr: npj Park Dis
   identifier: npjparkd
   name: npj Parkinson's Disease
   provider: nat
-- abbr: null
+- abbr: npj Precis Oncol
   identifier: npjprecisiononcology
   name: npj Precision Oncology
   provider: nat
-- abbr: null
+- abbr: npj Prim Care Respir Med
   identifier: npjpcrm
   name: npj Primary Care Respiratory Medicine
   provider: nat
-- abbr: null
+- abbr: npj Quantum Inf
   identifier: npjqi
   name: npj Quantum Information
   provider: nat
-- abbr: null
+- abbr: npj Quantum Mater
   identifier: npjquantmats
   name: npj Quantum Materials
   provider: nat
-- abbr: null
+- abbr: npj Regen Med
   identifier: npjregenmed
   name: npj Regenerative Medicine
   provider: nat
-- abbr: null
+- abbr: npj Schizophr
   identifier: npjschz
   name: npj Schizophrenia
   provider: nat
-- abbr: null
+- abbr: npj Sci Food
   identifier: npjscifood
   name: npj Science of Food
   provider: nat
-- abbr: null
+- abbr: npj Sci Learn
   identifier: npjscilearn
   name: npj Science of Learning
   provider: nat
-- abbr: null
+- abbr: npj Syst Biology Appl
   identifier: npjsba
   name: npj Systems Biology and Applications
   provider: nat
-- abbr: null
+- abbr: npj Vaccine
   identifier: npjvaccines
   name: npj Vaccines
   provider: nat
-- abbr: null
+- abbr: Nutr  Diabetes
   identifier: nutd
   name: Nutrition & Diabetes
   provider: nat
-- abbr: null
+- abbr: Oncogene
   identifier: onc
   name: Oncogene
   provider: nat
-- abbr: null
+- abbr: Oncogenesis
   identifier: oncsis
   name: Oncogenesis
   provider: nat
-- abbr: null
+- abbr: Palgrave Commun
   identifier: palcomms
   name: Palgrave Communications
   provider: nat
-- abbr: null
+- abbr: Pediatr Res
   identifier: pr
   name: Pediatric Research
   provider: nat
-- abbr: null
+- abbr: Polym J
   identifier: pj
   name: Polymer Journal
   provider: nat
-- abbr: null
+- abbr: Prostate Cancer Prostatic Dis
   identifier: pcan
   name: Prostate Cancer and Prostatic Diseases
   provider: nat
-- abbr: null
+- abbr: Sci Data
   identifier: sdata
   name: Scientific Data
   provider: nat
-- abbr: null
+- abbr: Sci Rep
   identifier: srep
   name: Scientific Reports
   provider: nat
-- abbr: null
+- abbr: Signal Transduct Target Ther
   identifier: sigtrans
   name: Signal Transduction and Targeted Therapy
   provider: nat
-- abbr: null
+- abbr: Spinal Cord
   identifier: sc
   name: Spinal Cord
   provider: nat
-- abbr: null
+- abbr: Spinal Cord Ser Case
   identifier: scsandc
   name: Spinal Cord Series and Cases
   provider: nat
-- abbr: null
+- abbr: ISME J
   identifier: ismej
   name: The ISME Journal
   provider: nat
-- abbr: null
+- abbr: J Antibiot
   identifier: ja
   name: The Journal of Antibiotics
   provider: nat
-- abbr: null
+- abbr: Pharmacogenomics J
   identifier: tpj
   name: The Pharmacogenomics Journal
   provider: nat
-- abbr: null
+- abbr: Transl Psychiatry
   identifier: tp
   name: Translational Psychiatry
   provider: nat
-- abbr: null
+- abbr: Analyst
   identifier: Analyst
   name: Analyst
   provider: rsc
-- abbr: null
+- abbr: Anal Method
   identifier: Analytical Methods
   name: Analytical Methods
   provider: rsc
-- abbr: null
+- abbr: Biomater Sci
   identifier: Biomaterials Science
   name: Biomaterials Science
   provider: rsc
-- abbr: null
+- abbr: Catal Sci  Technol
   identifier: Catalysis Science & Technology
   name: Catalysis Science & Technology
   provider: rsc
-- abbr: null
+- abbr: Chem Commun
   identifier: Chemical Communications
   name: Chemical Communications
   provider: rsc
-- abbr: null
+- abbr: Chem Sci
   identifier: Chemical Science
   name: Chemical Science
   provider: rsc
-- abbr: null
+- abbr: Chem Soc Rev
   identifier: Chemical Society Reviews
   name: Chemical Society Reviews
   provider: rsc
-- abbr: null
+- abbr: Chem Educ Res Pract
   identifier: Chemistry Education Research and Practice
   name: Chemistry Education Research and Practice
   provider: rsc
-- abbr: null
+- abbr: CrystEngComm
   identifier: CrystEngComm
   name: CrystEngComm
   provider: rsc
-- abbr: null
+- abbr: T Trans
   identifier: Dalton Transactions
   name: Dalton Transactions
   provider: rsc
-- abbr: null
+- abbr: Energy  Environ Sci
   identifier: Energy & Environmental Science
   name: Energy & Environmental Science
   provider: rsc
-- abbr: null
+- abbr: Environ Sci Nano
   identifier: 'Environmental Science: Nano'
   name: 'Environmental Science: Nano'
   provider: rsc
-- abbr: null
+- abbr: Environ Sci Process  Impact
   identifier: 'Environmental Science: Processes & Impacts'
   name: 'Environmental Science: Processes & Impacts'
   provider: rsc
-- abbr: null
+- abbr: Environ Sci Water Res  Technol
   identifier: 'Environmental Science: Water Research & Technology'
   name: 'Environmental Science: Water Research & Technology'
   provider: rsc
-- abbr: null
+- abbr: Faraday Discuss
   identifier: Faraday Discussions
   name: Faraday Discussions
   provider: rsc
-- abbr: null
+- abbr: Food  Funct
   identifier: Food & Function
   name: Food & Function
   provider: rsc
-- abbr: null
+- abbr: Green Chem
   identifier: Green Chemistry
   name: Green Chemistry
   provider: rsc
-- abbr: null
+- abbr: Inorg Chem Front
   identifier: Inorganic Chemistry Frontiers
   name: Inorganic Chemistry Frontiers
   provider: rsc
-- abbr: null
+- abbr: J Anal At Spectrom
   identifier: Journal of Analytical Atomic Spectrometry
   name: Journal of Analytical Atomic Spectrometry
   provider: rsc
-- abbr: null
+- abbr: J Mater Chem
   identifier: Journal of Materials Chemistry A
   name: Journal of Materials Chemistry A
   provider: rsc
-- abbr: null
+- abbr: J Mater Chem B
   identifier: Journal of Materials Chemistry B
   name: Journal of Materials Chemistry B
   provider: rsc
-- abbr: null
+- abbr: J Mater Chem C
   identifier: Journal of Materials Chemistry C
   name: Journal of Materials Chemistry C
   provider: rsc
-- abbr: null
+- abbr: Lab Chip
   identifier: Lab on a Chip
   name: Lab on a Chip
   provider: rsc
-- abbr: null
+- abbr: Mater Chem Front
   identifier: Materials Chemistry Frontiers
   name: Materials Chemistry Frontiers
   provider: rsc
-- abbr: null
+- abbr: Mater Horiz
   identifier: Materials Horizons
   name: Materials Horizons
   provider: rsc
-- abbr: null
+- abbr: MedChemComm
   identifier: MedChemComm
   name: MedChemComm
   provider: rsc
-- abbr: null
+- abbr: Metallomics
   identifier: Metallomics
   name: Metallomics
   provider: rsc
-- abbr: null
+- abbr: Mol Omics
   identifier: Molecular Omics
   name: Molecular Omics
   provider: rsc
-- abbr: null
+- abbr: Mol Syst Des  Eng
   identifier: Molecular Systems Design & Engineering
   name: Molecular Systems Design & Engineering
   provider: rsc
-- abbr: null
+- abbr: Nanoscale
   identifier: Nanoscale
   name: Nanoscale
   provider: rsc
-- abbr: null
+- abbr: Nanoscale Adv
   identifier: Nanoscale Advances
   name: Nanoscale Advances
   provider: rsc
-- abbr: null
+- abbr: Nanoscale Horiz
   identifier: Nanoscale Horizons
   name: Nanoscale Horizons
   provider: rsc
-- abbr: null
+- abbr: Nat Prod Rep
   identifier: Natural Product Reports
   name: Natural Product Reports
   provider: rsc
-- abbr: null
+- abbr: New J Chem
   identifier: New Journal of Chemistry
   name: New Journal of Chemistry
   provider: rsc
-- abbr: null
+- abbr: Org  Biomol Chem
   identifier: Organic & Biomolecular Chemistry
   name: Organic & Biomolecular Chemistry
   provider: rsc
-- abbr: null
+- abbr: Org Chem Front
   identifier: Organic Chemistry Frontiers
   name: Organic Chemistry Frontiers
   provider: rsc
-- abbr: null
+- abbr: Photochem  Photobiol Sci
   identifier: Photochemical & Photobiological Sciences
   name: Photochemical & Photobiological Sciences
   provider: rsc
-- abbr: null
+- abbr: Phys Chem Chem Phys
   identifier: Physical Chemistry Chemical Physics
   name: Physical Chemistry Chemical Physics
   provider: rsc
-- abbr: null
+- abbr: Polym Chem
   identifier: Polymer Chemistry
   name: Polymer Chemistry
   provider: rsc
-- abbr: null
+- abbr: React Chem  Eng
   identifier: Reaction Chemistry & Engineering
   name: Reaction Chemistry & Engineering
   provider: rsc
-- abbr: null
+- abbr: RSC Adv
   identifier: RSC Advances
   name: RSC Advances
   provider: rsc
-- abbr: null
+- abbr: Soft Matter
   identifier: Soft Matter
   name: Soft Matter
   provider: rsc
-- abbr: null
+- abbr: Sustain Energy  Fuel
   identifier: Sustainable Energy & Fuels
   name: Sustainable Energy & Fuels
   provider: rsc
-- abbr: null
+- abbr: Toxicol Res
   identifier: Toxicology Research
   name: Toxicology Research
   provider: rsc

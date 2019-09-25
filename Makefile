@@ -14,6 +14,7 @@ front:
 
 init:
 	pipenv install --dev --ignore-pipfile
+	pipenv run python -c 'import nltk; nltk.download("wordnet")'
 
 sync:
 	pipenv sync --dev
