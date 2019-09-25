@@ -1,4 +1,4 @@
-# generated on 2019-09-25 18:47:05.060513
+# generated on 2019-09-25 19:08:59.114932
 - abbr: null
   identifier: achre4
   name: Accounts of Chemical Research
@@ -1661,3 +1661,179 @@
   identifier: tp
   name: Translational Psychiatry
   provider: nat
+- abbr: null
+  identifier: Analyst
+  name: Analyst
+  provider: rsc
+- abbr: null
+  identifier: Analytical Methods
+  name: Analytical Methods
+  provider: rsc
+- abbr: null
+  identifier: Biomaterials Science
+  name: Biomaterials Science
+  provider: rsc
+- abbr: null
+  identifier: Catalysis Science & Technology
+  name: Catalysis Science & Technology
+  provider: rsc
+- abbr: null
+  identifier: Chemical Communications
+  name: Chemical Communications
+  provider: rsc
+- abbr: null
+  identifier: Chemical Science
+  name: Chemical Science
+  provider: rsc
+- abbr: null
+  identifier: Chemical Society Reviews
+  name: Chemical Society Reviews
+  provider: rsc
+- abbr: null
+  identifier: Chemistry Education Research and Practice
+  name: Chemistry Education Research and Practice
+  provider: rsc
+- abbr: null
+  identifier: CrystEngComm
+  name: CrystEngComm
+  provider: rsc
+- abbr: null
+  identifier: Dalton Transactions
+  name: Dalton Transactions
+  provider: rsc
+- abbr: null
+  identifier: Energy & Environmental Science
+  name: Energy & Environmental Science
+  provider: rsc
+- abbr: null
+  identifier: 'Environmental Science: Nano'
+  name: 'Environmental Science: Nano'
+  provider: rsc
+- abbr: null
+  identifier: 'Environmental Science: Processes & Impacts'
+  name: 'Environmental Science: Processes & Impacts'
+  provider: rsc
+- abbr: null
+  identifier: 'Environmental Science: Water Research & Technology'
+  name: 'Environmental Science: Water Research & Technology'
+  provider: rsc
+- abbr: null
+  identifier: Faraday Discussions
+  name: Faraday Discussions
+  provider: rsc
+- abbr: null
+  identifier: Food & Function
+  name: Food & Function
+  provider: rsc
+- abbr: null
+  identifier: Green Chemistry
+  name: Green Chemistry
+  provider: rsc
+- abbr: null
+  identifier: Inorganic Chemistry Frontiers
+  name: Inorganic Chemistry Frontiers
+  provider: rsc
+- abbr: null
+  identifier: Journal of Analytical Atomic Spectrometry
+  name: Journal of Analytical Atomic Spectrometry
+  provider: rsc
+- abbr: null
+  identifier: Journal of Materials Chemistry A
+  name: Journal of Materials Chemistry A
+  provider: rsc
+- abbr: null
+  identifier: Journal of Materials Chemistry B
+  name: Journal of Materials Chemistry B
+  provider: rsc
+- abbr: null
+  identifier: Journal of Materials Chemistry C
+  name: Journal of Materials Chemistry C
+  provider: rsc
+- abbr: null
+  identifier: Lab on a Chip
+  name: Lab on a Chip
+  provider: rsc
+- abbr: null
+  identifier: Materials Chemistry Frontiers
+  name: Materials Chemistry Frontiers
+  provider: rsc
+- abbr: null
+  identifier: Materials Horizons
+  name: Materials Horizons
+  provider: rsc
+- abbr: null
+  identifier: MedChemComm
+  name: MedChemComm
+  provider: rsc
+- abbr: null
+  identifier: Metallomics
+  name: Metallomics
+  provider: rsc
+- abbr: null
+  identifier: Molecular Omics
+  name: Molecular Omics
+  provider: rsc
+- abbr: null
+  identifier: Molecular Systems Design & Engineering
+  name: Molecular Systems Design & Engineering
+  provider: rsc
+- abbr: null
+  identifier: Nanoscale
+  name: Nanoscale
+  provider: rsc
+- abbr: null
+  identifier: Nanoscale Advances
+  name: Nanoscale Advances
+  provider: rsc
+- abbr: null
+  identifier: Nanoscale Horizons
+  name: Nanoscale Horizons
+  provider: rsc
+- abbr: null
+  identifier: Natural Product Reports
+  name: Natural Product Reports
+  provider: rsc
+- abbr: null
+  identifier: New Journal of Chemistry
+  name: New Journal of Chemistry
+  provider: rsc
+- abbr: null
+  identifier: Organic & Biomolecular Chemistry
+  name: Organic & Biomolecular Chemistry
+  provider: rsc
+- abbr: null
+  identifier: Organic Chemistry Frontiers
+  name: Organic Chemistry Frontiers
+  provider: rsc
+- abbr: null
+  identifier: Photochemical & Photobiological Sciences
+  name: Photochemical & Photobiological Sciences
+  provider: rsc
+- abbr: null
+  identifier: Physical Chemistry Chemical Physics
+  name: Physical Chemistry Chemical Physics
+  provider: rsc
+- abbr: null
+  identifier: Polymer Chemistry
+  name: Polymer Chemistry
+  provider: rsc
+- abbr: null
+  identifier: Reaction Chemistry & Engineering
+  name: Reaction Chemistry & Engineering
+  provider: rsc
+- abbr: null
+  identifier: RSC Advances
+  name: RSC Advances
+  provider: rsc
+- abbr: null
+  identifier: Soft Matter
+  name: Soft Matter
+  provider: rsc
+- abbr: null
+  identifier: Sustainable Energy & Fuels
+  name: Sustainable Energy & Fuels
+  provider: rsc
+- abbr: null
+  identifier: Toxicology Research
+  name: Toxicology Research
+  provider: rsc

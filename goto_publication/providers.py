@@ -362,6 +362,21 @@ class RSC(Provider):
 
         return links[0].attrs['href'][16:]
 
+    def get_journals(self) -> List[journal.Journal]:
+        result = requests.get(self.WEBSITE_URL + 'en/Journals', headers={'User-Agent': 'tmp'})
+        soup = BeautifulSoup(result.content, 'lxml')
+
+        links = soup.find('div', attrs={'class': 'journal-list--content'})\
+            .find_all('span', attrs={'class': 'list__item-label'})
+
+        journals = []
+
+        for l in links:
+            title = next(l.children).strip()
+            journals.append(journal.Journal(title, title, self))
+
+        return journals
+
 
 class ScienceDirect(Provider):
     """Science Direct (Elsevier).

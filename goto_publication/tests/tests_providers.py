@@ -37,7 +37,7 @@ class TestProviders(unittest.TestCase):
         self._check(providers.Nature(), ('nature', 227, 680))  # U.K. Laemmli et al. (second most cited)
 
     def test_RSC(self):
-        self._check(providers.RSC(), ('phys. chem. chem. phys.', 21, 2222))  # (...)
+        self._check(providers.RSC(), ('phys. chem. chem. phys.', 21, 2222))  # M. Merced Montero-Campillo et al.
 
     def test_ScienceDirect(self):
         pass  # doi requires API key
