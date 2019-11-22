@@ -397,7 +397,6 @@ class ScienceDirect(Provider):
         'Chemical Physics': 271366
     }
 
-    api_url = 'https://api.elsevier.com/content/search/sciencedirect'
     base_url = WEBSITE_URL + 'search/advanced'
 
     def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
@@ -438,7 +437,7 @@ class ScienceDirectAPI(ScienceDirect):
             raise ProviderError('no API key provided')
 
         response = requests.put(self.api_url, data=json.dumps({
-            'qs': '*',
+            'title': '*',
             'pub': journal,
             'volume': volume,
             'page': page

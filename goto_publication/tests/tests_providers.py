@@ -1,6 +1,7 @@
 import unittest
 import requests
 from typing import Tuple, Union, Any
+import os
 
 from goto_publication import providers
 
@@ -12,7 +13,7 @@ class TestProviders(unittest.TestCase):
     def _check(self, p: providers.Provider, info: Tuple[Any, Union[str, int], Union[str, int]], **kwargs):
         """Check that DOI results in a 302 at https://dx.doi.org.
 
-        NOTE: **DO NOT CHECK THE URL**!
+        NOTE: **DO NOT FOLLOW THE URL**!
         Otherwise, you will messed up the read count of the corresponding articles, which may result in troubles.
         """
 
@@ -25,7 +26,7 @@ class TestProviders(unittest.TestCase):
         self._check(providers.ACS(), ('jacsat', 138, 5052))  # Beaujean et al.
 
     def test_APS(self):
-        self._check(providers.APS(), (('prl', 'PhysRevLett'), 116, 231301))  # S. W. Hawking et al.
+        self._check(providers.APS(), (('prl', 'PhysRevLett'), 116, 231301))  # S.W. Hawking et al.
 
     def test_AIP(self):
         self._check(providers.AIP(), ('The Journal of Chemical Physics', 151, '064303'))  # Beaujean et al.
@@ -39,8 +40,12 @@ class TestProviders(unittest.TestCase):
     def test_RSC(self):
         self._check(providers.RSC(), ('phys. chem. chem. phys.', 21, 2222))  # M. Merced Montero-Campillo et al.
 
+    @unittest.skipIf(os.environ.get('SD_API_KEY', None) is None, 'no ScienceDirect API key provided ($SD_API_KEY)')
     def test_ScienceDirect(self):
-        pass  # doi requires API key
+        self._check(
+            providers.ScienceDirectAPI(os.environ.get('SD_API_KEY')),
+            ('Chemical Physics', 493, 200)  # D.V. Makhov et al.
+        )
 
     def test_Springer(self):
         pass  # no DOI for Springer
