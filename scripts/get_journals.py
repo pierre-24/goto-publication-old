@@ -13,7 +13,9 @@ PROVIDERS = [  # will be replaced by REGISTER later on
     providers.ACS(),
     providers.APS(),
     providers.AIP(),
-    providers.IOP()
+    providers.IOP(),
+    providers.Nature(),
+    providers.RSC()
 ]
 
 if __name__ == '__main__':

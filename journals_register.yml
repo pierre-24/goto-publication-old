@@ -1,4 +1,4 @@
-# generated on 2019-09-23 12:09:41.707323
+# generated on 2019-09-25 19:12:21.238849
 - abbr: Acc Chem Res
   identifier: achre4
   name: Accounts of Chemical Research
@@ -731,6 +731,10 @@
   identifier: 0143-0815
   name: Clinical Physics and Physiological Measurement
   provider: IOP
+- abbr: Combust Theory Model
+  identifier: ldjournals.iop.org/journal/1364-7830
+  name: Combustion Theory and Modelling
+  provider: IOP
 - abbr: Commun Theor Phys
   identifier: 0253-6102
   name: Communications in Theoretical Physics
@@ -860,6 +864,10 @@
   identifier: 1742-5468
   name: 'Journal of Statistical Mechanics: Theory and Experiment'
   provider: IOP
+- abbr: J Turbul
+  identifier: ldjournals.iop.org/journal/1468-5248
+  name: Journal of Turbulence
+  provider: IOP
 - abbr: Laser Phys
   identifier: 1555-6611
   name: Laser Physics
@@ -903,6 +911,10 @@
 - abbr: Nano Futur
   identifier: 2399-1984
   name: Nano Futures
+  provider: IOP
+- abbr: Netw Comput Neural Syst
+  identifier: ldjournals.iop.org/journal/0954-898X
+  name: 'Network: Computation in Neural Systems'
   provider: IOP
 - abbr: Nonlinearity
   identifier: 0951-7715
@@ -980,6 +992,10 @@
   identifier: 2058-7058
   name: Physics World
   provider: IOP
+- abbr: Public Underst Sci
+  identifier: ldjournals.iop.org/journal/0963-6625
+  name: Public Understanding of Science
+  provider: IOP
 - abbr: Proc Phys Soc Sect B
   identifier: 0370-1301
   name: Proceedings of the Physical Society. Section B
@@ -999,6 +1015,10 @@
 - abbr: Publ Astron Soc Pac
   identifier: 1538-3873
   name: Publications of the Astronomical Society of the Pacific
+  provider: IOP
+- abbr: Quant Finance
+  identifier: ldjournals.iop.org/journal/1469-7688
+  name: Quantitative Finance
   provider: IOP
 - abbr: Quantum Semiclassical Opt J Eur Opt Soc Part B
   identifier: 1355-5111
@@ -1081,7 +1101,763 @@
   identifier: 1475-4878
   name: Transactions of the Optical Society
   provider: IOP
+- abbr: Wave Random Media
+  identifier: ldjournals.iop.org/journal/0959-7174
+  name: Waves in Random Media
+  provider: IOP
 - abbr: Transl Mater Res
   identifier: 2053-1613
   name: Translational Materials Research
   provider: IOP
+- abbr: Acta Pharmacol Sin
+  identifier: aps
+  name: Acta Pharmacologica Sinica
+  provider: nat
+- abbr: BDJ Pract
+  identifier: bdjinpractice
+  name: BDJ In Practice
+  provider: nat
+- abbr: BDJ Open
+  identifier: bdjopen
+  name: BDJ Open
+  provider: nat
+- abbr: BDJ Stud
+  identifier: bdjstudent
+  name: BDJ Student
+  provider: nat
+- abbr: BDJ Team
+  identifier: bdjteam
+  name: BDJ Team
+  provider: nat
+- abbr: Blood Cancer J
+  identifier: bcj
+  name: Blood Cancer Journal
+  provider: nat
+- abbr: Bone Marrow Transplant
+  identifier: bmt
+  name: Bone Marrow Transplantation
+  provider: nat
+- abbr: Bone Res
+  identifier: boneres
+  name: Bone Research
+  provider: nat
+- abbr: Br Dent J
+  identifier: bdj
+  name: British Dental Journal
+  provider: nat
+- abbr: Br J Cancer
+  identifier: bjc
+  name: British Journal of Cancer
+  provider: nat
+- abbr: Cancer Gene Ther
+  identifier: cgt
+  name: Cancer Gene Therapy
+  provider: nat
+- abbr: Cell Death  Dis
+  identifier: cddis
+  name: Cell Death & Disease
+  provider: nat
+- abbr: Cell Death Differ
+  identifier: cdd
+  name: Cell Death and Differentiation
+  provider: nat
+- abbr: Cell Death Discov
+  identifier: cddiscovery
+  name: Cell Death Discovery
+  provider: nat
+- abbr: Cell Discov
+  identifier: celldisc
+  name: Cell Discovery
+  provider: nat
+- abbr: Cell Res
+  identifier: cr
+  name: Cell Research
+  provider: nat
+- abbr: Cell  Mol Immunol
+  identifier: cmi
+  name: Cellular & Molecular Immunology
+  provider: nat
+- abbr: Commun Biology
+  identifier: commsbio
+  name: Communications Biology
+  provider: nat
+- abbr: Commun Chem
+  identifier: commschem
+  name: Communications Chemistry
+  provider: nat
+- abbr: Commun Mater
+  identifier: commsmat
+  name: Communications Materials
+  provider: nat
+- abbr: Commun Phys
+  identifier: commsphys
+  name: Communications Physics
+  provider: nat
+- abbr: Eur J Clin Nutr
+  identifier: ejcn
+  name: European Journal of Clinical Nutrition
+  provider: nat
+- abbr: Eur J Hum Genet
+  identifier: ejhg
+  name: European Journal of Human Genetics
+  provider: nat
+- abbr: Evidence-based Dent
+  identifier: ebd
+  name: Evidence-Based Dentistry
+  provider: nat
+- abbr: Exp  Mol Med
+  identifier: emm
+  name: Experimental & Molecular Medicine
+  provider: nat
+- abbr: Eye
+  identifier: eye
+  name: Eye
+  provider: nat
+- abbr: Gene Ther
+  identifier: gt
+  name: Gene Therapy
+  provider: nat
+- abbr: Gene Immun
+  identifier: gene
+  name: Genes and Immunity
+  provider: nat
+- abbr: Genet Med
+  identifier: gim
+  name: Genetics in Medicine
+  provider: nat
+- abbr: Heredity
+  identifier: hdy
+  name: Heredity
+  provider: nat
+- abbr: Hortic Res
+  identifier: hortres
+  name: Horticulture Research
+  provider: nat
+- abbr: Hum Genome Var
+  identifier: hgv
+  name: Human Genome Variation
+  provider: nat
+- abbr: Hypertens Res
+  identifier: hr
+  name: Hypertension Research
+  provider: nat
+- abbr: Int J Impot Res
+  identifier: ijir
+  name: International Journal of Impotence Research
+  provider: nat
+- abbr: Int J Obes
+  identifier: ijo
+  name: International Journal of Obesity
+  provider: nat
+- abbr: Int J Obes Suppl
+  identifier: ijosup
+  name: International Journal of Obesity Supplements
+  provider: nat
+- abbr: Int J Oral Sci
+  identifier: ijos
+  name: International Journal of Oral Science
+  provider: nat
+- abbr: J Expo Sci Environ Epidemiology
+  identifier: jes
+  name: Journal of Exposure Science and Environmental Epidemiology
+  provider: nat
+- abbr: J Hum Genet
+  identifier: jhg
+  name: Journal of Human Genetics
+  provider: nat
+- abbr: J Hum Hypertens
+  identifier: jhh
+  name: Journal of Human Hypertension
+  provider: nat
+- abbr: J Perinatol
+  identifier: jp
+  name: Journal of Perinatology
+  provider: nat
+- abbr: Lab Anim
+  identifier: laban
+  name: Lab Animal
+  provider: nat
+- abbr: Lab Investig
+  identifier: labinvest
+  name: Laboratory Investigation
+  provider: nat
+- abbr: Leukemia
+  identifier: leu
+  name: Leukemia
+  provider: nat
+- abbr: Leuk Suppl
+  identifier: leusup
+  name: Leukemia Supplements
+  provider: nat
+- abbr: Light Sci  Appl
+  identifier: lsa
+  name: 'Light: Science & Applications'
+  provider: nat
+- abbr: Microsystems  Nanoeng
+  identifier: micronano
+  name: Microsystems & Nanoengineering
+  provider: nat
+- abbr: Mod Pathol
+  identifier: modpathol
+  name: Modern Pathology
+  provider: nat
+- abbr: Mol Psychiatry
+  identifier: mp
+  name: Molecular Psychiatry
+  provider: nat
+- abbr: Mucosal Immunol
+  identifier: mi
+  name: Mucosal Immunology
+  provider: nat
+- abbr: Nature
+  identifier: nature
+  name: Nature
+  provider: nat
+- abbr: Nat Astron
+  identifier: natastron
+  name: Nature Astronomy
+  provider: nat
+- abbr: Nat Biomed Eng
+  identifier: natbiomedeng
+  name: Nature Biomedical Engineering
+  provider: nat
+- abbr: Nat Biotechnol
+  identifier: nbt
+  name: Nature Biotechnology
+  provider: nat
+- abbr: Nat Cancer
+  identifier: natcancer
+  name: Nature Cancer
+  provider: nat
+- abbr: Nat Catal
+  identifier: natcatal
+  name: Nature Catalysis
+  provider: nat
+- abbr: Nat Cell Biology
+  identifier: ncb
+  name: Nature Cell Biology
+  provider: nat
+- abbr: Nat Chem Biology
+  identifier: nchembio
+  name: Nature Chemical Biology
+  provider: nat
+- abbr: Nat Chem
+  identifier: nchem
+  name: Nature Chemistry
+  provider: nat
+- abbr: Nat Clim Chang
+  identifier: nclimate
+  name: Nature Climate Change
+  provider: nat
+- abbr: Nat Commun
+  identifier: ncomms
+  name: Nature Communications
+  provider: nat
+- abbr: Nat Ecol  Evol
+  identifier: natecolevol
+  name: Nature Ecology & Evolution
+  provider: nat
+- abbr: Nat Electron
+  identifier: natelectron
+  name: Nature Electronics
+  provider: nat
+- abbr: Nat Energy
+  identifier: nenergy
+  name: Nature Energy
+  provider: nat
+- abbr: Nat Food
+  identifier: natfood
+  name: Nature Food
+  provider: nat
+- abbr: Nat Genet
+  identifier: ng
+  name: Nature Genetics
+  provider: nat
+- abbr: Nat Geosci
+  identifier: ngeo
+  name: Nature Geoscience
+  provider: nat
+- abbr: Nat Hum Behav
+  identifier: nathumbehav
+  name: Nature Human Behaviour
+  provider: nat
+- abbr: Nat Immunol
+  identifier: ni
+  name: Nature Immunology
+  provider: nat
+- abbr: Nat Mach Intell
+  identifier: natmachintell
+  name: Nature Machine Intelligence
+  provider: nat
+- abbr: Nat Mater
+  identifier: nmat
+  name: Nature Materials
+  provider: nat
+- abbr: Nat Med
+  identifier: nm
+  name: Nature Medicine
+  provider: nat
+- abbr: Nat Metab
+  identifier: natmetab
+  name: Nature Metabolism
+  provider: nat
+- abbr: Nat Method
+  identifier: nmeth
+  name: Nature Methods
+  provider: nat
+- abbr: Nat Microbiol
+  identifier: nmicrobiol
+  name: Nature Microbiology
+  provider: nat
+- abbr: Nat Nanotechnol
+  identifier: nnano
+  name: Nature Nanotechnology
+  provider: nat
+- abbr: Nat Neurosci
+  identifier: neuro
+  name: Nature Neuroscience
+  provider: nat
+- abbr: Nat Photonics
+  identifier: nphoton
+  name: Nature Photonics
+  provider: nat
+- abbr: Nat Phys
+  identifier: nphys
+  name: Nature Physics
+  provider: nat
+- abbr: Nat Plant
+  identifier: nplants
+  name: Nature Plants
+  provider: nat
+- abbr: Nat Protoc
+  identifier: nprot
+  name: Nature Protocols
+  provider: nat
+- abbr: Nat Rev Cancer
+  identifier: nrc
+  name: Nature Reviews Cancer
+  provider: nat
+- abbr: Nat Rev Cardiol
+  identifier: nrcardio
+  name: Nature Reviews Cardiology
+  provider: nat
+- abbr: Nat Rev Chem
+  identifier: natrevchem
+  name: Nature Reviews Chemistry
+  provider: nat
+- abbr: Nat Rev Clin Oncol
+  identifier: nrclinonc
+  name: Nature Reviews Clinical Oncology
+  provider: nat
+- abbr: Nat Rev Dis Prim
+  identifier: nrdp
+  name: Nature Reviews Disease Primers
+  provider: nat
+- abbr: Nat Rev Drug Discov
+  identifier: nrd
+  name: Nature Reviews Drug Discovery
+  provider: nat
+- abbr: Nat Rev Earth  Environ
+  identifier: natrevearthenviron
+  name: Nature Reviews Earth & Environment
+  provider: nat
+- abbr: Nat Rev Endocrinol
+  identifier: nrendo
+  name: Nature Reviews Endocrinology
+  provider: nat
+- abbr: Nat Rev Gastroenterol  Hepatol
+  identifier: nrgastro
+  name: Nature Reviews Gastroenterology & Hepatology
+  provider: nat
+- abbr: Nat Rev Genet
+  identifier: nrg
+  name: Nature Reviews Genetics
+  provider: nat
+- abbr: Nat Rev Immunol
+  identifier: nri
+  name: Nature Reviews Immunology
+  provider: nat
+- abbr: Nat Rev Mater
+  identifier: natrevmats
+  name: Nature Reviews Materials
+  provider: nat
+- abbr: Nat Rev Microbiol
+  identifier: nrmicro
+  name: Nature Reviews Microbiology
+  provider: nat
+- abbr: Nat Rev Mol Cell Biology
+  identifier: nrm
+  name: Nature Reviews Molecular Cell Biology
+  provider: nat
+- abbr: Nat Rev Nephrol
+  identifier: nrneph
+  name: Nature Reviews Nephrology
+  provider: nat
+- abbr: Nat Rev Neurol
+  identifier: nrneurol
+  name: Nature Reviews Neurology
+  provider: nat
+- abbr: Nat Rev Neurosci
+  identifier: nrn
+  name: Nature Reviews Neuroscience
+  provider: nat
+- abbr: Nat Rev Phys
+  identifier: natrevphys
+  name: Nature Reviews Physics
+  provider: nat
+- abbr: Nat Rev Rheumatol
+  identifier: nrrheum
+  name: Nature Reviews Rheumatology
+  provider: nat
+- abbr: Nat Rev Urol
+  identifier: nrurol
+  name: Nature Reviews Urology
+  provider: nat
+- abbr: Nat Struct  Mol Biology
+  identifier: nsmb
+  name: Nature Structural & Molecular Biology
+  provider: nat
+- abbr: Nat Sustain
+  identifier: natsustain
+  name: Nature Sustainability
+  provider: nat
+- abbr: Neuropsychopharmacology
+  identifier: npp
+  name: Neuropsychopharmacology
+  provider: nat
+- abbr: NPG Asia Mater
+  identifier: am
+  name: NPG Asia Materials
+  provider: nat
+- abbr: npj 2D Mater Appl
+  identifier: npj2dmaterials
+  name: npj 2D Materials and Applications
+  provider: nat
+- abbr: npj Aging Mech Dis
+  identifier: npjamd
+  name: npj Aging and Mechanisms of Disease
+  provider: nat
+- abbr: npj Biofilms Microbiomes
+  identifier: npjbiofilms
+  name: npj Biofilms and Microbiomes
+  provider: nat
+- abbr: npj Breast Cancer
+  identifier: npjbcancer
+  name: npj Breast Cancer
+  provider: nat
+- abbr: npj Clean Water
+  identifier: npjcleanwater
+  name: npj Clean Water
+  provider: nat
+- abbr: npj Clim Atmospheric Sci
+  identifier: npjclimatsci
+  name: npj Climate and Atmospheric Science
+  provider: nat
+- abbr: npj Comput Mater
+  identifier: npjcompumats
+  name: npj Computational Materials
+  provider: nat
+- abbr: npj Digit Med
+  identifier: npjdigitalmed
+  name: npj Digital Medicine
+  provider: nat
+- abbr: npj Flex Electron
+  identifier: npjflexelectron
+  name: npj Flexible Electronics
+  provider: nat
+- abbr: npj Genom Med
+  identifier: npjgenmed
+  name: npj Genomic Medicine
+  provider: nat
+- abbr: npj Mater Degrad
+  identifier: npjmatdeg
+  name: npj Materials Degradation
+  provider: nat
+- abbr: npj Microgravity
+  identifier: npjmgrav
+  name: npj Microgravity
+  provider: nat
+- abbr: npj Park Dis
+  identifier: npjparkd
+  name: npj Parkinson's Disease
+  provider: nat
+- abbr: npj Precis Oncol
+  identifier: npjprecisiononcology
+  name: npj Precision Oncology
+  provider: nat
+- abbr: npj Prim Care Respir Med
+  identifier: npjpcrm
+  name: npj Primary Care Respiratory Medicine
+  provider: nat
+- abbr: npj Quantum Inf
+  identifier: npjqi
+  name: npj Quantum Information
+  provider: nat
+- abbr: npj Quantum Mater
+  identifier: npjquantmats
+  name: npj Quantum Materials
+  provider: nat
+- abbr: npj Regen Med
+  identifier: npjregenmed
+  name: npj Regenerative Medicine
+  provider: nat
+- abbr: npj Schizophr
+  identifier: npjschz
+  name: npj Schizophrenia
+  provider: nat
+- abbr: npj Sci Food
+  identifier: npjscifood
+  name: npj Science of Food
+  provider: nat
+- abbr: npj Sci Learn
+  identifier: npjscilearn
+  name: npj Science of Learning
+  provider: nat
+- abbr: npj Syst Biology Appl
+  identifier: npjsba
+  name: npj Systems Biology and Applications
+  provider: nat
+- abbr: npj Vaccine
+  identifier: npjvaccines
+  name: npj Vaccines
+  provider: nat
+- abbr: Nutr  Diabetes
+  identifier: nutd
+  name: Nutrition & Diabetes
+  provider: nat
+- abbr: Oncogene
+  identifier: onc
+  name: Oncogene
+  provider: nat
+- abbr: Oncogenesis
+  identifier: oncsis
+  name: Oncogenesis
+  provider: nat
+- abbr: Palgrave Commun
+  identifier: palcomms
+  name: Palgrave Communications
+  provider: nat
+- abbr: Pediatr Res
+  identifier: pr
+  name: Pediatric Research
+  provider: nat
+- abbr: Polym J
+  identifier: pj
+  name: Polymer Journal
+  provider: nat
+- abbr: Prostate Cancer Prostatic Dis
+  identifier: pcan
+  name: Prostate Cancer and Prostatic Diseases
+  provider: nat
+- abbr: Sci Data
+  identifier: sdata
+  name: Scientific Data
+  provider: nat
+- abbr: Sci Rep
+  identifier: srep
+  name: Scientific Reports
+  provider: nat
+- abbr: Signal Transduct Target Ther
+  identifier: sigtrans
+  name: Signal Transduction and Targeted Therapy
+  provider: nat
+- abbr: Spinal Cord
+  identifier: sc
+  name: Spinal Cord
+  provider: nat
+- abbr: Spinal Cord Ser Case
+  identifier: scsandc
+  name: Spinal Cord Series and Cases
+  provider: nat
+- abbr: ISME J
+  identifier: ismej
+  name: The ISME Journal
+  provider: nat
+- abbr: J Antibiot
+  identifier: ja
+  name: The Journal of Antibiotics
+  provider: nat
+- abbr: Pharmacogenomics J
+  identifier: tpj
+  name: The Pharmacogenomics Journal
+  provider: nat
+- abbr: Transl Psychiatry
+  identifier: tp
+  name: Translational Psychiatry
+  provider: nat
+- abbr: Analyst
+  identifier: Analyst
+  name: Analyst
+  provider: rsc
+- abbr: Anal Method
+  identifier: Analytical Methods
+  name: Analytical Methods
+  provider: rsc
+- abbr: Biomater Sci
+  identifier: Biomaterials Science
+  name: Biomaterials Science
+  provider: rsc
+- abbr: Catal Sci  Technol
+  identifier: Catalysis Science & Technology
+  name: Catalysis Science & Technology
+  provider: rsc
+- abbr: Chem Commun
+  identifier: Chemical Communications
+  name: Chemical Communications
+  provider: rsc
+- abbr: Chem Sci
+  identifier: Chemical Science
+  name: Chemical Science
+  provider: rsc
+- abbr: Chem Soc Rev
+  identifier: Chemical Society Reviews
+  name: Chemical Society Reviews
+  provider: rsc
+- abbr: Chem Educ Res Pract
+  identifier: Chemistry Education Research and Practice
+  name: Chemistry Education Research and Practice
+  provider: rsc
+- abbr: CrystEngComm
+  identifier: CrystEngComm
+  name: CrystEngComm
+  provider: rsc
+- abbr: T Trans
+  identifier: Dalton Transactions
+  name: Dalton Transactions
+  provider: rsc
+- abbr: Energy  Environ Sci
+  identifier: Energy & Environmental Science
+  name: Energy & Environmental Science
+  provider: rsc
+- abbr: Environ Sci Nano
+  identifier: 'Environmental Science: Nano'
+  name: 'Environmental Science: Nano'
+  provider: rsc
+- abbr: Environ Sci Process  Impact
+  identifier: 'Environmental Science: Processes & Impacts'
+  name: 'Environmental Science: Processes & Impacts'
+  provider: rsc
+- abbr: Environ Sci Water Res  Technol
+  identifier: 'Environmental Science: Water Research & Technology'
+  name: 'Environmental Science: Water Research & Technology'
+  provider: rsc
+- abbr: Faraday Discuss
+  identifier: Faraday Discussions
+  name: Faraday Discussions
+  provider: rsc
+- abbr: Food  Funct
+  identifier: Food & Function
+  name: Food & Function
+  provider: rsc
+- abbr: Green Chem
+  identifier: Green Chemistry
+  name: Green Chemistry
+  provider: rsc
+- abbr: Inorg Chem Front
+  identifier: Inorganic Chemistry Frontiers
+  name: Inorganic Chemistry Frontiers
+  provider: rsc
+- abbr: J Anal At Spectrom
+  identifier: Journal of Analytical Atomic Spectrometry
+  name: Journal of Analytical Atomic Spectrometry
+  provider: rsc
+- abbr: J Mater Chem
+  identifier: Journal of Materials Chemistry A
+  name: Journal of Materials Chemistry A
+  provider: rsc
+- abbr: J Mater Chem B
+  identifier: Journal of Materials Chemistry B
+  name: Journal of Materials Chemistry B
+  provider: rsc
+- abbr: J Mater Chem C
+  identifier: Journal of Materials Chemistry C
+  name: Journal of Materials Chemistry C
+  provider: rsc
+- abbr: Lab Chip
+  identifier: Lab on a Chip
+  name: Lab on a Chip
+  provider: rsc
+- abbr: Mater Chem Front
+  identifier: Materials Chemistry Frontiers
+  name: Materials Chemistry Frontiers
+  provider: rsc
+- abbr: Mater Horiz
+  identifier: Materials Horizons
+  name: Materials Horizons
+  provider: rsc
+- abbr: MedChemComm
+  identifier: MedChemComm
+  name: MedChemComm
+  provider: rsc
+- abbr: Metallomics
+  identifier: Metallomics
+  name: Metallomics
+  provider: rsc
+- abbr: Mol Omics
+  identifier: Molecular Omics
+  name: Molecular Omics
+  provider: rsc
+- abbr: Mol Syst Des  Eng
+  identifier: Molecular Systems Design & Engineering
+  name: Molecular Systems Design & Engineering
+  provider: rsc
+- abbr: Nanoscale
+  identifier: Nanoscale
+  name: Nanoscale
+  provider: rsc
+- abbr: Nanoscale Adv
+  identifier: Nanoscale Advances
+  name: Nanoscale Advances
+  provider: rsc
+- abbr: Nanoscale Horiz
+  identifier: Nanoscale Horizons
+  name: Nanoscale Horizons
+  provider: rsc
+- abbr: Nat Prod Rep
+  identifier: Natural Product Reports
+  name: Natural Product Reports
+  provider: rsc
+- abbr: New J Chem
+  identifier: New Journal of Chemistry
+  name: New Journal of Chemistry
+  provider: rsc
+- abbr: Org  Biomol Chem
+  identifier: Organic & Biomolecular Chemistry
+  name: Organic & Biomolecular Chemistry
+  provider: rsc
+- abbr: Org Chem Front
+  identifier: Organic Chemistry Frontiers
+  name: Organic Chemistry Frontiers
+  provider: rsc
+- abbr: Photochem  Photobiol Sci
+  identifier: Photochemical & Photobiological Sciences
+  name: Photochemical & Photobiological Sciences
+  provider: rsc
+- abbr: Phys Chem Chem Phys
+  identifier: Physical Chemistry Chemical Physics
+  name: Physical Chemistry Chemical Physics
+  provider: rsc
+- abbr: Polym Chem
+  identifier: Polymer Chemistry
+  name: Polymer Chemistry
+  provider: rsc
+- abbr: React Chem  Eng
+  identifier: Reaction Chemistry & Engineering
+  name: Reaction Chemistry & Engineering
+  provider: rsc
+- abbr: RSC Adv
+  identifier: RSC Advances
+  name: RSC Advances
+  provider: rsc
+- abbr: Soft Matter
+  identifier: Soft Matter
+  name: Soft Matter
+  provider: rsc
+- abbr: Sustain Energy  Fuel
+  identifier: Sustainable Energy & Fuels
+  name: Sustainable Energy & Fuels
+  provider: rsc
+- abbr: Toxicol Res
+  identifier: Toxicology Research
+  name: Toxicology Research
+  provider: rsc

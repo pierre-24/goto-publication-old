@@ -271,12 +271,14 @@ class Nature(Provider):
     DOI_BASE = '10.1038'
     WEBSITE_URL = 'https://www.nature.com/'
 
+    base_url = WEBSITE_URL + 'search'
+
     JOURNALS = {
         'Nature': 'nature'
     }
 
     def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
-        url = self.WEBSITE_URL + 'search?journal_identifier={}&volume={}&spage={}'.format(
+        url = self.base_url + '?journal_identifier={}&volume={}&spage={}'.format(
             journal_identifier, volume, page)
 
         return url
@@ -285,8 +287,11 @@ class Nature(Provider):
         """Requires a request"""
 
         url = self.get_url(journal_identifier, volume, page, **kwargs)
+        result = requests.get(url)
+        if result.status_code != 200:
+            raise ArticleNotFound()
 
-        soup = BeautifulSoup(requests.get(url).content, 'lxml')
+        soup = BeautifulSoup(result.content, 'lxml')
         links = soup.find_all(attrs={'data-track-action': 'search result'})
 
         if len(links) == 0:
@@ -295,6 +300,16 @@ class Nature(Provider):
             raise ProviderError('More than one result?!')  # TODO: that may happen, though
 
         return links[0].attrs['href'].replace('/articles', self.DOI_BASE)
+
+    def get_journals(self) -> List[journal.Journal]:
+        results = requests.get(self.base_url + '/journal_name?xhr=true&journals=')
+
+        journals = []
+
+        for j in results.json()['journals']:
+            journals.append(journal.Journal(j['title'], j['id'], self))
+
+        return journals
 
 
 class RSC(Provider):
@@ -350,6 +365,21 @@ class RSC(Provider):
             raise ProviderError('More than one result?!')
 
         return links[0].attrs['href'][16:]
+
+    def get_journals(self) -> List[journal.Journal]:
+        result = requests.get(self.WEBSITE_URL + 'en/Journals', headers={'User-Agent': 'tmp'})
+        soup = BeautifulSoup(result.content, 'lxml')
+
+        links = soup.find('div', attrs={'class': 'journal-list--content'})\
+            .find_all('span', attrs={'class': 'list__item-label'})
+
+        journals = []
+
+        for l in links:
+            title = next(l.children).strip()
+            journals.append(journal.Journal(title, title, self))
+
+        return journals
 
 
 class ScienceDirect(Provider):
