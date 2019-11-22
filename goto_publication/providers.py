@@ -483,16 +483,24 @@ class Wiley(Provider):
         'Chemistry - A European Journal': 15213765
     }
 
-    api_url = WEBSITE_URL + 'action/quickLink'
+    api_url = WEBSITE_URL + 'action/citationSearch'
+
+    def __init__(self):
+        super().__init__()
+        self.session = requests.session()
+
+    def __del__(self):
+        if self.session is not None:
+            self.session.close()
 
     def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Require a single request to get the url (which contains the DOI)
         """
 
-        url = self.api_url + '?quickLinkJournal={j}&quickLinkVolume={v}&quickLinkPage={p}&quickLink=true'.format(
+        url = self.api_url + '?citationJournal[]={j}&citationVolume={v}&citationPage={p}'.format(
             j=journal_identifier, v=volume, p=page)
 
-        result = requests.get(url)
+        result = self.session.get(url, headers={'User-Agent': 'tmp'})
         if result.status_code != 200:
             raise ProviderError('error while requesting search')
 
