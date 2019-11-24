@@ -18,7 +18,7 @@ $(function(){
         input: journalInput,
         fetch: (text, update) => {
             $.ajax({
-                url: "/api/suggests?q=" + text,
+                url: "/api/suggests?q=" + text + '&source=' + $("#input-suggs-source").val(),
                 success: a => {
                     if("suggestions" in a) {
                         let suggs = [];
@@ -83,7 +83,7 @@ $(function(){
             return flashError("unknown action " + action);
 
         $.ajax({
-            url: "/api/" + action + "?journal_identifier="+ journal + "&volume=" + volume + "&page=" + page,
+            url: "/api/" + action + "?journal="+ journal + "&volume=" + volume + "&page=" + page,
             success: a => {
                 if ("result" in a) {
                     addResult(journal, volume, page, a.result);
@@ -99,7 +99,7 @@ $(function(){
     }
 
     $submit.click(() => {
-        getIt($("#input-journal_identifier").val(), $("#input-volume").val(), $("#input-page").val(), $("#input-action").val());
+        getIt($("#input-journal").val(), $("#input-volume").val(), $("#input-page").val(), $("#input-action").val());
     });
 });
 

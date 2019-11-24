@@ -17,14 +17,19 @@ class SuggestJournals(Resource):
     def __init__(self):
         self.parser = reqparse.RequestParser()
         self.parser.add_argument('q', type=str, required=True)
+        self.parser.add_argument('source', default='name', choices=['name', 'abbr'])
 
     def get(self) -> Union[dict, Tuple[dict, int]]:
         args = self.parser.parse_args()
 
-        return {
-            'request': args.get('q'),
-            'suggestions': REGISTRY.suggest_journals(args.get('q'))
-        }
+        try:
+            return {
+                'request': args.get('q'),
+                'source': args.get('source'),
+                'suggestions': REGISTRY.suggest_journals(args.get('q'), args.get('source'))
+            }
+        except registry.RegistryError as e:
+            return make_error(e.what, e.var), 400
 
 
 main_parser = reqparse.RequestParser()

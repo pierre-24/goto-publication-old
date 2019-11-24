@@ -31,11 +31,13 @@ class Registry:
 
         self.journals = {}
         self._suggs_name = {}
+        self._suggs_abbr = {}
         for j in journals_base:
             try:
                 journal = jrnl.Journal.deserialize(j, self.providers[j['provider']])
                 self.journals[j['name']] = journal
                 self._suggs_name[journal.name.lower()] = journal
+                self._suggs_abbr[journal.abbr] = journal
             except KeyError:
                 pass
 
@@ -51,14 +53,22 @@ class Registry:
         for p in providers_:
             self.register(p)
 
-    def suggest_journals(self, q: str) -> list:
+    def suggest_journals(self, q: str, source: str = 'name') -> list:
         """Suggest journal_identifier names based on search string
 
         :param q: search string
+        :param source: whether the suggestion should be based on the name (``name``) or the abbreviations (``abbr``)
         """
 
-        lst = difflib.get_close_matches(q, self._suggs_name.keys(), n=self.NUM_SUGGESTIONS)
-        return list(self._suggs_name[n].name for n in lst)
+        if source == 'name':
+            possibilities = self._suggs_name
+        elif source == 'abbr':
+            possibilities = self._suggs_abbr
+        else:
+            raise RegistryError('source', 'unknown source {}'.format(source))
+
+        lst = difflib.get_close_matches(q, possibilities.keys(), n=self.NUM_SUGGESTIONS)
+        return list(possibilities[n].name for n in lst)
 
     def _check_input(self, journal: str, volume: str, page: str, **kwargs: dict) -> None:
         """Check input correctness, raise ``RegistryError`` if not.
