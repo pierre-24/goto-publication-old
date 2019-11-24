@@ -4,6 +4,7 @@ import json
 from bs4 import BeautifulSoup
 from typing import List, Any
 import iso4
+import math
 
 from goto_publication import journal
 
@@ -63,8 +64,9 @@ class Provider:
 
         raise NotImplementedError()
 
-    def get_journals(self) -> List[journal.Journal]:
+    def get_journals(self, **kwargs: dict) -> List[journal.Journal]:
         """Retrieve, at **any** cost, a list of the journals of this provider.
+        :param **kwargs:
         """
 
         raise NotImplementedError()
@@ -119,7 +121,7 @@ class ACS(Provider):
     def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
         return self._get_url(journal_identifier, volume, page, **kwargs)
 
-    def get_journals(self) -> List[journal.Journal]:
+    def get_journals(self, **kwargs: dict) -> List[journal.Journal]:
         result = self.session.get(self.WEBSITE_URL)
         if result.status_code != 200:
             raise NoJournalList()
@@ -165,7 +167,7 @@ class APS(Provider):
 
         return self.DOI.format(j2=journal_identifier[1], v=volume, p=page)
 
-    def get_journals(self) -> List[journal.Journal]:
+    def get_journals(self, **kwargs: dict) -> List[journal.Journal]:
 
         response = requests.get(self.WEBSITE_URL + 'about')
         soup = BeautifulSoup(response.content, 'lxml')
@@ -200,7 +202,7 @@ class AIP(ACS):
     def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
         return self._get_url(journal_identifier, volume, page, **kwargs)
 
-    def get_journals(self) -> List[journal.Journal]:
+    def get_journals(self, **kwargs: dict) -> List[journal.Journal]:
         result = self.session.get(self.WEBSITE_URL)
         if result.status_code != 200:
             raise NoJournalList()
@@ -244,7 +246,7 @@ class IOP(Provider):
 
         return self.doi_regex.search(result.headers['Location']).group(1)
 
-    def get_journals(self) -> List[journal.Journal]:
+    def get_journals(self, **kwargs: dict) -> List[journal.Journal]:
         result = requests.get(self.WEBSITE_URL + 'journalList', headers={'User-Agent': 'tmp'})
         if result.status_code != 200:
             raise NoJournalList()
@@ -301,7 +303,7 @@ class Nature(Provider):
 
         return links[0].attrs['href'].replace('/articles', self.DOI_BASE)
 
-    def get_journals(self) -> List[journal.Journal]:
+    def get_journals(self, **kwargs: dict) -> List[journal.Journal]:
         results = requests.get(self.base_url + '/journal_name?xhr=true&journals=')
 
         journals = []
@@ -366,7 +368,7 @@ class RSC(Provider):
 
         return links[0].attrs['href'][16:]
 
-    def get_journals(self) -> List[journal.Journal]:
+    def get_journals(self, **kwargs: dict) -> List[journal.Journal]:
         result = requests.get(self.WEBSITE_URL + 'en/Journals', headers={'User-Agent': 'tmp'})
         soup = BeautifulSoup(result.content, 'lxml')
 
@@ -425,7 +427,7 @@ class ScienceDirectAPI(ScienceDirect):
         super().__init__()
         self.api_key = api_key
 
-    def _api_call(self, journal: str, volume: [str, int], page: str, **kwargs) -> dict:
+    def _api_call(self, req: dict, **kwargs) -> dict:
         """
         Uses the Science Direct API provided by Elsevier
         (see https://dev.elsevier.com/documentation/ScienceDirectSearchAPI.wadl, but actually, the ``PUT`` API is
@@ -436,39 +438,68 @@ class ScienceDirectAPI(ScienceDirect):
         if api_key == '':
             raise ProviderError('no API key provided')
 
-        response = requests.put(self.api_url, data=json.dumps({
-            'title': '*',
-            'pub': journal,
-            'volume': volume,
-            'page': page
-        }), headers={
+        response = requests.put(self.api_url, data=json.dumps(req), headers={
             'Accept': 'application/json',
             'X-ELS-APIKey': api_key,
             'Content-Type': 'application/json'
         })
 
-        v = response.json()
-        if 'resultsFound' not in v:
-            if 'service-error' in v:
-                raise ProviderError('{} (API error)'.format(v['service-error']['status']['statusText']))
-            if 'message' in v:
-                raise ProviderError('{} (API usage error)'.format(v['message']))
-            raise ProviderError('error while calling the API')
-
-        if v['resultsFound'] == 0:
-            raise ArticleNotFound()
-        elif v['resultsFound'] > 1:
-            # happen when a journal matches different titles (ex "Chemical Physics" matches "Chemical Physics Letters")
-            for r in v['results']:
-                if r['sourceTitle'] == journal:
-                    return r
-            raise ProviderError('no exact match for journal {}!?'.format(journal))
-        else:
-            return v['results'][0]
+        return response.json()
 
     def get_doi(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
-        d = self._api_call(journal_identifier, volume, page, **kwargs)
-        return d['doi']
+        results = self._api_call({
+            'title': '*',
+            'pub': journal_identifier,
+            'volume': volume,
+            'page': page
+        }, **kwargs)
+
+        if 'resultsFound' not in results:
+            if 'service-error' in results:
+                raise ProviderError('{} (API error)'.format(results['service-error']['status']['statusText']))
+            if 'message' in results:
+                raise ProviderError('{} (API usage error)'.format(results['message']))
+            raise ProviderError('error while calling the API')
+
+        if results['resultsFound'] == 0:
+            raise ArticleNotFound()
+        elif results['resultsFound'] > 1:
+            # happen when a journal matches different titles (ex "Chemical Physics" matches "Chemical Physics Letters")
+            for r in results['results']:
+                if r['sourceTitle'] == journal_identifier:
+                    return r['doi']
+            raise ProviderError('no exact match for journal {}!?'.format(journal_identifier))
+        else:
+            return results['results'][0]['doi']
+
+    def get_journals(self, **kwargs: dict) -> List[journal.Journal]:
+        """Assumption: by looking for "volume 1, page 1", I'm getting every first page of every journal.
+        """
+
+        journals = []
+
+        def _get_journals(offset: int, show: int = 100):
+            results = self._api_call({
+                'title': '*',
+                'volume': 1,
+                'page': 1,
+                'display': {
+                    'show': show,
+                    'offset': offset
+                }
+            }, **kwargs)
+
+            for j in results['results']:
+                t = j['sourceTitle']
+                journals.append(journal.Journal(t, t, self))
+
+            return int(math.ceil((results['resultsFound'] - offset) / show)) - 1
+
+        i = 0
+        while _get_journals(i * 100):
+            i += 1
+
+        return journals
 
 
 class Springer(Provider):

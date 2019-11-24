@@ -5,27 +5,21 @@ Find missing journals in provider
 import yaml
 from datetime import datetime
 
-from goto_publication import providers
-
-from settings import REGISTER_PATH
-
-PROVIDERS = [  # will be replaced by REGISTER later on
-    providers.ACS(),
-    providers.APS(),
-    providers.AIP(),
-    providers.IOP(),
-    providers.Nature(),
-    providers.RSC()
-]
+from settings import REGISTER_PATH, PROVIDERS
 
 if __name__ == '__main__':
+    # TODO: API key
+
     journals = []
 
     for p in PROVIDERS:
         print('- Getting journals from {}'.format(p.NAME), end='')
-        j = p.get_journals()
-        journals.extend(i.serialize() for i in j)
-        print(' ({})'.format(len(j)))
+        try:
+            j = p.get_journals()
+            journals.extend(i.serialize() for i in j)
+            print(' ({})'.format(len(j)))
+        except NotImplementedError:
+            print(' (skipped, `get_journals()` not implemented)')
 
     print('\nTotal: {}'.format(len(journals)))
 
