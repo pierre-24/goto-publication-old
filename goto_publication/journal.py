@@ -1,7 +1,6 @@
 from typing import Any, Dict
 
 from goto_publication import providers
-import distance
 import iso4
 
 
@@ -27,8 +26,6 @@ class Journal:
         if self.abbr is None:
             self.abbr = iso4.abbreviate(self.name, periods=False, disambiguation_langs=set('en'))
 
-        self.search_terms = [self.name.lower(), self.abbr.lower()]
-
         self.provider = provider
 
     def serialize(self) -> Dict[str, Any]:
@@ -42,12 +39,6 @@ class Journal:
     @classmethod
     def deserialize(cls, d: Dict[str, Any], provider: 'providers.Provider'):
         return cls(d.get('name'), d.get('identifier'), provider, d.get('abbr', None))
-
-    def close_to(self, search_term) -> float:
-        """Return a float between 0 and 1 indicating wetter the journal_identifier looks like the search term
-        """
-
-        return max(distance.levenshtein(i, search_term, normalized=True) for i in self.search_terms)
 
     def get_url(self, volume: [int, str], page: [int, str], **kwargs: dict) -> str:
         """Get the corresponding url"""

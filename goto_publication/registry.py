@@ -1,5 +1,6 @@
 from typing import List
 import yaml
+import difflib
 
 from goto_publication import providers, journal as jrnl
 
@@ -29,9 +30,12 @@ class Registry:
             journals_base = yaml.load(f, Loader=yaml.Loader)
 
         self.journals = {}
+        self._suggs_name = {}
         for j in journals_base:
             try:
-                self.journals[j['name']] = jrnl.Journal.deserialize(j, self.providers[j['provider']])
+                journal = jrnl.Journal.deserialize(j, self.providers[j['provider']])
+                self.journals[j['name']] = journal
+                self._suggs_name[journal.name.lower()] = journal
             except KeyError:
                 pass
 
@@ -53,10 +57,8 @@ class Registry:
         :param q: search string
         """
 
-        distances = [(i, j.close_to(q)) for i, j in self.journals.items()]
-        distances.sort(key=lambda k: k[1])
-
-        return list(e[0] for e in distances[:self.NUM_SUGGESTIONS])
+        lst = difflib.get_close_matches(q, self._suggs_name.keys(), n=self.NUM_SUGGESTIONS)
+        return list(self._suggs_name[n].name for n in lst)
 
     def _check_input(self, journal: str, volume: str, page: str, **kwargs: dict) -> None:
         """Check input correctness, raise ``RegistryError`` if not.

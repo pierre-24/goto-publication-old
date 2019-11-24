@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 flask = "*"
 Flask-RESTful = "*"
-Distance = "*"
 requests = "*"
 beautifulsoup4 = "*"
 lxml = "*"
