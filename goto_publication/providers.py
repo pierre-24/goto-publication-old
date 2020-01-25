@@ -395,10 +395,6 @@ class ScienceDirect(Provider):
     WEBSITE_URL = 'https://www.sciencedirect.com/'
     ICON_URL = 'https://sdfestaticassets-eu-west-1.sciencedirectassets.com/shared-assets/18/images/favSD.ico'
 
-    JOURNALS = {
-        'Chemical Physics': 271366
-    }
-
     base_url = WEBSITE_URL + 'search/advanced'
 
     def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
@@ -538,10 +534,7 @@ class Wiley(Provider):
     NAME = 'Wiley'
     CODE = 'wiley'
     WEBSITE_URL = 'https://onlinelibrary.wiley.com/'
-
-    JOURNALS = {
-        'Chemistry - A European Journal': 15213765
-    }
+    CONCEPT_IDS = [None]
 
     api_url = WEBSITE_URL + 'action/citationSearch'
 
@@ -561,6 +554,7 @@ class Wiley(Provider):
             j=journal_identifier, v=volume, p=page)
 
         result = self.session.get(url, headers={'User-Agent': 'tmp'})
+
         if result.status_code != 200:
             raise ProviderError('error while requesting search')
 
@@ -577,3 +571,40 @@ class Wiley(Provider):
             raise ProviderError('cannot find DOI')
 
         return result_url[p + 4:]
+
+    def get_journals(self, **kwargs: dict) -> List[journal.Journal]:
+
+        page_size = 50
+        journals = []
+        concept_ids = kwargs.get('concept_id', self.CONCEPT_IDS)
+
+        url = self.WEBSITE_URL + 'action/showPublications?PubType=journal&pageSize={}'.format(page_size)
+
+        def _get_journals(u, p=0, c=None):
+            ux = u + '&startPage={}'.format(p)
+            if c is not None:
+                ux += '&ConceptID={}'.format(c)
+
+            result = requests.get(ux, headers={'User-Agent': 'tmp'})
+            soup = BeautifulSoup(result.content, 'lxml')
+
+            r = soup.find('span', attrs={'class': 'result__count'})
+            nresult = int(r.b.string)
+
+            items = soup.find_all('li', attrs={'class': 'search__item'})
+            for i in items:
+                link = next(i.find('h3').children)
+                if link.name == 'span':
+                    continue
+
+                lnk = str(link['href'])
+                journals.append(journal.Journal(str(link.span.string), lnk[lnk.rfind('/') + 1:], self))
+
+            return (p + 1) * page_size < nresult
+
+        for c in concept_ids:
+            i = 0
+            while _get_journals(url, i, c):
+                i += 1
+
+        return journals

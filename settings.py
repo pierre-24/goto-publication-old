@@ -14,7 +14,6 @@ PROVIDERS = [  # please keep this alphabetic
     providers.Wiley(),
 ]
 
-
 # Load the production settings, overwrite the existing ones if needed
 try:
     from settings_prod import *  # noqa
