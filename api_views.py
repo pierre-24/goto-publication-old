@@ -6,7 +6,7 @@ from goto_publication.providers import API_KEY_FIELD
 
 import settings
 
-REGISTRY = registry.Registry(settings.REGISTER_PATH, settings.PROVIDERS)
+REGISTRY = registry.Registry(settings.REGISTRY_PATH, settings.PROVIDERS)
 
 
 def make_error(msg: str, arg: str) -> dict:

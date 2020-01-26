@@ -1,6 +1,6 @@
 from goto_publication import providers
 
-REGISTER_PATH = 'journals_register.yml'
+REGISTRY_PATH = 'journals_register.yml'
 
 PROVIDERS = [  # please keep this alphabetic
     providers.ACS(),
