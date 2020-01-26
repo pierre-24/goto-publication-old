@@ -1,26 +1,78 @@
 from typing import Tuple, Union, Callable
 from flask_restful import Resource, reqparse
 
-from goto_publication import REGISTRY, registry
+from goto_publication import registry
 from goto_publication.providers import API_KEY_FIELD
+
+import settings
+
+REGISTRY = registry.Registry(settings.REGISTRY_PATH, settings.PROVIDERS)
 
 
 def make_error(msg: str, arg: str) -> dict:
     return {'message': {arg: msg}}
 
 
-class SuggestJournals(Resource):
+class ListJournals(Resource):
     def __init__(self):
         self.parser = reqparse.RequestParser()
-        self.parser.add_argument('q', type=str, required=True)
+        self.parser.add_argument('start', type=int, default=0)
+        self.parser.add_argument('count', type=int, default=25)
 
     def get(self) -> Union[dict, Tuple[dict, int]]:
         args = self.parser.parse_args()
 
+        if args.count > 100:
+            return make_error('count must be <= 100', 'count'), 400
+
+        journals = []
+
+        for j in list(REGISTRY.journals.values())[args.start:args.start + args.count]:
+            info = {
+                'journal': j.name,
+                'abbreviation': j.abbr
+            }
+
+            info.update(**j.provider.get_info())
+            journals.append(info)
+
         return {
-            'request': args.get('q'),
-            'suggestions': REGISTRY.suggest_journals(args.get('q'))
+            'start': args.start,
+            'count': args.count,
+            'total': len(REGISTRY.journals),
+            'journals': journals
         }
+
+
+class SuggestJournals(Resource):
+    def __init__(self):
+        self.parser = reqparse.RequestParser()
+        self.parser.add_argument('q', type=str, required=True)
+        self.parser.add_argument('source', default='name', choices=['name', 'abbr'])
+        self.parser.add_argument('cutoff', type=float, default=0.6)
+        self.parser.add_argument('count', type=int, default=REGISTRY.NUM_SUGGESTIONS)
+
+    def get(self) -> Union[dict, Tuple[dict, int]]:
+        args = self.parser.parse_args()
+
+        if args.count > 100:
+            return make_error('count must be <= 100', 'count'), 400
+
+        if args.cutoff < .0 or args.cutoff > 1:
+            return make_error('cutoff must be between 0 and 1', 'cutoff'), 400
+
+        try:
+            return {
+                'request': args.get('q'),
+                'source': args.get('source'),
+                'count': args.get('count'),
+                'cutoff': args.get('cutoff'),
+                'suggestions': REGISTRY.suggest_journals(
+                    args.get('q'), args.get('source'), args.get('count'), args.get('cutoff')
+                )
+            }
+        except registry.RegistryError as e:
+            return make_error(e.what, e.var), 400
 
 
 main_parser = reqparse.RequestParser()

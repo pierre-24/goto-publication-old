@@ -18,7 +18,7 @@ $(function(){
         input: journalInput,
         fetch: (text, update) => {
             $.ajax({
-                url: "/api/suggests?q=" + text,
+                url: "/api/suggests?q=" + text + "&source=" + $("#input-suggs-source").val(),
                 success: a => {
                     if("suggestions" in a) {
                         let suggs = [];

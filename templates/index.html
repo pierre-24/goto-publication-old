@@ -14,10 +14,11 @@
         <div id="flash-messages"><a href="#" class="close">&cross;</a><p class="content"></p> </div>
 
         <form id="input-form">
-            <input type="text" title="Journal" placeholder="Journal" id="input-journal"><!--
+            <select id="input-suggs-source"><option value="name" selected>Name</option><option value="abbr">Abbreviation</option></select><!--
+            --><input type="text" title="Journal" placeholder="Journal" id="input-journal"><!--
             --><input type="text" title="Volume"  placeholder="Volume" id="input-volume"><!--
             --><input type="text" title="Page" placeholder="Page" id="input-page"><!--
-            --><select id="input-action"><option value="doi">DOI</option><option value="url">URL</option></select><!--
+            --><select id="input-action"><option value="doi" selected>DOI</option><option value="url">URL</option></select><!--
             --><input type="button" title="Goto!" value="Get!" id="input-submit">
         </form>
     </div>

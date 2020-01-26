@@ -6,8 +6,9 @@
 
 Because the journal, the volume and the page should be enough to find an article (for which, of course, you don't have the DOI, otherwise this is stupid).
 
-**Note:** currently, very few journals and providers are available.
-And since I have a (quantum) chemistry background, I may not be aware of what is important and what is not in other fields.
+**Note:** Since I have a (quantum) chemistry background, I limit this project to the journal that are in the chemistry and physics fields.
+Feel free to fork the project if you want something else :)
+
 
 ## Installation
 
@@ -37,7 +38,7 @@ A web server (in **debug mode**) should be accessible at [http://127.0.0.1:5000/
 
 In the search bar, there is three fields that compose a citation:
 
-+ the **journal** name: suggestions appears as you are typing,
++ the **journal** name: suggestions (based on the value of the field at the left, which indicates whether suggestions should be based on the journal name or abbreviation) appear as you are typing,
 + the **volume**,
 + the (starting) **page**.
 
@@ -59,25 +60,68 @@ In this table, you have the possibility to copy the URL/DOI and to visit the art
 While the web server runs, an API is accessible.
 All request are done in `GET`.
 
+### `/api/journals`
+
+Parameters | Value
+-----------|-------
+`start` | Result offset
+`count` | Number of results (must be <= 100)
+
+List the journals that are available.
+
+Exemple: the request [`/api/journals?count=2`](http://localhost:5000/api/journals?count=2) results in 
+
+```json
+{
+    "start": 0,
+    "count": 2,
+    "total": 1378,
+    "journals": [
+        {
+            "journal": "Accounts of Chemical Research",
+            "abbreviation": "Acc Chem Res",
+            "providerName": "American Chemical Society",
+            "providerIcon": "https://pubs.acs.org/favicon.ico",
+            "providerWebsite": "https://pubs.acs.org/"
+        },
+        {
+            "journal": "ACS Applied Bio Materials",
+            "abbreviation": "ACS Appl Bio Mater",
+            "providerName": "American Chemical Society",
+            "providerIcon": "https://pubs.acs.org/favicon.ico",
+            "providerWebsite": "https://pubs.acs.org/"
+        }
+    ]
+}
+```
+
 ### `/api/suggests`
 
 Parameters | Value
 -----------|-------
 `q` (**mandatory**) | Any string
+`source` | Search in journal names (`name`, default) or abbreviations (`abbr`)
+`count` | Number of results (must be <= 100)
+`cutoff` | Severity cutoff on the results (the larger, the more severe)
 
-Suggest five journals that are close to `q`.
+Suggest (at most) ten journals for which the `source` field (name or abbreviation) is the closest to `q`.
 
-Example: the request [`/api/suggests?q=natu`](http://localhost:5000/api/suggests?q=natu) results in:
+Example: the request [`/api/suggests?q=chemical`](http://localhost:5000/api/suggests?q=chemical) results in:
 
 ```json
 {
-    "request": "natu",
+    "request": "chemical",
+    "source": "name",
+    "count": 10,
+    "cutoff": 0.6,
     "suggestions": [
-        "Nature",
-        "Theoretical Chemistry Accounts",
-        "Journal of Mathematical Physics",
-        "Theoretica chimica acta",
-        "Journal of Applied Physics"
+        "Chemical Papers",
+        "Chemical Science",
+        "Chemical Reviews",
+        "Chemical Physics",
+        "Chem",
+        "ChemCatChem",
+        "ChemBioChem"
     ]
 }
 ```
