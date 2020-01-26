@@ -8,6 +8,8 @@
 <body>
     <div class="container" id="logo">
         <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="logo {{ prog_name }}">
+
+        <p>{{ subtitle }}</p>
     </div>
 
     <div class="container">
@@ -29,7 +31,7 @@
 
     <footer>
             <p>
-                <a href="https://github.com/pierre-24/goto-publication">{{ prog_name }}/{{ prog_version }}</a> , made by <a href="https://pierrebeaujean.net">Pierre Beaujean</a>.
+                <a href="{{ repo_url }}">{{ prog_name }}/{{ prog_version }}</a>, made by <a href="{{ author_url }}">{{ author_name }}</a>
             </p>
     </footer>
 

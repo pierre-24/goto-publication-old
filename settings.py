@@ -1,4 +1,13 @@
-from goto_publication import providers
+from goto_publication import providers, __program_name__ as pname, __version__ as pversion, __author__ as pauthor
+
+WEBPAGE_INFO = {
+    'repo_url': 'https://github.com/pierre-24/goto-publication/',
+    'prog_name': pname,
+    'prog_version': pversion,
+    'author_url': 'https://pierrebeaujean.net',
+    'author_name': pauthor,
+    'subtitle': 'Citation-based URL/DOI searches and redirections for chemistry and physics'
+}
 
 REGISTRY_PATH = 'journals_register.yml'
 
@@ -14,14 +23,12 @@ PROVIDERS = [  # please keep this alphabetic
     providers.Wiley(),
 ]
 
-# restrict to chemistry and physics for Wiley, Springer and ScienceDirect (Elsevier)
+# restrict to chemistry and physics for Wiley and Springer
 for p in PROVIDERS:
     if p.CODE == 'wiley':
         p.CONCEPT_IDS = [93, 43]  # use numeric IDs
     if p.CODE == 'sl':
         p.DISCIPLINES = ['Chemistry', 'Physics']
-    if p.CODE == 'sd':
-        p.SUBJECTS = ['CHEM', 'PHYS']
 
 # Load the production settings, overwrite the existing ones if needed
 try:

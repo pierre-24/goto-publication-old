@@ -2,13 +2,12 @@
 
 # GOTO publication
 
-*Citation-based DOI searches and redirections*, by [Pierre Beaujean](https://pierrebeaujean.net).
+*Citation-based URL/DOI searches and redirections*, by [Pierre Beaujean](https://pierrebeaujean.net).
 
 Because the journal, the volume and the page should be enough to find an article (for which, of course, you don't have the DOI, otherwise this is stupid).
 
-**Note:** Since I have a (quantum) chemistry background, I limit this project to the journal that are in the chemistry and physics fields.
+**Note:** Since I have a (quantum) chemistry background, I will limit this project to the journals that are in the chemistry and physics fields.
 Feel free to fork the project if you want something else :)
-
 
 ## Installation
 
@@ -102,7 +101,7 @@ Parameters | Value
 `q` (**mandatory**) | Any string
 `source` | Search in journal names (`name`, default) or abbreviations (`abbr`)
 `count` | Number of results (must be <= 100)
-`cutoff` | Severity cutoff on the results (the larger, the more severe)
+`cutoff` | Severity cutoff on the results (must be between 0 and 1, the larger, the severer)
 
 Suggest (at most) ten journals for which the `source` field (name or abbreviation) is the closest to `q`.
 
