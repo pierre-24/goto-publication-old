@@ -4,7 +4,6 @@ import json
 from bs4 import BeautifulSoup
 from typing import List, Any
 import iso4
-import math
 import csv
 import io
 
@@ -228,10 +227,6 @@ class IOP(Provider):
     CODE = 'IOP'
     WEBSITE_URL = 'https://iopscience.iop.org/'
 
-    JOURNALS = {
-        'Journal of Physics A': '1751-8121'
-    }
-
     base_url = WEBSITE_URL + 'findcontent'
     doi_regex = re.compile(r'article/(.*/.*/.*)\?')
 
@@ -276,10 +271,6 @@ class Nature(Provider):
     WEBSITE_URL = 'https://www.nature.com/'
 
     base_url = WEBSITE_URL + 'search'
-
-    JOURNALS = {
-        'Nature': 'nature'
-    }
 
     def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
         url = self.base_url + '?journal_identifier={}&volume={}&spage={}'.format(
@@ -327,10 +318,6 @@ class RSC(Provider):
     NAME = 'Royal society of Chemistry'
     CODE = 'rsc'
     WEBSITE_URL = 'https://pubs.rsc.org/'
-
-    JOURNALS = {
-        'Physical Chemistry Chemical Physics (PCCP)': 'phys. chem. chem. phys.'
-    }
 
     search_url = WEBSITE_URL + 'en/results'
     search_result_url = WEBSITE_URL + 'en/search/journalresult'
@@ -419,13 +406,16 @@ class ScienceDirectAPI(ScienceDirect):
     API_KEY_KWARG = True
     ICON_URL = 'https://dev.elsevier.com/img/favicon.ico'
 
-    api_url = 'https://api.elsevier.com/content/search/sciencedirect'
+    SUBJECTS = [None]
+
+    sd_api_url = 'https://api.elsevier.com/content/search/sciencedirect'
+    title_api_url = 'https://api.elsevier.com/content/serial/title'
 
     def __init__(self, api_key: str = ''):
         super().__init__()
         self.api_key = api_key
 
-    def _api_call(self, req: dict, **kwargs) -> dict:
+    def _sd_api_call(self, req: dict, **kwargs) -> dict:
         """
         Uses the Science Direct API provided by Elsevier
         (see https://dev.elsevier.com/documentation/ScienceDirectSearchAPI.wadl, but actually, the ``PUT`` API is
@@ -436,7 +426,7 @@ class ScienceDirectAPI(ScienceDirect):
         if api_key == '':
             raise ProviderError('no API key provided')
 
-        response = requests.put(self.api_url, data=json.dumps(req), headers={
+        response = requests.put(self.sd_api_url, data=json.dumps(req), headers={
             'Accept': 'application/json',
             'X-ELS-APIKey': api_key,
             'Content-Type': 'application/json'
@@ -445,7 +435,7 @@ class ScienceDirectAPI(ScienceDirect):
         return response.json()
 
     def get_doi(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
-        results = self._api_call({
+        results = self._sd_api_call({
             'title': '*',
             'pub': journal_identifier,
             'volume': volume,
@@ -470,32 +460,54 @@ class ScienceDirectAPI(ScienceDirect):
         else:
             return results['results'][0]['doi']
 
+    def _title_api_call(self, req: dict, **kwargs) -> dict:
+        """
+        Uses the Serial Title API provided by Elsevier
+        (see https://dev.elsevier.com/documentation/SerialTitleAPI.wadl).
+        """
+
+        api_key = kwargs.get(API_KEY_FIELD, self.api_key)
+        if api_key == '':
+            raise ProviderError('no API key provided')
+
+        response = requests.get(self.title_api_url, params=req, headers={
+            'Accept': 'application/json',
+            'X-ELS-APIKey': api_key,
+            'Content-Type': 'application/json'
+        })
+
+        return response.json()['serial-metadata-response']
+
     def get_journals(self, **kwargs: dict) -> List[journal.Journal]:
         """Assumption: by looking for "volume 1, page 1", I'm getting every first page of every journal.
         """
 
         journals = []
+        page_size = 100
 
-        def _get_journals(offset: int, show: int = 100):
-            results = self._api_call({
-                'title': '*',
-                'volume': 1,
-                'page': 1,
-                'display': {
-                    'show': show,
-                    'offset': offset
-                }
-            }, **kwargs)
+        def _get_journals(page: int, subject: str = None):
 
-            for j in results['results']:
-                t = j['sourceTitle']
+            req = {
+                'pub': 'else',  # for some reason, "elsevier" does not work
+                'content': 'journal',  # limit to journals
+                'count': page_size,
+                'start': page * page_size}
+
+            if subject is not None:
+                req['subj'] = subject
+
+            results = self._title_api_call(req, **kwargs)
+
+            for j in results['entry']:
+                t = j['dc:title']
                 journals.append(journal.Journal(t, t, self))
 
-            return int(math.ceil((results['resultsFound'] - offset) / show)) - 1
+            return 'next' in [a['@ref'] for a in results['link']]
 
-        i = 0
-        while _get_journals(i * 100):
-            i += 1
+        for c in self.SUBJECTS:
+            i = 0
+            while _get_journals(i, c):
+                i += 1
 
         return journals
 
@@ -602,10 +614,10 @@ class Wiley(Provider):
 
         url = self.WEBSITE_URL + 'action/showPublications?PubType=journal&pageSize={}'.format(page_size)
 
-        def _get_journals(u, p=0, c=None):
-            ux = u + '&startPage={}'.format(p)
-            if c is not None:
-                ux += '&ConceptID={}'.format(c)
+        def _get_journals(u, page: int, subject: str = None):
+            ux = u + '&startPage={}'.format(page)
+            if subject is not None:
+                ux += '&ConceptID={}'.format(subject)
 
             result = requests.get(ux, headers={'User-Agent': 'tmp'})
             soup = BeautifulSoup(result.content, 'lxml')
@@ -622,7 +634,7 @@ class Wiley(Provider):
                 lnk = str(link['href'])
                 journals.append(journal.Journal(str(link.span.string), lnk[lnk.rfind('/') + 1:], self))
 
-            return (p + 1) * page_size < nresult
+            return (page + 1) * page_size < nresult
 
         for c in concept_ids:
             i = 0
