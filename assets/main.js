@@ -10,7 +10,7 @@ $(function(){
         $place.children(".close").click(() => $place.css("display", "none"));
     }
 
-    $('#explainLink').click(() => flashThis($('#explain')));
+    $('#explainLink').click(() => flashThis($("#explain")));
 
     function flashError(msg) {
         let $place = $("#flash-messages");
