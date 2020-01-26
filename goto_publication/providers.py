@@ -5,6 +5,8 @@ from bs4 import BeautifulSoup
 from typing import List, Any
 import iso4
 import math
+import csv
+import io
 
 from goto_publication import journal
 
@@ -512,16 +514,36 @@ class Springer(Provider):
     ICON_URL = \
         'https://link.springer.com/static/17c1f2edc5a95a03d2f5f7b0019142685841f5ad/sites/link/images/favicon-32x32.png'
 
-    JOURNALS = {
-        'Theoretical Chemistry Accounts': 214,
-        'Theoretica chimica acta': 214,
-    }
+    DISCIPLINES = [None]
 
     base_url = WEBSITE_URL + 'journal_identifier/'
 
     def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Go to TOC of the volume, find your way into that ;)"""
         return self.base_url + '/{}/volume/{}/toc'.format(journal_identifier, volume)
+
+    def get_journals(self, **kwargs: dict) -> List[journal.Journal]:
+        """... On the other hand, they have a CSV output for the research!"""
+
+        journals = []
+
+        disciplines = kwargs.get('disciplines', self.DISCIPLINES)
+
+        for c in disciplines:
+            ux = self.WEBSITE_URL + 'search/csv?facet-content-type="Journal"'
+            if c is not None:
+                ux += '&facet-discipline="{}"'.format(c)
+
+            result = requests.get(ux, headers={'User-Agent': 'tmp'})
+            f = csv.DictReader(io.StringIO(result.content.decode()), dialect='unix')
+
+            for l in f:
+
+                n = l['Publication Title']
+                link = l['URL'][l['URL'].rfind('/') + 1:]
+                journals.append(journal.Journal(n, link, self))
+
+        return journals
 
 
 class Wiley(Provider):

@@ -1,4 +1,4 @@
-# generated on 2020-01-26 11:24:48.317748
+# generated on 2020-01-26 17:22:27.256658
 - abbr: Acc Chem Res
   identifier: achre4
   name: Accounts of Chemical Research
@@ -864,9 +864,9 @@
   name: Journal of Instrumentation
   provider: IOP
 - abbr: J High Energy Phys
-  identifier: 1126-6708
+  identifier: '13130'
   name: Journal of High Energy Physics
-  provider: IOP
+  provider: sl
 - abbr: J Micromechanics Microengineering
   identifier: 0960-1317
   name: Journal of Micromechanics and Microengineering
@@ -881,9 +881,9 @@
     Research
   provider: IOP
 - abbr: J Opt
-  identifier: 0150-536X
+  identifier: '12596'
   name: Journal of Optics
-  provider: IOP
+  provider: sl
 - abbr: J Opt Pure Appl Opt
   identifier: 1464-4258
   name: 'Journal of Optics A: Pure and Applied Optics'
@@ -917,9 +917,9 @@
   name: 'Journal of Statistical Mechanics: Theory and Experiment'
   provider: IOP
 - abbr: Laser Phys
-  identifier: 1555-6611
+  identifier: '11490'
   name: Laser Physics
-  provider: IOP
+  provider: sl
 - abbr: Laser Phys Lett
   identifier: 1612202x
   name: Laser Physics Letters
@@ -12405,3 +12405,1372 @@
   identifier: Proceedings of the Symposium on Combustion
   name: Proceedings of the Symposium on Combustion
   provider: sd
+- abbr: J Incl Phenom Macrocycl Chem
+  identifier: '10847'
+  name: Journal of Inclusion Phenomena and Macrocyclic Chemistry
+  provider: sl
+- abbr: CATTECH
+  identifier: '10564'
+  name: CATTECH
+  provider: sl
+- abbr: Top Curr Chem
+  identifier: '41061'
+  name: Topics in Current Chemistry
+  provider: sl
+- abbr: Struct Chem
+  identifier: '11224'
+  name: Structural Chemistry
+  provider: sl
+- abbr: Iran Polym J
+  identifier: '13726'
+  name: Iranian Polymer Journal
+  provider: sl
+- abbr: J Anal Sci Technol
+  identifier: '40543'
+  name: Journal of Analytical Science and Technology
+  provider: sl
+- abbr: Mediterr J Nutr Metab
+  identifier: '12349'
+  name: Mediterranean Journal of Nutrition and Metabolism
+  provider: sl
+- abbr: Appl Biological Chem
+  identifier: '13765'
+  name: Applied Biological Chemistry
+  provider: sl
+- abbr: J Polym Environ
+  identifier: '10924'
+  name: Journal of Polymers and the Environment
+  provider: sl
+- abbr: Cellulose
+  identifier: '10570'
+  name: Cellulose
+  provider: sl
+- abbr: ChemTexts
+  identifier: '40828'
+  name: ChemTexts
+  provider: sl
+- abbr: Electrochem Energy Rev
+  identifier: '41918'
+  name: Electrochemical Energy Reviews
+  provider: sl
+- abbr: Accreditation Qual Assur
+  identifier: '769'
+  name: Accreditation and Quality Assurance
+  provider: sl
+- abbr: Mol Biotechnol
+  identifier: '12033'
+  name: Molecular Biotechnology
+  provider: sl
+- abbr: Plasma Chem Plasma Process
+  identifier: '11090'
+  name: Plasma Chemistry and Plasma Processing
+  provider: sl
+- abbr: Org Med Chem Lett
+  identifier: '13588'
+  name: Organic and Medicinal Chemistry Letters
+  provider: sl
+- abbr: Sustain Chem Process
+  identifier: '40508'
+  name: Sustainable Chemical Processes
+  provider: sl
+- abbr: Food Biophys
+  identifier: '11483'
+  name: Food Biophysics
+  provider: sl
+- abbr: Protein J
+  identifier: '10930'
+  name: The Protein Journal
+  provider: sl
+- abbr: Bioprocess Biosyst Eng
+  identifier: '449'
+  name: Bioprocess and Biosystems Engineering
+  provider: sl
+- abbr: Macromol Res
+  identifier: '13233'
+  name: Macromolecular Research
+  provider: sl
+- abbr: J Comput Mol Des
+  identifier: '10822'
+  name: Journal of Computer-Aided Molecular Design
+  provider: sl
+- abbr: J Food Sci Technol
+  identifier: '13197'
+  name: Journal of Food Science and Technology
+  provider: sl
+- abbr: J Polym Res
+  identifier: '10965'
+  name: Journal of Polymer Research
+  provider: sl
+- abbr: Food Bioprocess Technol
+  identifier: '11947'
+  name: Food and Bioprocess Technology
+  provider: sl
+- abbr: Dairy Sci  Technol
+  identifier: '13594'
+  name: Dairy Science & Technology
+  provider: sl
+- abbr: adhes ADHES + SEALANT
+  identifier: '35784'
+  name: adhesion ADHESIVES + SEALANTS
+  provider: sl
+- abbr: Plant Food Hum Nutr
+  identifier: '11130'
+  name: Plant Foods for Human Nutrition
+  provider: sl
+- abbr: J Radioanal Nucl Chem
+  identifier: '10967'
+  name: Journal of Radioanalytical and Nuclear Chemistry
+  provider: sl
+- abbr: Mikrochemie
+  identifier: '12363'
+  name: Mikrochemie
+  provider: sl
+- abbr: Silicon Chem
+  identifier: '11201'
+  name: Silicon Chemistry
+  provider: sl
+- abbr: J Bioenerg Biomembr
+  identifier: '10863'
+  name: Journal of Bioenergetics and Biomembranes
+  provider: sl
+- abbr: J Porous Mater
+  identifier: '10934'
+  name: Journal of Porous Materials
+  provider: sl
+- abbr: Theor Found Chem Eng
+  identifier: '11236'
+  name: Theoretical Foundations of Chemical Engineering
+  provider: sl
+- abbr: J Iran Chem Soc
+  identifier: '13738'
+  name: Journal of the Iranian Chemical Society
+  provider: sl
+- abbr: Mol Online
+  identifier: '40895'
+  name: Molecules Online
+  provider: sl
+- abbr: J Chem Sci
+  identifier: '12039'
+  name: Journal of Chemical Sciences
+  provider: sl
+- abbr: J Therm Anal Calorim
+  identifier: '10973'
+  name: Journal of Thermal Analysis and Calorimetry
+  provider: sl
+- abbr: "JOT J Oberfl\xE4chentechnik"
+  identifier: '35144'
+  name: "JOT Journal f\xFCr Oberfl\xE4chentechnik"
+  provider: sl
+- abbr: Coke Chem
+  identifier: '11955'
+  name: Coke and Chemistry
+  provider: sl
+- abbr: Russ J Appl Chem
+  identifier: '11167'
+  name: Russian Journal of Applied Chemistry
+  provider: sl
+- abbr: Chemosens Percept
+  identifier: '12078'
+  name: Chemosensory Perception
+  provider: sl
+- abbr: Biotechnol Bioprocess Eng
+  identifier: '12257'
+  name: Biotechnology and Bioprocess Engineering
+  provider: sl
+- abbr: "Ern\xE4hr  Wiss Prax"
+  identifier: '12082'
+  name: "Ern\xE4hrung - Wissenschaft und Praxis"
+  provider: sl
+- abbr: Appl Biochem Biotechnol
+  identifier: '12010'
+  name: Applied Biochemistry and Biotechnology
+  provider: sl
+- abbr: J Surfactant Deterg
+  identifier: '11743'
+  name: Journal of Surfactants and Detergents
+  provider: sl
+- abbr: Kinet Catal
+  identifier: '10975'
+  name: Kinetics and Catalysis
+  provider: sl
+- abbr: Korean J Chem Eng
+  identifier: '11814'
+  name: Korean Journal of Chemical Engineering
+  provider: sl
+- abbr: Biochip J
+  identifier: '13206'
+  name: BioChip Journal
+  provider: sl
+- abbr: Fibre Chem
+  identifier: '10692'
+  name: Fibre Chemistry
+  provider: sl
+- abbr: J Superhard Mater
+  identifier: '11961'
+  name: Journal of Superhard Materials
+  provider: sl
+- abbr: Cytotechnology
+  identifier: '10616'
+  name: Cytotechnology
+  provider: sl
+- abbr: Russ J Coord Chem
+  identifier: '11173'
+  name: Russian Journal of Coordination Chemistry
+  provider: sl
+- abbr: Eur J Nutr
+  identifier: '394'
+  name: European Journal of Nutrition
+  provider: sl
+- abbr: Top Catal
+  identifier: '11244'
+  name: Topics in Catalysis
+  provider: sl
+- abbr: Theor Chem Acc
+  identifier: '214'
+  name: Theoretical Chemistry Accounts
+  provider: sl
+- abbr: Rev J Chem
+  identifier: '13392'
+  name: Review Journal of Chemistry
+  provider: sl
+- abbr: Braz J Chem Eng
+  identifier: '43153'
+  name: Brazilian Journal of Chemical Engineering
+  provider: sl
+- abbr: Front Chem China
+  identifier: '11458'
+  name: Frontiers of Chemistry in China
+  provider: sl
+- abbr: J Nanostructure Chem
+  identifier: '40097'
+  name: Journal of Nanostructure in Chemistry
+  provider: sl
+- abbr: Russ J Electrochem
+  identifier: '11175'
+  name: Russian Journal of Electrochemistry
+  provider: sl
+- abbr: Colloid Polym Sci
+  identifier: '396'
+  name: Colloid and Polymer Science
+  provider: sl
+- abbr: Chem Educ
+  identifier: '897'
+  name: The Chemical Educator
+  provider: sl
+- abbr: Biotechnol Biofuels
+  identifier: '13068'
+  name: Biotechnology for Biofuels
+  provider: sl
+- abbr: Food Anal Method
+  identifier: '12161'
+  name: Food Analytical Methods
+  provider: sl
+- abbr: Anal Bioanal Chem
+  identifier: '216'
+  name: Analytical and Bioanalytical Chemistry
+  provider: sl
+- abbr: IST Int Surf Technol
+  identifier: '35724'
+  name: IST International Surface Technology
+  provider: sl
+- abbr: Polym Sci Ser C
+  identifier: '11500'
+  name: Polymer Science, Series C
+  provider: sl
+- abbr: J Syst Chem
+  identifier: '13322'
+  name: Journal of Systems Chemistry
+  provider: sl
+- abbr: Chem Technol Fuel Oil
+  identifier: '10553'
+  name: Chemistry and Technology of Fuels and Oils
+  provider: sl
+- abbr: J Flow Chem
+  identifier: '41981'
+  name: Journal of Flow Chemistry
+  provider: sl
+- abbr: J Am Soc Mass Spectrom
+  identifier: '13361'
+  name: Journal of The American Society for Mass Spectrometry
+  provider: sl
+- abbr: Polym Sci Ser B
+  identifier: '11499'
+  name: Polymer Science, Series B
+  provider: sl
+- abbr: Chromatographia
+  identifier: '10337'
+  name: Chromatographia
+  provider: sl
+- abbr: J Nanobiotechnology
+  identifier: '12951'
+  name: Journal of Nanobiotechnology
+  provider: sl
+- abbr: React Kinet Mech Catal
+  identifier: '11144'
+  name: Reaction Kinetics, Mechanisms and Catalysis
+  provider: sl
+- abbr: Chem Afr
+  identifier: '42250'
+  name: Chemistry Africa
+  provider: sl
+- abbr: Russ J Inorg Chem
+  identifier: '11502'
+  name: Russian Journal of Inorganic Chemistry
+  provider: sl
+- abbr: Z Phys B Condens Matter
+  identifier: '257'
+  name: "Zeitschrift f\xFCr Physik B Condensed Matter"
+  provider: sl
+- abbr: Mosc Univ Chem Bull
+  identifier: '11967'
+  name: Moscow University Chemistry Bulletin
+  provider: sl
+- abbr: Russ J Phys Chem
+  identifier: '11504'
+  name: Russian Journal of Physical Chemistry A
+  provider: sl
+- abbr: Plasmonics
+  identifier: '11468'
+  name: Plasmonics
+  provider: sl
+- abbr: Russ J Phys Chem B
+  identifier: '11826'
+  name: Russian Journal of Physical Chemistry B
+  provider: sl
+- abbr: Dokl Chem Technol
+  identifier: '10632'
+  name: Doklady Chemical Technology
+  provider: sl
+- abbr: Silicon
+  identifier: '12633'
+  name: Silicon
+  provider: sl
+- abbr: Membr Membr Technol
+  identifier: '42755'
+  name: Membranes and Membrane Technologies
+  provider: sl
+- abbr: Biochem (moscow Suppl Ser B Biomed Chem
+  identifier: '11828'
+  name: 'Biochemistry (Moscow), Supplement Series B: Biomedical Chemistry'
+  provider: sl
+- abbr: Catal Surv Asia
+  identifier: '10563'
+  name: Catalysis Surveys from Asia
+  provider: sl
+- abbr: J Anal Chem
+  identifier: '10809'
+  name: Journal of Analytical Chemistry
+  provider: sl
+- abbr: Dokl Phys Chem
+  identifier: '10634'
+  name: Doklady Physical Chemistry
+  provider: sl
+- abbr: "Fortschrittsberichte \xFCber Kolloide Polym"
+  identifier: '12277'
+  name: "Fortschrittsberichte \xFCber Kolloide und Polymere"
+  provider: sl
+- abbr: Inorg Mater Appl Res
+  identifier: '13188'
+  name: 'Inorganic Materials: Applied Research'
+  provider: sl
+- abbr: Probiotic Antimicrob Protein
+  identifier: '12602'
+  name: Probiotics and Antimicrobial Proteins
+  provider: sl
+- abbr: Bioanal Rev
+  identifier: '12566'
+  name: Bioanalytical Reviews
+  provider: sl
+- abbr: Chem Sect Cotton Oil Press
+  identifier: '12279'
+  name: "The Chemist\u2019s Section of the Cotton Oil Press"
+  provider: sl
+- abbr: J Food Meas Charact
+  identifier: '11694'
+  name: Journal of Food Measurement and Characterization
+  provider: sl
+- abbr: Lightweight Des worldw
+  identifier: '41777'
+  name: Lightweight Design worldwide
+  provider: sl
+- abbr: Fash Text
+  identifier: '40691'
+  name: Fashion and Textiles
+  provider: sl
+- abbr: Catal Ind
+  identifier: '12604'
+  name: Catalysis in Industry
+  provider: sl
+- abbr: Food Eng Rev
+  identifier: '12393'
+  name: Food Engineering Reviews
+  provider: sl
+- abbr: Food Dig Res Curr Opin
+  identifier: '13228'
+  name: 'Food Digestion:  Research and Current Opinion'
+  provider: sl
+- abbr: BMC Chem Eng
+  identifier: '42480'
+  name: BMC Chemical Engineering
+  provider: sl
+- abbr: Chem Pap
+  identifier: '11696'
+  name: Chemical Papers
+  provider: sl
+- abbr: Int J Food Contam
+  identifier: '40550'
+  name: International Journal of Food Contamination
+  provider: sl
+- abbr: Text Cloth Sustain
+  identifier: '40689'
+  name: Textiles and Clothing Sustainability
+  provider: sl
+- abbr: Electrocatalysis
+  identifier: '12678'
+  name: Electrocatalysis
+  provider: sl
+- abbr: Food Sci Biotechnol
+  identifier: '10068'
+  name: Food Science and Biotechnology
+  provider: sl
+- abbr: Solid Fuel Chem
+  identifier: '11985'
+  name: Solid Fuel Chemistry
+  provider: sl
+- abbr: BMC Biotechnol
+  identifier: '12896'
+  name: BMC Biotechnology
+  provider: sl
+- abbr: Int J Ind Chem
+  identifier: '40090'
+  name: International Journal of Industrial Chemistry
+  provider: sl
+- abbr: Res Chem Intermed
+  identifier: '11164'
+  name: Research on Chemical Intermediates
+  provider: sl
+- abbr: Microb Cell Fact
+  identifier: '12934'
+  name: Microbial Cell Factories
+  provider: sl
+- abbr: Monatshefte Chem  Chem Mon
+  identifier: '706'
+  name: "Monatshefte f\xFCr Chemie - Chemical Monthly"
+  provider: sl
+- abbr: Fiber Polym
+  identifier: '12221'
+  name: Fibers and Polymers
+  provider: sl
+- abbr: Inorg Mater
+  identifier: '10789'
+  name: Inorganic Materials
+  provider: sl
+- abbr: Biotechnol Tech
+  identifier: '10542'
+  name: Biotechnology Techniques
+  provider: sl
+- abbr: Appl Petrochem Res
+  identifier: '13203'
+  name: Applied Petrochemical Research
+  provider: sl
+- abbr: Polym Sci Ser D
+  identifier: '12260'
+  name: Polymer Science, Series D
+  provider: sl
+- abbr: Theor Exp Chem
+  identifier: '11237'
+  name: Theoretical and Experimental Chemistry
+  provider: sl
+- abbr: Microchim Acta
+  identifier: '604'
+  name: Microchimica Acta
+  provider: sl
+- abbr: 3 Biotech
+  identifier: '13205'
+  name: 3 Biotech
+  provider: sl
+- abbr: "adh\xE4sion KLEB  DICHT"
+  identifier: '35145'
+  name: "adh\xE4sion KLEBEN & DICHTEN"
+  provider: sl
+- abbr: J Chem Crystallogr
+  identifier: '10870'
+  name: Journal of Chemical Crystallography
+  provider: sl
+- abbr: Front Chem Sci Eng
+  identifier: '11705'
+  name: Frontiers of Chemical Science and Engineering
+  provider: sl
+- abbr: Russ Chem Bull
+  identifier: '11172'
+  name: Russian Chemical Bulletin
+  provider: sl
+- abbr: Pet Chem
+  identifier: '11494'
+  name: Petroleum Chemistry
+  provider: sl
+- abbr: J Mol Model
+  identifier: '894'
+  name: Journal of Molecular Modeling
+  provider: sl
+- abbr: Transit Met Chem
+  identifier: '11243'
+  name: Transition Metal Chemistry
+  provider: sl
+- abbr: J Chem Biology
+  identifier: '12154'
+  name: Journal of Chemical Biology
+  provider: sl
+- abbr: BMC Chem
+  identifier: '13065'
+  name: BMC Chemistry
+  provider: sl
+- abbr: J Inorg Organomet Polym Mater
+  identifier: '10904'
+  name: Journal of Inorganic and Organometallic Polymers and Materials
+  provider: sl
+- abbr: J Solid State Electrochem
+  identifier: '10008'
+  name: Journal of Solid State Electrochemistry
+  provider: sl
+- abbr: Central Eur J Chem
+  identifier: '11532'
+  name: Central European Journal of Chemistry
+  provider: sl
+- abbr: J Appl Electrochem
+  identifier: '10800'
+  name: Journal of Applied Electrochemistry
+  provider: sl
+- abbr: J Am Oil Chem Soc
+  identifier: '11746'
+  name: Journal of the American Oil Chemists' Society
+  provider: sl
+- abbr: Chem Res Chin Univ
+  identifier: '40242'
+  name: Chemical Research in Chinese Universities
+  provider: sl
+- abbr: Radiochemistry
+  identifier: '11137'
+  name: Radiochemistry
+  provider: sl
+- abbr: J Cheminformatics
+  identifier: '13321'
+  name: Journal of Cheminformatics
+  provider: sl
+- abbr: Chin J Polym Sci
+  identifier: '10118'
+  name: Chinese Journal of Polymer Science
+  provider: sl
+- abbr: J Math Chem
+  identifier: '10910'
+  name: Journal of Mathematical Chemistry
+  provider: sl
+- abbr: Russ J Gen Chem
+  identifier: '11176'
+  name: Russian Journal of General Chemistry
+  provider: sl
+- abbr: Polym Sci Ser
+  identifier: '11498'
+  name: Polymer Science, Series A
+  provider: sl
+- abbr: Int J Plast Technol
+  identifier: '12588'
+  name: International Journal of Plastics Technology
+  provider: sl
+- abbr: Polym Bull
+  identifier: '289'
+  name: Polymer Bulletin
+  provider: sl
+- abbr: Sci China Chem
+  identifier: '11426'
+  name: Science China Chemistry
+  provider: sl
+- abbr: Eur Food Res Technol
+  identifier: '217'
+  name: European Food Research and Technology
+  provider: sl
+- abbr: Lightweight Des
+  identifier: '35725'
+  name: Lightweight Design
+  provider: sl
+- abbr: Nutrafoods
+  identifier: '13749'
+  name: Nutrafoods
+  provider: sl
+- abbr: High Energy Chem
+  identifier: '10733'
+  name: High Energy Chemistry
+  provider: sl
+- abbr: J Clust Sci
+  identifier: '10876'
+  name: Journal of Cluster Science
+  provider: sl
+- abbr: Russ J Org Chem
+  identifier: '11178'
+  name: Russian Journal of Organic Chemistry
+  provider: sl
+- abbr: Adsorption
+  identifier: '10450'
+  name: Adsorption
+  provider: sl
+- abbr: J Struct Chem
+  identifier: '10947'
+  name: Journal of Structural Chemistry
+  provider: sl
+- abbr: Chem Heterocycl Compd
+  identifier: '10593'
+  name: Chemistry of Heterocyclic Compounds
+  provider: sl
+- abbr: Chem Pet Eng
+  identifier: '10556'
+  name: Chemical and Petroleum Engineering
+  provider: sl
+- abbr: Int J Ion Mobil Spectrom
+  identifier: '12127'
+  name: International Journal for Ion Mobility Spectrometry
+  provider: sl
+- abbr: Bioresour Bioprocess
+  identifier: '40643'
+  name: Bioresources and Bioprocessing
+  provider: sl
+- abbr: Dokl Chem
+  identifier: '10631'
+  name: Doklady Chemistry
+  provider: sl
+- abbr: Colloid J
+  identifier: '10595'
+  name: Colloid Journal
+  provider: sl
+- abbr: J Solut Chem
+  identifier: '10953'
+  name: Journal of Solution Chemistry
+  provider: sl
+- abbr: Ionics
+  identifier: '11581'
+  name: Ionics
+  provider: sl
+- abbr: J Anal Test
+  identifier: '41664'
+  name: Journal of Analysis and Testing
+  provider: sl
+- abbr: Catal Lett
+  identifier: '10562'
+  name: Catalysis Letters
+  provider: sl
+- abbr: Optoelectron Instrum Data Process
+  identifier: '11974'
+  name: Optoelectronics, Instrumentation and Data Processing
+  provider: sl
+- abbr: Dokl Biophys
+  identifier: '10629'
+  name: Doklady Biophysics
+  provider: sl
+- abbr: J Appl Mech Tech Phys
+  identifier: '10808'
+  name: Journal of Applied Mechanics and Technical Physics
+  provider: sl
+- abbr: Il Nuovo Cimento D
+  identifier: '11544'
+  name: Il Nuovo Cimento D
+  provider: sl
+- abbr: J Appl Spectrosc
+  identifier: '10812'
+  name: Journal of Applied Spectroscopy
+  provider: sl
+- abbr: J Stat Phys
+  identifier: '10955'
+  name: Journal of Statistical Physics
+  provider: sl
+- abbr: Opt Quantum Electron
+  identifier: '11082'
+  name: Optical and Quantum Electronics
+  provider: sl
+- abbr: Il Nuovo Cimento
+  identifier: '11583'
+  name: Il Nuovo Cimento
+  provider: sl
+- abbr: Il Nuovo Cimento (1877-1894
+  identifier: '40755'
+  name: Il Nuovo Cimento (1877-1894)
+  provider: sl
+- abbr: Cancer Converg
+  identifier: '41236'
+  name: Cancer Convergence
+  provider: sl
+- abbr: Riv Nuovo Cimento
+  identifier: '11546'
+  name: La Rivista del Nuovo Cimento
+  provider: sl
+- abbr: J Korean Phys Soc
+  identifier: '40042'
+  name: Journal of the Korean Physical Society
+  provider: sl
+- abbr: Int Appl Mech
+  identifier: '10778'
+  name: International Applied Mechanics
+  provider: sl
+- abbr: Meccanica
+  identifier: '11012'
+  name: Meccanica
+  provider: sl
+- abbr: Nat Phys Sci
+  identifier: '42261'
+  name: Nature Physical Science
+  provider: sl
+- abbr: Il Nuovo Cimento (1901-1910
+  identifier: '40757'
+  name: Il Nuovo Cimento (1901-1910)
+  provider: sl
+- abbr: Il Nuovo Cimento (1943-1954
+  identifier: '40761'
+  name: Il Nuovo Cimento (1943-1954)
+  provider: sl
+- abbr: Appl Phys
+  identifier: '339'
+  name: Applied Physics A
+  provider: sl
+- abbr: Res Nondestruct Evaluation
+  identifier: '164'
+  name: Research in Nondestructive Evaluation
+  provider: sl
+- abbr: EPJ Nonlinear Biomed Phys
+  identifier: '40366'
+  name: EPJ Nonlinear Biomedical Physics
+  provider: sl
+- abbr: Astron Rep
+  identifier: '11444'
+  name: Astronomy Reports
+  provider: sl
+- abbr: Biomol NMR Assign
+  identifier: '12104'
+  name: Biomolecular NMR Assignments
+  provider: sl
+- abbr: Phys Perspect
+  identifier: '16'
+  name: Physics in Perspective
+  provider: sl
+- abbr: Cosm Res
+  identifier: '10604'
+  name: Cosmic Research
+  provider: sl
+- abbr: Atmospheric Ocean Opt
+  identifier: '12605'
+  name: Atmospheric and Oceanic Optics
+  provider: sl
+- abbr: Il Nuovo Cimento (1971-1996
+  identifier: '40763'
+  name: Il Nuovo Cimento A (1971-1996)
+  provider: sl
+- abbr: Hyperfine Interact
+  identifier: '10751'
+  name: Hyperfine Interactions
+  provider: sl
+- abbr: J Biorheol
+  identifier: '12573'
+  name: Journal of Biorheology
+  provider: sl
+- abbr: Theor Math Phys
+  identifier: '11232'
+  name: Theoretical and Mathematical Physics
+  provider: sl
+- abbr: J Fusion Energy
+  identifier: '10894'
+  name: Journal of Fusion Energy
+  provider: sl
+- abbr: Instrum Exp Tech
+  identifier: '10786'
+  name: Instruments and Experimental Techniques
+  provider: sl
+- abbr: Plasma Polym
+  identifier: '11088'
+  name: Plasmas and Polymers
+  provider: sl
+- abbr: Infrastruct Complex
+  identifier: '40551'
+  name: Infrastructure Complexity
+  provider: sl
+- abbr: Dokl Phys
+  identifier: '11446'
+  name: Doklady Physics
+  provider: sl
+- abbr: Gen Relativ Gravit
+  identifier: '10714'
+  name: General Relativity and Gravitation
+  provider: sl
+- abbr: Phys At Nucl
+  identifier: '11450'
+  name: Physics of Atomic Nuclei
+  provider: sl
+- abbr: EPJ direct
+  identifier: '10105'
+  name: EPJ direct
+  provider: sl
+- abbr: Adv Appl Clifford Algebra
+  identifier: '6'
+  name: Advances in Applied Clifford Algebras
+  provider: sl
+- abbr: Opto-electronics Rev
+  identifier: '11772'
+  name: Opto-Electronics Review
+  provider: sl
+- abbr: Riv Nuovo Cimento (1971-1977
+  identifier: '40765'
+  name: La Rivista del Nuovo Cimento (1971-1977)
+  provider: sl
+- abbr: JETP Lett
+  identifier: '11448'
+  name: JETP Letters
+  provider: sl
+- abbr: BMC Biophys
+  identifier: '13628'
+  name: BMC Biophysics
+  provider: sl
+- abbr: Plasma Phys Rep
+  identifier: '11452'
+  name: Plasma Physics Reports
+  provider: sl
+- abbr: Meas Tech
+  identifier: '11018'
+  name: Measurement Techniques
+  provider: sl
+- abbr: Few-body Syst
+  identifier: '601'
+  name: Few-Body Systems
+  provider: sl
+- abbr: Bull Lebedev Phys Inst
+  identifier: '11953'
+  name: Bulletin of the Lebedev Physics Institute
+  provider: sl
+- abbr: Lett al Nuovo Cimento (1971-1985
+  identifier: '40767'
+  name: Lettere al Nuovo Cimento (1971-1985)
+  provider: sl
+- abbr: Indian J Phys
+  identifier: '12648'
+  name: Indian Journal of Physics
+  provider: sl
+- abbr: Quantum Inf Process
+  identifier: '11128'
+  name: Quantum Information Processing
+  provider: sl
+- abbr: Eur Phys J H
+  identifier: '13129'
+  name: The European Physical Journal H
+  provider: sl
+- abbr: Pramana
+  identifier: '12043'
+  name: Pramana
+  provider: sl
+- abbr: Tech Phys
+  identifier: '11454'
+  name: Technical Physics
+  provider: sl
+- abbr: Exp Astron
+  identifier: '10686'
+  name: Experimental Astronomy
+  provider: sl
+- abbr: Czechoslov J Phys
+  identifier: '10582'
+  name: Czechoslovak Journal of Physics
+  provider: sl
+- abbr: J Biological Phys
+  identifier: '10867'
+  name: Journal of Biological Physics
+  provider: sl
+- abbr: Rev Mod Plasma Phys
+  identifier: '41614'
+  name: Reviews of Modern Plasma Physics
+  provider: sl
+- abbr: At Energy
+  identifier: '10512'
+  name: Atomic Energy
+  provider: sl
+- abbr: PMC Phys
+  identifier: '13066'
+  name: PMC Physics A
+  provider: sl
+- abbr: J Opt Fiber Commun Res
+  identifier: '10297'
+  name: Journal of Optical and Fiber Communications Research
+  provider: sl
+- abbr: Acta Phys Hung Ser Heavy Ion Phys
+  identifier: '12656'
+  name: Acta Physica Hungarica Series A, Heavy Ion Physics
+  provider: sl
+- abbr: Eur Phys J
+  identifier: '10050'
+  name: The European Physical Journal A
+  provider: sl
+- abbr: Photonic Sens
+  identifier: '13320'
+  name: Photonic Sensors
+  provider: sl
+- abbr: Eur Phys J
+  identifier: '10189'
+  name: The European Physical Journal E
+  provider: sl
+- abbr: Sol Phys
+  identifier: '11207'
+  name: Solar Physics
+  provider: sl
+- abbr: J Frict Wear
+  identifier: '11959'
+  name: Journal of Friction and Wear
+  provider: sl
+- abbr: Kinemat Phys Celest Body
+  identifier: '11963'
+  name: Kinematics and Physics of Celestial Bodies
+  provider: sl
+- abbr: Living Rev Comput Astrophys
+  identifier: '41115'
+  name: Living Reviews in Computational Astrophysics
+  provider: sl
+- abbr: Phys Part Nucl Lett
+  identifier: '11497'
+  name: Physics of Particles and Nuclei Letters
+  provider: sl
+- abbr: Int J Thermophys
+  identifier: '10765'
+  name: International Journal of Thermophysics
+  provider: sl
+- abbr: Z Phys C Part Field
+  identifier: '288'
+  name: "Zeitschrift f\xFCr Physik C Particles and Fields"
+  provider: sl
+- abbr: Commun Math Phys
+  identifier: '220'
+  name: Communications in Mathematical Physics
+  provider: sl
+- abbr: Acta phys Acad Sci Hung
+  identifier: '12658'
+  name: Acta physica Academiae Scientiarum Hungaricae
+  provider: sl
+- abbr: Adv Astronaut Sci Technol
+  identifier: '42423'
+  name: Advances in Astronautics Science and Technology
+  provider: sl
+- abbr: Eur Phys J C
+  identifier: '10052'
+  name: The European Physical Journal C
+  provider: sl
+- abbr: J Eur Opt Soc Publ
+  identifier: '41476'
+  name: Journal of the European Optical Society-Rapid Publications
+  provider: sl
+- abbr: Nonlinear Biomed Phys
+  identifier: '13035'
+  name: Nonlinear Biomedical Physics
+  provider: sl
+- abbr: Gravit Cosmol
+  identifier: '12267'
+  name: Gravitation and Cosmology
+  provider: sl
+- abbr: J Russ Laser Res
+  identifier: '10946'
+  name: Journal of Russian Laser Research
+  provider: sl
+- abbr: PMC Biophys
+  identifier: '13074'
+  name: PMC Biophysics
+  provider: sl
+- abbr: Z Phys Hadron Nucl
+  identifier: '218'
+  name: "Zeitschrift f\xFCr Physik A Hadrons and Nuclei"
+  provider: sl
+- abbr: J Elast
+  identifier: '10659'
+  name: Journal of Elasticity
+  provider: sl
+- abbr: Appl Magn Reson
+  identifier: '723'
+  name: Applied Magnetic Resonance
+  provider: sl
+- abbr: J Low Temp Phys
+  identifier: '10909'
+  name: Journal of Low Temperature Physics
+  provider: sl
+- abbr: Math Phys Anal Geom
+  identifier: '11040'
+  name: Mathematical Physics, Analysis and Geometry
+  provider: sl
+- abbr: Mosc Univ Mech Bull
+  identifier: '11971'
+  name: Moscow University Mechanics Bulletin
+  provider: sl
+- abbr: Braz J Phys
+  identifier: '13538'
+  name: Brazilian Journal of Physics
+  provider: sl
+- abbr: J Supercond Nov Magn
+  identifier: '10948'
+  name: Journal of Superconductivity and Novel Magnetism
+  provider: sl
+- abbr: Int J Theor Phys
+  identifier: '10773'
+  name: International Journal of Theoretical Physics
+  provider: sl
+- abbr: Sci China Phys Mech  Astron
+  identifier: '11433'
+  name: Science China Physics, Mechanics & Astronomy
+  provider: sl
+- abbr: Found Phys
+  identifier: '10701'
+  name: Foundations of Physics
+  provider: sl
+- abbr: Astrophys Bull
+  identifier: '11755'
+  name: Astrophysical Bulletin
+  provider: sl
+- abbr: High Temp
+  identifier: '10740'
+  name: High Temperature
+  provider: sl
+- abbr: Earth Moon Planet
+  identifier: '11038'
+  name: Earth, Moon, and Planets
+  provider: sl
+- abbr: Il Nuovo Cimento (1965-1970
+  identifier: '11539'
+  name: Il Nuovo Cimento A (1965-1970)
+  provider: sl
+- abbr: Il Nuovo Cimento C
+  identifier: '11543'
+  name: Il Nuovo Cimento C
+  provider: sl
+- abbr: Lett Math Phys
+  identifier: '11005'
+  name: Letters in Mathematical Physics
+  provider: sl
+- abbr: Acta Phys Hung
+  identifier: '12242'
+  name: Acta Physica Hungarica
+  provider: sl
+- abbr: Thermophys Aeromechanics
+  identifier: '11510'
+  name: Thermophysics and Aeromechanics
+  provider: sl
+- abbr: Il Nuovo Cimento (1869-1876
+  identifier: '40754'
+  name: Il Nuovo Cimento (1869-1876)
+  provider: sl
+- abbr: J Ph Equilib
+  identifier: '12385'
+  name: Journal of Phase Equilibria
+  provider: sl
+- abbr: Phys Wave Phenom
+  identifier: '11975'
+  name: Physics of Wave Phenomena
+  provider: sl
+- abbr: Lett al Nuovo Cimento (1969-1970
+  identifier: '11545'
+  name: Lettere al Nuovo Cimento (1969-1970)
+  provider: sl
+- abbr: Europhys News
+  identifier: '770'
+  name: Europhysics News
+  provider: sl
+- abbr: Contin Mech Thermodyn
+  identifier: '161'
+  name: Continuum Mechanics and Thermodynamics
+  provider: sl
+- abbr: Appl Phys B
+  identifier: '340'
+  name: Applied Physics B
+  provider: sl
+- abbr: Acoust Phys
+  identifier: '11441'
+  name: Acoustical Physics
+  provider: sl
+- abbr: Radiat Environ Biophys
+  identifier: '411'
+  name: Radiation and Environmental Biophysics
+  provider: sl
+- abbr: Il Cimento
+  identifier: '11584'
+  name: Il Cimento
+  provider: sl
+- abbr: Il Nuovo Cimento (1895-1900
+  identifier: '40756'
+  name: Il Nuovo Cimento (1895-1900)
+  provider: sl
+- abbr: Il Nuovo Cimento (1924-1942
+  identifier: '40760'
+  name: Il Nuovo Cimento (1924-1942)
+  provider: sl
+- abbr: Astron Astrophys Rev
+  identifier: '159'
+  name: The Astronomy and Astrophysics Review
+  provider: sl
+- abbr: Biophysics
+  identifier: '11439'
+  name: Biophysics
+  provider: sl
+- abbr: Astron Lett
+  identifier: '11443'
+  name: Astronomy Letters
+  provider: sl
+- abbr: Optoelectron Lett
+  identifier: '11801'
+  name: Optoelectronics Letters
+  provider: sl
+- abbr: Comput Softw Big Sci
+  identifier: '41781'
+  name: Computing and Software for Big Science
+  provider: sl
+- abbr: Proc National Acad Sci India Sect Phys Sci
+  identifier: '40010'
+  name: 'Proceedings of the National Academy of Sciences, India Section A: Physical
+    Sciences'
+  provider: sl
+- abbr: Il Nuovo Cimento (1911-1923
+  identifier: '40758'
+  name: Il Nuovo Cimento (1911-1923)
+  provider: sl
+- abbr: Il Nuovo Cimento (1955-1965
+  identifier: '40762'
+  name: Il Nuovo Cimento (1955-1965)
+  provider: sl
+- abbr: EPJ Quantum Technol
+  identifier: '40507'
+  name: EPJ Quantum Technology
+  provider: sl
+- abbr: Crystallogr Rep
+  identifier: '11445'
+  name: Crystallography Reports
+  provider: sl
+- abbr: J Math Fluid Mech
+  identifier: '21'
+  name: Journal of Mathematical Fluid Mechanics
+  provider: sl
+- abbr: Il Nuovo Cimento B (1971-1996
+  identifier: '40764'
+  name: Il Nuovo Cimento B (1971-1996)
+  provider: sl
+- abbr: Celest Mech Dyn Astron
+  identifier: '10569'
+  name: Celestial Mechanics and Dynamical Astronomy
+  provider: sl
+- abbr: Combust Explos Shock Wave
+  identifier: '10573'
+  name: Combustion, Explosion, and Shock Waves
+  provider: sl
+- abbr: Phys Mesomech
+  identifier: '40334'
+  name: Physical Mesomechanics
+  provider: sl
+- abbr: "Eur Phys J Sp\xE9c Top"
+  identifier: '11734'
+  name: The European Physical Journal Special Topics
+  provider: sl
+- abbr: Granul Matter
+  identifier: '10035'
+  name: Granular Matter
+  provider: sl
+- abbr: J Astrophys Astron
+  identifier: '12036'
+  name: Journal of Astrophysics and Astronomy
+  provider: sl
+- abbr: J Exp Theor Phys
+  identifier: '11447'
+  name: Journal of Experimental and Theoretical Physics
+  provider: sl
+- abbr: Phys Solid State
+  identifier: '11451'
+  name: Physics of the Solid State
+  provider: sl
+- abbr: J Therm Sci
+  identifier: '11630'
+  name: Journal of Thermal Science
+  provider: sl
+- abbr: "Ann Henri Poincar\xE9"
+  identifier: '23'
+  name: "Annales Henri Poincar\xE9"
+  provider: sl
+- abbr: J Biomol NMR
+  identifier: '10858'
+  name: Journal of Biomolecular NMR
+  provider: sl
+- abbr: Riv Nuovo Cimento (1978-1999
+  identifier: '40766'
+  name: La Rivista del Nuovo Cimento (1978-1999)
+  provider: sl
+- abbr: Radiat Detect Technol Method
+  identifier: '41605'
+  name: Radiation Detection Technology and Methods
+  provider: sl
+- abbr: Z Phys D At Mol Clust
+  identifier: '460'
+  name: "Zeitschrift f\xFCr Physik D Atoms, Molecules and Clusters"
+  provider: sl
+- abbr: Arch Ration Mech Anal
+  identifier: '205'
+  name: Archive for Rational Mechanics and Analysis
+  provider: sl
+- abbr: MAPAN
+  identifier: '12647'
+  name: MAPAN
+  provider: sl
+- abbr: Opt Spectrosc
+  identifier: '11449'
+  name: Optics and Spectroscopy
+  provider: sl
+- abbr: Semiconductors
+  identifier: '11453'
+  name: Semiconductors
+  provider: sl
+- abbr: Bull Russ Acad Sci Phys
+  identifier: '11954'
+  name: 'Bulletin of the Russian Academy of Sciences: Physics'
+  provider: sl
+- abbr: Bull Crime Astrophys Obs
+  identifier: '11989'
+  name: Bulletin of the Crimean Astrophysical Observatory
+  provider: sl
+- abbr: EPJ Tech Instrum
+  identifier: '40485'
+  name: EPJ Techniques and Instrumentation
+  provider: sl
+- abbr: Opt Rev
+  identifier: '10043'
+  name: Optical Review
+  provider: sl
+- abbr: Tech Phys Lett
+  identifier: '11455'
+  name: Technical Physics Letters
+  provider: sl
+- abbr: Bull Gen Relativ Gravit
+  identifier: '12366'
+  name: Bulletin on General Relativity and Gravitation
+  provider: sl
+- abbr: J Theor Appl Phys
+  identifier: '40094'
+  name: Journal of Theoretical and Applied Physics
+  provider: sl
+- abbr: J Ph Equilib Diffus
+  identifier: '11669'
+  name: Journal of Phase Equilibria and Diffusion
+  provider: sl
+- abbr: Astrophysics
+  identifier: '10511'
+  name: Astrophysics
+  provider: sl
+- abbr: J Contemp Phys (armenian Acad Sci
+  identifier: '11958'
+  name: Journal of Contemporary Physics (Armenian Academy of Sciences)
+  provider: sl
+- abbr: Living Rev Relativ
+  identifier: '41114'
+  name: Living Reviews in Relativity
+  provider: sl
+- abbr: Phys Part Nucl
+  identifier: '11496'
+  name: Physics of Particles and Nuclei
+  provider: sl
+- abbr: Astrophys Space Sci
+  identifier: '10509'
+  name: Astrophysics and Space Science
+  provider: sl
+- abbr: PMC Phys B
+  identifier: '13067'
+  name: PMC Physics B
+  provider: sl
+- abbr: Comput Astrophys Cosmol
+  identifier: '40668'
+  name: Computational Astrophysics and Cosmology
+  provider: sl
+- abbr: Acta Phys Hung B Quantum Electron
+  identifier: '12657'
+  name: Acta Physica Hungarica B) Quantum Electronics
+  provider: sl
+- abbr: Eur Phys J B
+  identifier: '10051'
+  name: The European Physical Journal B
+  provider: sl
+- abbr: Radiophys Quantum Electron
+  identifier: '11141'
+  name: Radiophysics and Quantum Electronics
+  provider: sl
+- abbr: Sol Syst Res
+  identifier: '11208'
+  name: Solar System Research
+  provider: sl
+- abbr: Mech Solid
+  identifier: '11964'
+  name: Mechanics of Solids
+  provider: sl
+- abbr: Central Eur J Phys
+  identifier: '11534'
+  name: Central European Journal of Physics
+  provider: sl
+- abbr: Living Rev Sol Phys
+  identifier: '41116'
+  name: Living Reviews in Solar Physics
+  provider: sl
+- abbr: Planet Sci
+  identifier: '13535'
+  name: Planetary Science
+  provider: sl
+- abbr: Eur Phys J Plus
+  identifier: '13360'
+  name: The European Physical Journal Plus
+  provider: sl
+- abbr: Hung Acta Phys
+  identifier: '12659'
+  name: Hungarica Acta Physica
+  provider: sl
+- abbr: Eur Phys J D
+  identifier: '10053'
+  name: The European Physical Journal D
+  provider: sl
+- abbr: J Eng Thermophys
+  identifier: '11823'
+  name: Journal of Engineering Thermophysics
+  provider: sl
+- abbr: Appl Sci Res Sect B
+  identifier: '12380'
+  name: Applied Scientific Research, Section B
+  provider: sl
+- abbr: Space Sci Rev
+  identifier: '11214'
+  name: Space Science Reviews
+  provider: sl
+- abbr: Fluid Dyn
+  identifier: '10697'
+  name: Fluid Dynamics
+  provider: sl
+- abbr: Russ Phys J
+  identifier: '11182'
+  name: Russian Physics Journal
+  provider: sl
+- abbr: Russ J Math Phys
+  identifier: '11503'
+  name: Russian Journal of Mathematical Physics
+  provider: sl
+- abbr: Front Phys
+  identifier: '11467'
+  name: Frontiers of Physics
+  provider: sl
+- abbr: Specul Sci Technol
+  identifier: '11216'
+  name: Speculations in Science and Technology
+  provider: sl
+- abbr: Ann PDE
+  identifier: '40818'
+  name: Annals of PDE
+  provider: sl
+- abbr: Mosc Univ Phys Bull
+  identifier: '11972'
+  name: Moscow University Physics Bulletin
+  provider: sl
+- abbr: Il Nuovo Cimento B (1965-1970
+  identifier: '11542'
+  name: Il Nuovo Cimento B (1965-1970)
+  provider: sl
+- abbr: Found Phys Lett
+  identifier: '10702'
+  name: Foundations of Physics Letters
+  provider: sl
+- abbr: Open Syst Inf Dyn
+  identifier: '11080'
+  name: Open Systems and Information Dynamics
+  provider: sl
