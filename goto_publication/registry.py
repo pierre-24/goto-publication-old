@@ -53,11 +53,13 @@ class Registry:
         for p in providers_:
             self.register(p)
 
-    def suggest_journals(self, q: str, source: str = 'name') -> list:
+    def suggest_journals(self, q: str, source: str = 'name', n: int = NUM_SUGGESTIONS, cutoff: float = 0.6) -> list:
         """Suggest journal_identifier names based on search string
 
         :param q: search string
         :param source: whether the suggestion should be based on the name (``name``) or the abbreviations (``abbr``)
+        :param n: number of results
+        :param cutoff: cutoff
         """
 
         if source == 'name':
@@ -67,7 +69,7 @@ class Registry:
         else:
             raise RegistryError('source', 'unknown source {}'.format(source))
 
-        lst = difflib.get_close_matches(q, possibilities.keys(), n=self.NUM_SUGGESTIONS)
+        lst = difflib.get_close_matches(q, possibilities.keys(), n=n, cutoff=cutoff)
         return list(possibilities[n].name for n in lst)
 
     def _check_input(self, journal: str, volume: str, page: str, **kwargs: dict) -> None:

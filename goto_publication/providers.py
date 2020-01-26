@@ -387,7 +387,7 @@ class ScienceDirect(Provider):
     base_url = WEBSITE_URL + 'search/advanced'
 
     def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
-        return self.base_url + '?cid={}&volume={}&page={}'.format(journal_identifier, volume, page)
+        return self.base_url + '?pub={}&volume={}&page={}'.format(journal_identifier, volume, page)
 
 
 class ScienceDirectAPI(ScienceDirect):
