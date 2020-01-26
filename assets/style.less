@@ -42,6 +42,27 @@ body {
   }
 }
 
+@explain-color: #ccc;
+
+#explain {
+  border: 2px solid darken(@explain-color, 10%);
+  padding: 0 8px;
+  margin-bottom: 16px;
+  border-radius: 5px;
+  display: none;
+
+  a.close {
+    float: right;
+    text-decoration: none;
+    color: #777;
+    display: block;
+    margin: 8px;
+    padding: 6px;
+    line-height: 17px;
+    font-weight: bold;
+  }
+}
+
 @border-color: #999;
 
 #input-form {

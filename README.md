@@ -35,13 +35,13 @@ make run
 
 A web server (in **debug mode**) should be accessible at [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
-In the search bar, there is three fields that compose a citation:
+In the search bar, there are three fields that compose a citation:
 
 + the **journal** name: suggestions (based on the value of the field at the left, which indicates whether suggestions should be based on the journal name or abbreviation) appear as you are typing,
 + the **volume**,
 + the (starting) **page**.
 
-Then, you can select two what you want:
+Then, you can select what you want:
 
 + An **URL**: this is the fastest way, since the result is generated from an URL that get closer to the article you are looking for (either the article directly, or a search page).
   But notice that no check for the availability of the article is done.

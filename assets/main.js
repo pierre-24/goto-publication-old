@@ -5,11 +5,17 @@ $(function(){
     const autocomplete = require("autocompleter");
     const clipboardCopy = require("clipboard-copy");
 
+    function flashThis($place) {
+        $place.css("display", "block");
+        $place.children(".close").click(() => $place.css("display", "none"));
+    }
+
+    $('#explainLink').click(() => flashThis($('#explain')));
+
     function flashError(msg) {
         let $place = $("#flash-messages");
-        $place.css("display", "block");
         $place.children(".content").html(msg);
-        $place.children(".close").click(() => $place.css("display", "none"));
+        flashThis($place);
     }
 
     let journalInput = document.getElementById("input-journal");
