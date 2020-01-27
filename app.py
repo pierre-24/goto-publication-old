@@ -1,3 +1,5 @@
+import logging
+
 from flask import Flask, render_template
 from flask_restful import Api
 
@@ -25,3 +27,11 @@ api.add_resource(api_views.GetDOI, '/api/doi')
 
 if __name__ == '__main__':
     app.run()
+
+
+if __name__ != '__main__':
+    # same level of logging between gunicorn and Flask
+    # (see https://medium.com/@trstringer/logging-flask-and-gunicorn-the-manageable-way-2e6f0b8beb2f)
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    app.logger.handlers = gunicorn_logger.handlers
+    app.logger.setLevel(gunicorn_logger.level)
