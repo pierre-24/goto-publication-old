@@ -17,6 +17,7 @@ def hello_world():
 api = Api(app)
 
 api.add_resource(api_views.ListJournals, '/api/journals')
+api.add_resource(api_views.ListProviders, '/api/providers')
 api.add_resource(api_views.SuggestJournals, '/api/suggests')
 api.add_resource(api_views.GetURL, '/api/url')
 api.add_resource(api_views.GetDOI, '/api/doi')

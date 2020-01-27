@@ -59,12 +59,44 @@ In this table, you have the possibility to copy the URL/DOI and to visit the art
 While the web server runs, an API is accessible.
 All request are done in `GET`.
 
+### `/api/providers`
+
+Parameters | Value
+-----------|-------
+`start` | Result offset
+`count` | Number of results (must be between 0 and 100)
+
+List the providers (of journal) that are available.
+
+Exemple: the request [`/api/providers?count=2`](http://localhost:5000/api/providers?count=2) results in 
+
+```json
+{
+    "start": 0,
+    "count": 2,
+    "total": 9,
+    "providers": [
+        {
+            "providerName": "American Chemical Society",
+            "providerIcon": "https://pubs.acs.org/favicon.ico",
+            "providerWebsite": "https://pubs.acs.org/"
+        },
+        {
+            "providerName": "American Physical Society",
+            "providerIcon": "https://cdn.journals.aps.org/development/journals/images/favicon.ico",
+            "providerWebsite": "https://journals.aps.org/"
+        }
+    ]
+}
+
+```
+
 ### `/api/journals`
 
 Parameters | Value
 -----------|-------
 `start` | Result offset
-`count` | Number of results (must be <= 100)
+`count` | Number of results (must be between 0 and 100)
 
 List the journals that are available.
 
@@ -132,7 +164,7 @@ Parameters | Value
 `journal` (**mandatory**) | Valid journal, obtained via `/api/suggests`
 `volume` (**mandatory**) | Volume number (may be the year for certain providers)
 `page`  (**mandatory**) | Page number (may be the article number for certain providers)
-`apiKey` (optional) | Valid key to use the provider API. Only required for DOI search in [Elsevier](https://dev.elsevier.com/).
+`apiKey` | Valid key to use the provider API. Only required for DOI search in [Elsevier](https://dev.elsevier.com/).
 
 Get an URL or a DOI associated with a citation.
 
