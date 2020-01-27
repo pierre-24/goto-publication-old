@@ -13,34 +13,17 @@
     </div>
 
     <div class="container">
-        <div id="explain"><a href="#" class="close">&cross;</a>
-            <p>How to use this ?</p>
-            <p><img src="{{ url_for('static', filename='images/explain.png') }}" alt="explain" style="width: 100%"></p>
-            <p>In the search bar, there are three fields that compose a citation:</p>
-            <ul>
-                <li>the journal name: suggestions (based on what you selected on the left) appear as you are typing,</li>
-                <li>the volume,</li>
-                <li>the (starting page).</li>
-            </ul>
-            <p>
-            Then, you can select what you want:
-            </p>
-            <ul>
-                <li>an <b>url</b>: fastest option, but not guaranteed to be correct,</li>
-                <li> a <b>DOI</b>: slower option, but guaranteed to be correct (checked against the journal).</li>
-            </ul>
-            <p>Click the "GET" button and the result appears below.</p>
-        </div>
 
-        <div id="flash-messages"><a href="#" class="close">&cross;</a><p class="content"></p></div>
+        <div id="flash-messages"></div>
+        <div id='help-message'></div>
 
         <form id="input-form">
-            <select id="input-suggs-source"><option value="name" selected>Name</option><option value="abbr">Abbreviation</option></select><!--
-            --><input type="text" title="Journal" placeholder="Journal" id="input-journal"><!--
-            --><input type="text" title="Volume"  placeholder="Volume" id="input-volume"><!--
-            --><input type="text" title="Page" placeholder="Page" id="input-page"><!--
-            --><select id="input-action"><option value="doi" selected>DOI</option><option value="url">URL</option></select><!--
-            --><input type="button" title="Goto!" value="Get!" id="input-submit">
+            <select id="input-suggs-source" data-help="Tune the source of the suggestions: <b>name</b> or <b>abbreviation</b> of the journal."><option value="name" selected>Name</option><option value="abbr">Abbreviation</option></select><!--
+            --><input type="text" title="Journal" placeholder="Journal" id="input-journal" data-help="Type the name of the journal or its abbreviation (depending on what you selected left). Suggestions will appear while you are typing."><!--
+            --><input type="text" title="Volume"  placeholder="Volume" id="input-volume" data-help="Give the volume of the article (may be the year, depending on the journal)."><!--
+            --><input type="text" title="Page" placeholder="Page" id="input-page" data-help="Give the (starting) page of the article"><!--
+            --><select id="input-action" data-help="Select what you want: <b>URL</b> (faster but maybe incorrect) or <b>DOI</b> (slower but correct) ?"><option value="doi" selected>DOI</option><option value="url">URL</option></select><!--
+            --><input type="button" title="Goto!" value="Get!" id="input-submit" data-help="Finally, click the button: the result will appear below.">
         </form>
     </div>
 

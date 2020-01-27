@@ -42,27 +42,6 @@ body {
   }
 }
 
-@explain-color: #ccc;
-
-#explain {
-  border: 2px solid darken(@explain-color, 10%);
-  padding: 0 8px;
-  margin-bottom: 16px;
-  border-radius: 5px;
-  display: none;
-
-  a.close {
-    float: right;
-    text-decoration: none;
-    color: #777;
-    display: block;
-    margin: 8px;
-    padding: 6px;
-    line-height: 17px;
-    font-weight: bold;
-  }
-}
-
 @border-color: #999;
 
 #input-form {
@@ -156,6 +135,58 @@ body {
     border-radius: 0 5px 5px 0 !important;
     height: 42px;
     width: 100px;
+  }
+
+  @help-message: #000;
+
+  #help-message {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+
+    .content {
+      display: block;
+      background: @help-message;
+      padding: 8px;
+      font-size: 95%;
+      text-align: left;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .arrow {
+      background: url("data:image/svg+xml;charset=utf-8, \
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'> \
+      <polygon points='0,0 60,0 30,40' style='fill:black;'/> \
+    </svg>") right .5em center no-repeat;
+      background-size: 20px auto;
+      width: 30px;
+      height: 12px;
+      margin: 0;
+    }
+
+    .arrow-right {
+      margin-left: 200px;
+    }
+
+    .arrow-left {
+      margin-left: 20px;
+    }
+
+    a.close {
+      float: right;
+      text-decoration: none;
+      color: white;
+      display: block;
+      margin-left: 4px;
+      padding: 6px;
+      line-height: 17px;
+      font-weight: bolder;
+    }
   }
 }
 
