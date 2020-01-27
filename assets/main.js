@@ -5,11 +5,58 @@ $(function(){
     const autocomplete = require("autocompleter");
     const clipboardCopy = require("clipboard-copy");
 
+    function displayIt($place) {
+        $place.css("display", "block");
+        let $l = $("<a href='#' class='close'>&cross;</a>");
+        $l.click(() => $place.css("display", "none"));
+        $place.prepend($l);
+    }
+
+    let helpsToDisplay = [
+        [$("#input-journal"), "left"],
+        [$("#input-suggs-source"), "left"],
+        [$("#input-volume"), "left"],
+        [$("#input-page"), "right"],
+        [$("#input-action"), "right"],
+        [$("#input-submit"), "right"]
+    ];
+
+    function displayHelpTooltip($msg, n) {
+        if (n >= helpsToDisplay.length || n < 0) {
+            $msg.css("display", "none");
+        } else {
+            $msg.css("display", "block");
+            $msg.html("");
+            let $elm = helpsToDisplay[n][0];
+            let pos = $elm.offset();
+            $msg.append($("<div class='content'></div>").html($elm.data("help")));
+
+            let $l = $("<a href='#' class='close'>&cross;</a>");
+            $l.click(() => displayHelpTooltip($msg, n + 1));
+            $msg.prepend($l);
+            $msg.append("<div class='arrow  arrow-" + helpsToDisplay[n][1] + "'> </div>");
+
+            $msg.css({
+                "left": pos.left - (helpsToDisplay[n][1] === "right" ? $msg.outerWidth(true) - $elm.outerWidth(): 0),
+                "top": pos.top - $msg.outerHeight(),
+            });
+        }
+    }
+
+    function displayHelp() {
+        let $p = $("#input-form");
+        let $msg = $("#help-message");
+        $p.append($msg);
+
+        displayHelpTooltip($msg, 0);
+    }
+
+    $("#explainLink").click(() => displayHelp());
+
     function flashError(msg) {
         let $place = $("#flash-messages");
-        $place.css("display", "block");
-        $place.children(".content").html(msg);
-        $place.children(".close").click(() => $place.css("display", "none"));
+        $place.html("<p class='content'>" + msg + "</p>");
+        displayIt($place);
     }
 
     let journalInput = document.getElementById("input-journal");

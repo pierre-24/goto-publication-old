@@ -13,17 +13,40 @@ def make_error(msg: str, arg: str) -> dict:
     return {'message': {arg: msg}}
 
 
-class ListJournals(Resource):
+list_parser = reqparse.RequestParser()
+list_parser.add_argument('start', type=int, default=0)
+list_parser.add_argument('count', type=int, default=25)
+
+
+class ListProviders(Resource):
     def __init__(self):
-        self.parser = reqparse.RequestParser()
-        self.parser.add_argument('start', type=int, default=0)
-        self.parser.add_argument('count', type=int, default=25)
+        self.parser = list_parser
 
     def get(self) -> Union[dict, Tuple[dict, int]]:
         args = self.parser.parse_args()
 
-        if args.count > 100:
-            return make_error('count must be <= 100', 'count'), 400
+        if args.count > 100 or args.count < 0:
+            return make_error('count must be between 0 and 100', 'count'), 400
+
+        providers = list(p.get_info() for p in REGISTRY.providers.values())[args.start:args.start + args.count]
+
+        return {
+            'start': args.start,
+            'count': args.count,
+            'total': len(REGISTRY.providers),
+            'providers': providers
+        }
+
+
+class ListJournals(Resource):
+    def __init__(self):
+        self.parser = list_parser
+
+    def get(self) -> Union[dict, Tuple[dict, int]]:
+        args = self.parser.parse_args()
+
+        if args.count > 100 or args.count < 0:
+            return make_error('count must be between 0 and 100', 'count'), 400
 
         journals = []
 

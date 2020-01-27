@@ -2,15 +2,14 @@
 
 # GOTO publication
 
-*Citation-based DOI searches and redirections*, by [Pierre Beaujean](https://pierrebeaujean.net).
+*Citation-based URL/DOI searches and redirections*, by [Pierre Beaujean](https://pierrebeaujean.net).
 
 Because the journal, the volume and the page should be enough to find an article (for which, of course, you don't have the DOI, otherwise this is stupid).
 
-**Note:** Since I have a (quantum) chemistry background, I limit this project to the journal that are in the chemistry and physics fields.
+**Note:** Since I have a (quantum) chemistry background, I will limit this project to the journals that are in the chemistry and physics fields.
 Feel free to fork the project if you want something else :)
 
-
-## Installation
+## Installation and usage
 
 First, [clone the repository](https://help.github.com/en/articles/cloning-a-repository).
 
@@ -26,8 +25,6 @@ make init # install backend and dependancies
 make front # install frontend and dependancies
 ```
 
-## Usage
-
 To launch the website, use
 
 ```bash
@@ -36,40 +33,45 @@ make run
 
 A web server (in **debug mode**) should be accessible at [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
-In the search bar, there is three fields that compose a citation:
-
-+ the **journal** name: suggestions (based on the value of the field at the left, which indicates whether suggestions should be based on the journal name or abbreviation) appear as you are typing,
-+ the **volume**,
-+ the (starting) **page**.
-
-Then, you can select two what you want:
-
-+ An **URL**: this is the fastest way, since the result is generated from an URL that get closer to the article you are looking for (either the article directly, or a search page).
-  But notice that no check for the availability of the article is done.
-+ A **DOI**: what you will get is the **correct** DOI, but the request is slower, since the server needs to make some (usually one) requests to check if the article is available and get its DOI.
-
-Click on the "Get!" button, and the result will appear below the form, in a table. 
-Successive requests pile up in the table.
-If there is an error, the message is given above.
-
-In this table, you have the possibility to copy the URL/DOI and to visit the article itself (which requires to allow pop-up in your navigator to open a new tab).
-
-
 ## API
 
 While the web server runs, an API is accessible.
 All request are done in `GET`.
 
-### `/api/journals`
+### `/api/providers` and `/api/journals`
 
 Parameters | Value
 -----------|-------
 `start` | Result offset
-`count` | Number of results (must be <= 100)
+`count` | Number of results (must be between 0 and 100)
 
-List the journals that are available.
+List the providers of journals (`/api/providers`) or the journals (`/api/journals`) that are available.
 
-Exemple: the request [`/api/journals?count=2`](http://localhost:5000/api/journals?count=2) results in 
+Examples: 
+
++ the request [`/api/providers?count=2`](http://localhost:5000/api/providers?count=2) results in 
+
+```json
+{
+    "start": 0,
+    "count": 2,
+    "total": 9,
+    "providers": [
+        {
+            "providerName": "American Chemical Society",
+            "providerIcon": "https://pubs.acs.org/favicon.ico",
+            "providerWebsite": "https://pubs.acs.org/"
+        },
+        {
+            "providerName": "American Physical Society",
+            "providerIcon": "https://cdn.journals.aps.org/development/journals/images/favicon.ico",
+            "providerWebsite": "https://journals.aps.org/"
+        }
+    ]
+}
+```
+
++ the request [`/api/journals?count=2`](http://localhost:5000/api/journals?count=2) results in 
 
 ```json
 {
@@ -101,8 +103,8 @@ Parameters | Value
 -----------|-------
 `q` (**mandatory**) | Any string
 `source` | Search in journal names (`name`, default) or abbreviations (`abbr`)
-`count` | Number of results (must be <= 100)
-`cutoff` | Severity cutoff on the results (the larger, the more severe)
+`count` | Number of results (must be between 0 and 100)
+`cutoff` | Severity cutoff on the results (must be between 0 and 1, the larger, the severer)
 
 Suggest (at most) ten journals for which the `source` field (name or abbreviation) is the closest to `q`.
 
@@ -133,7 +135,7 @@ Parameters | Value
 `journal` (**mandatory**) | Valid journal, obtained via `/api/suggests`
 `volume` (**mandatory**) | Volume number (may be the year for certain providers)
 `page`  (**mandatory**) | Page number (may be the article number for certain providers)
-`apiKey` (optional) | Valid key to use the provider API. Only required for DOI search in [Elsevier](https://dev.elsevier.com/).
+`apiKey` | Valid key to use the provider API. Only required for DOI search in [Elsevier](https://dev.elsevier.com/).
 
 Get an URL or a DOI associated with a citation.
 
@@ -161,7 +163,7 @@ Which is the correct DOI for [this article](https://aip.scitation.org/doi/10.106
 
 ## Details
 
-You are welcomed [to contribute ](https://github.com/pierre-24/goto-publication/pulls) and [report issues or make suggestions](https://github.com/pierre-24/goto-publication/issues).
+You are welcomed [to contribute](https://github.com/pierre-24/goto-publication/pulls) and [report issues or make suggestions](https://github.com/pierre-24/goto-publication/issues).
 
 For the backend, this web server relies on [Flask](https://flask.palletsprojects.com/), which is a small web development package.
 The API is powered by [Flask-RESTful](https://flask-restful.readthedocs.io/).

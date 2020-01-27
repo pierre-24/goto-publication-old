@@ -8,7 +8,7 @@
     "gulp": "node ./node_modules/gulp/bin/gulp.js"
   },
   "dependencies": {
-    "autocompleter": "^5.1.0",
+    "autocompleter": "^5.2.0",
     "browserify": "^16.5.0",
     "clipboard-copy": "^3.1.0",
     "gulp": "^4.0.2",
@@ -18,9 +18,9 @@
     "gulp-less": "^4.0.1",
     "gulp-options": "^1.1.1",
     "jquery": "^3.4.1",
-    "jshint": "^2.10.2",
+    "jshint": "^2.11.0",
     "jshint-stylish": "^2.2.1",
-    "minify-stream": "^1.2.0",
+    "minify-stream": "^1.2.1",
     "vinyl-source-stream": "^2.0.0"
   }
 }
