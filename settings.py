@@ -1,5 +1,10 @@
 from goto_publication import providers, __program_name__ as pname, __version__ as pversion, __author__ as pauthor
 
+APP_CONFIG = {
+    # generate one with `import random; ''.join([chr(random.randrange(32, 126)) for _ in range(24)])`
+    'SECRET_KEY': ';+b&#Yl] U$y7dzmW&IRh$GO'
+}
+
 WEBPAGE_INFO = {
     'repo_url': 'https://github.com/pierre-24/goto-publication/',
     'prog_name': pname,

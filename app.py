@@ -8,6 +8,7 @@ import api_views
 
 # APP
 app = Flask(__name__)
+app.config.from_mapping(**settings.APP_CONFIG)
 
 
 @app.route('/')
