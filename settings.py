@@ -11,6 +11,13 @@ APP_CONFIG = {
     # You can also set global limits (see https://flask-limiter.readthedocs.io/en/stable/#configuration)
 }
 
+API_CONFIG = {
+    'DEFAULT_COUNT': 25,
+    'MAX_COUNT': 100,
+    'DEFAULT_CUTOFF': 0.6,
+    'DEFAULT_NUM_SUGGESTIONS': 15,
+}
+
 WEBPAGE_INFO = {
     'repo_url': 'https://github.com/pierre-24/goto-publication/',
     'prog_name': pname,
