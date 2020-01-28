@@ -1,8 +1,14 @@
 from goto_publication import providers, __program_name__ as pname, __version__ as pversion, __author__ as pauthor
 
 APP_CONFIG = {
-    # generate one with `import random; ''.join([chr(random.randrange(32, 126)) for _ in range(24)])`
-    'SECRET_KEY': ';+b&#Yl] U$y7dzmW&IRh$GO'
+    # Flask secret key:
+    # Generate one with `import random; ''.join([chr(random.randrange(32, 126)) for _ in range(24)])`
+    'SECRET_KEY': ';+b&#Yl] U$y7dzmW&IRh$GO',
+
+    # Limit API usage (see https://flask-limiter.readthedocs.io/en/stable/#rate-limit-string-notation):
+    # 'API_RATE_LIMITER': '1/second',
+    # 'RATELIMIT_HEADERS_ENABLED': True,
+    # You can also set global limits (see https://flask-limiter.readthedocs.io/en/stable/#configuration)
 }
 
 WEBPAGE_INFO = {
