@@ -17,7 +17,8 @@ WEBPAGE_INFO = {
     'prog_version': pversion,
     'author_url': 'https://pierrebeaujean.net',
     'author_name': pauthor,
-    'subtitle': 'Citation-based URL/DOI searches and redirections for chemistry and physics'
+    'subtitle': 'Citation-based URL/DOI searches and redirections for chemistry and physics',
+    'site_description': 'Citation-based URL/DOI searches and redirections for chemistry and physics'
 }
 
 REGISTRY_PATH = 'journals_register.yml'

@@ -166,7 +166,7 @@ Which is the correct DOI for [this article](https://aip.scitation.org/doi/10.106
 You are welcomed [to contribute](https://github.com/pierre-24/goto-publication/pulls) and [report issues or make suggestions](https://github.com/pierre-24/goto-publication/issues).
 
 For the backend, this web server relies on [Flask](https://flask.palletsprojects.com/), which is a small web development package.
-The API is powered by [Flask-RESTful](https://flask-restful.readthedocs.io/).
+The API is powered by [Flask-RESTful](https://flask-restful.readthedocs.io/), and rate limits are enforced by [Flask-Limiter](https://flask-limiter.readthedocs.io/).
 To extract info in webpages, [beautifulsoup](https://www.crummy.com/software/BeautifulSoup/) is sometimes involved.
 
 For the frontend the following NPM packages are used:
