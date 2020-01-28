@@ -386,6 +386,14 @@ class ScienceDirect(Provider):
 
     base_url = WEBSITE_URL + 'search/advanced'
 
+    CONCEPTS = [None]
+
+    def __init__(self, concepts: List[Any] = None):
+        super().__init__()
+
+        if concepts is not None:
+            self.DISCIPLINES = concepts
+
     def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
         return self.base_url + '?pub={}&volume={}&page={}'.format(journal_identifier, volume, page)
 
@@ -406,13 +414,11 @@ class ScienceDirectAPI(ScienceDirect):
     API_KEY_KWARG = True
     ICON_URL = 'https://dev.elsevier.com/img/favicon.ico'
 
-    SUBJECTS = [None]
-
     sd_api_url = 'https://api.elsevier.com/content/search/sciencedirect'
     title_api_url = 'https://api.elsevier.com/content/serial/title'
 
-    def __init__(self, api_key: str = ''):
-        super().__init__()
+    def __init__(self, api_key: str = '', concepts: List[Any] = None):
+        super().__init__(concepts=concepts)
         self.api_key = api_key
 
     def _sd_api_call(self, req: dict, **kwargs) -> dict:
@@ -484,6 +490,7 @@ class ScienceDirectAPI(ScienceDirect):
 
         journals = []
         page_size = 100
+        concepts = kwargs.get('concepts', self.CONCEPTS)
 
         def _get_journals(page: int, subject: str = None):
 
@@ -504,7 +511,7 @@ class ScienceDirectAPI(ScienceDirect):
 
             return 'next' in [a['@ref'] for a in results['link']]
 
-        for c in self.SUBJECTS:
+        for c in concepts:
             i = 0
             while _get_journals(i, c):
                 i += 1
@@ -526,9 +533,15 @@ class Springer(Provider):
     ICON_URL = \
         'https://link.springer.com/static/17c1f2edc5a95a03d2f5f7b0019142685841f5ad/sites/link/images/favicon-32x32.png'
 
-    DISCIPLINES = [None]
+    CONCEPTS = [None]
 
     base_url = WEBSITE_URL + 'journal_identifier/'
+
+    def __init__(self, concepts: List[Any] = None):
+        super().__init__()
+
+        if concepts is not None:
+            self.CONCEPTS = concepts
 
     def get_url(self, journal_identifier: Any, volume: [str, int], page: str, **kwargs: dict) -> str:
         """Go to TOC of the volume, find your way into that ;)"""
@@ -539,7 +552,7 @@ class Springer(Provider):
 
         journals = []
 
-        disciplines = kwargs.get('disciplines', self.DISCIPLINES)
+        disciplines = kwargs.get('concepts', self.CONCEPTS)
 
         for c in disciplines:
             ux = self.WEBSITE_URL + 'search/csv?facet-content-type="Journal"'
@@ -568,13 +581,16 @@ class Wiley(Provider):
     NAME = 'Wiley'
     CODE = 'wiley'
     WEBSITE_URL = 'https://onlinelibrary.wiley.com/'
-    CONCEPT_IDS = [None]
+    CONCEPTS = [None]
 
     api_url = WEBSITE_URL + 'action/citationSearch'
 
-    def __init__(self):
+    def __init__(self, concepts: List[Any] = None):
         super().__init__()
         self.session = requests.session()
+
+        if concepts is not None:
+            self.CONCEPTS = concepts
 
     def __del__(self):
         if self.session is not None:
@@ -610,7 +626,7 @@ class Wiley(Provider):
 
         page_size = 50
         journals = []
-        concept_ids = kwargs.get('concept_id', self.CONCEPT_IDS)
+        concept_ids = kwargs.get('concepts', self.CONCEPTS)
 
         url = self.WEBSITE_URL + 'action/showPublications?PubType=journal&pageSize={}'.format(page_size)
 
