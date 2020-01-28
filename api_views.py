@@ -1,4 +1,4 @@
-from typing import Tuple, Union, Callable
+from typing import Tuple, Union, Callable, List, Any
 from flask_restful import Resource, reqparse
 
 from goto_publication import registry
@@ -16,10 +16,10 @@ def make_error(msg: str, arg: str) -> dict:
 class ListAPIView(Resource):
     list_field_name = 'list'
 
-    def _get_list(self, start, count):
+    def _get_list(self, start: int, count: int) -> List[Any]:
         raise NotImplementedError()
 
-    def _get_total(self):
+    def _get_total(self) -> int:
         raise NotImplementedError()
 
     def __init__(self):
@@ -46,16 +46,15 @@ class ListAPIView(Resource):
 class ListProviders(ListAPIView):
     list_field_name = 'providers'
 
-    def _get_list(self, start, count):
+    def _get_list(self, start: int, count: int) -> List[Any]:
         return list(p.get_info() for p in REGISTRY.providers.values())[start:start + count]
 
-    def _get_total(self):
+    def _get_total(self) -> int:
         return len(REGISTRY.providers)
 
 
 class ListJournals(ListAPIView):
-
-    def _get_list(self, start, count):
+    def _get_list(self, start: int, count: int) -> List[Any]:
         journals = []
 
         for j in list(REGISTRY.journals.values())[start:start + count]:
@@ -69,7 +68,7 @@ class ListJournals(ListAPIView):
 
         return journals
 
-    def _get_total(self):
+    def _get_total(self) -> int:
         return len(REGISTRY.journals)
 
 
@@ -104,16 +103,14 @@ class SuggestJournals(Resource):
             return make_error(e.what, e.var), 400
 
 
-main_parser = reqparse.RequestParser()
-main_parser.add_argument('journal', type=str, required=True)
-main_parser.add_argument('volume', type=str, required=True)
-main_parser.add_argument('page', type=str, required=True)
-main_parser.add_argument(API_KEY_FIELD, type=str)
-
-
 class GetInfo(Resource):
     def __init__(self):
-        self.parser = main_parser
+        self.parser = reqparse.RequestParser()
+        self.parser.add_argument('journal', type=str, required=True)
+        self.parser.add_argument('volume', type=str, required=True)
+        self.parser.add_argument('page', type=str, required=True)
+        self.parser.add_argument(API_KEY_FIELD, type=str)
+
         self.journal = ''
         self.volume = ''
         self.page = ''
