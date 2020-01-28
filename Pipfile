@@ -11,6 +11,8 @@ beautifulsoup4 = "*"
 lxml = "*"
 pyyaml = "*"
 iso4 = {ref = "dev", git = "https://github.com/pierre-24/iso4.git"}
+gunicorn = "*"
+Flask-Limiter = "*"
 
 [dev-packages]
 "flake8" = "*"
@@ -18,4 +20,4 @@ iso4 = {ref = "dev", git = "https://github.com/pierre-24/iso4.git"}
 "autopep8" = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.5"
