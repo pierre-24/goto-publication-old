@@ -21,30 +21,45 @@ def hello_world():
 # Limiter
 limiter = Limiter(app, key_func=get_remote_address)
 
-if app.config.get('API_RATE_LIMITER') is not None:
-    api_limit = limiter.shared_limit(app.config.get('API_RATE_LIMITER'), scope='api')
-else:
-    def dummy(f):
-        return f
 
-    api_limit = dummy
+def dummy_decorator(f):
+    return f
+
 
 # API
 api = Api(app)
 
-api_views.ListJournals.decorators = [api_limit]
+# Lists
+if app.config.get('API_RATE_LIMITER_LIST') is not None:
+    api_rate_limiter_list = limiter.shared_limit(app.config.get('API_RATE_LIMITER_LIST'), scope='api')
+else:
+    api_rate_limiter_list = dummy_decorator
+
+api_views.ListJournals.decorators = [api_rate_limiter_list]
 api.add_resource(api_views.ListJournals, '/api/journals')
 
-api_views.ListProviders.decorators = [api_limit]
+api_views.ListProviders.decorators = [api_rate_limiter_list]
 api.add_resource(api_views.ListProviders, '/api/providers')
 
-api_views.SuggestJournals.decorators = [api_limit]
+# suggestions
+if app.config.get('API_RATE_LIMITER_SUGGESTS') is not None:
+    api_rate_limiter_suggests = limiter.shared_limit(app.config.get('API_RATE_LIMITER_SUGGESTS'), scope='api')
+else:
+    api_rate_limiter_suggests = dummy_decorator
+
+api_views.SuggestJournals.decorators = [api_rate_limiter_suggests]
 api.add_resource(api_views.SuggestJournals, '/api/suggests')
 
-api_views.GetURL.decorators = [api_limit]
+# get URL/DOI
+if app.config.get('API_RATE_LIMITER_GET') is not None:
+    api_rate_limiter_get = limiter.shared_limit(app.config.get('API_RATE_LIMITER_GET'), scope='api')
+else:
+    api_rate_limiter_get = dummy_decorator
+
+api_views.GetURL.decorators = [api_rate_limiter_get]
 api.add_resource(api_views.GetURL, '/api/url')
 
-api_views.GetDOI.decorators = [api_limit]
+api_views.GetDOI.decorators = [api_rate_limiter_get]
 api.add_resource(api_views.GetDOI, '/api/doi')
 
 # MAIN
