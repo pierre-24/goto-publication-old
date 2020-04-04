@@ -15,6 +15,7 @@ install:
 script:
   - nvm use node
   - make init
+  - make install-dev
   - make front
   - make tests
   - make lint
