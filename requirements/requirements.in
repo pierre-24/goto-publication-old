@@ -1,0 +1,9 @@
+flask
+Flask-RESTful
+requests
+beautifulsoup4
+lxml
+pyyaml
+iso4 @ git+https://github.com/pierre-24/iso4.git@dev
+gunicorn
+Flask-Limiter

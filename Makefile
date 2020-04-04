@@ -12,9 +12,14 @@ front:
 	npm i
 	npm run gulp
 
-init:
-	pipenv install --dev --ignore-pipfile
-	pipenv run python -c 'import nltk; nltk.download("wordnet")'
+install:
+	pip install -e .
+
+install-dev:
+	pip install -r requirements-dev.txt
+
+init: install
+	python -c 'import nltk; nltk.download("wordnet")'
 
 sync:
 	pipenv sync --dev
