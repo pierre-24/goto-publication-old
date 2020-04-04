@@ -9,7 +9,7 @@ git:
   depth: 1
 
 install:
-  - pip3 install pipenv
+  - pip3 install --upgrade pip
   - nvm install node
 
 script:
