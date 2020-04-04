@@ -15,8 +15,15 @@ First, [clone the repository](https://help.github.com/en/articles/cloning-a-repo
 
 Then, install the requirements: 
 
-+ for the **backend**, you need [python 3.6](https://www.python.org/) and [pipenv](https://docs.pipenv.org/en/latest/),
++ for the **backend**, you need [python 3.6](https://www.python.org/),
 + for the **frontend**, you need [node](https://nodejs.org/en/) (consider an installation via [nvm](https://github.com/nvm-sh/nvm)).
+
+You need the traditional virtualenv
+
+```
+virtualenv --python=python3 venv
+source venv/bin/activate
+```
 
 Finally, the [Makefile](./Makefile) contains the install commands:
 
@@ -164,6 +171,12 @@ Which is the correct DOI for [this article](https://aip.scitation.org/doi/10.106
 ## Details
 
 You are welcomed [to contribute](https://github.com/pierre-24/goto-publication/pulls) and [report issues or make suggestions](https://github.com/pierre-24/goto-publication/issues).
+
+If you want to contribute, don't forget to install the dev dependencies (for the linting):
+
+```
+make install-dev
+```
 
 For the backend, this web server relies on [Flask](https://flask.palletsprojects.com/), which is a small web development package.
 The API is powered by [Flask-RESTful](https://flask-restful.readthedocs.io/), and rate limits are enforced by [Flask-Limiter](https://flask-limiter.readthedocs.io/).

@@ -9,12 +9,13 @@ git:
   depth: 1
 
 install:
-  - pip3 install pipenv
+  - pip3 install --upgrade pip
   - nvm install node
 
 script:
   - nvm use node
   - make init
+  - make install-dev
   - make front
   - make tests
   - make lint
